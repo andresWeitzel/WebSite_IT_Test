@@ -1,197 +1,175 @@
-# Sitio Web Test IT
+# Test IT
 
-**Desarrollo y Diseño de un sitio web acerca de Test en el Área IT utilizando Bootstrap, JS Nativo y consumo de la API FullCalendar.**
+Plataforma web para practicar y evaluar conocimientos en el área IT. Tests ilimitados, múltiples modalidades por nivel y seguimiento de puntajes en el navegador.
 
-</br>
+**Sitio en producción:** https://gestion-test-it.netlify.app/
 
-### Link del Sitio: https://gestion-test-it.netlify.app/
+**Autor:** [Andrés Weitzel](https://github.com/andresWeitzel)
 
+---
 
-</br>
+## Características
 
-## Vista de Inicio del Sitio Web 1/3
+- **4 áreas activas:** Programación, Redes e Infraestructura, Seguridad Informática y Fundamentos IT
+- **3 niveles** por área: Básico, Medio y Avanzado
+- **4 modalidades** por nivel: Rápido (10), Clásico (20), Extendido (30) y Lectura práctica (10)
+- Motor de tests con modal, progreso, corrección y mejor puntaje en `localStorage`
+- Material de estudio, novedades con calendario y hoja de ruta del proyecto
 
-![Index app](https://github.com/andresWeitzel/Graphics/blob/main/Proyectos/SitioTestIt/Captura%20de%20pantalla%20(319).png)
+---
 
-## Vista de Inicio del Sitio Web 2/3
+## Stack tecnológico
 
-![Index app](https://github.com/andresWeitzel/Graphics/blob/main/Proyectos/SitioTestIt/Captura%20de%20pantalla%20(324).png)
+| Tecnología | Uso |
+|------------|-----|
+| [Vite 6](https://vitejs.dev/) | Build y dev server |
+| JavaScript ES modules | Sin framework frontend |
+| CSS modular | Tokens, layout, páginas y tests |
+| Bootstrap 4 | Solo en páginas legacy (material, novedades) |
+| FullCalendar 5 | Calendario de novedades |
+| Netlify | Deploy estático (`dist/`) |
 
-## Vista de Inicio del Sitio Web 3/3
+---
 
-![Index app](https://github.com/andresWeitzel/Graphics/blob/main/Proyectos/SitioTestIt/Captura%20de%20pantalla%20(325).png)
+## Requisitos
 
-</br>
+- Node.js 18+
+- npm
 
-<hr>
+---
 
-| Tecnologías | Versión |
-| ------------- | ------------- |
-| HTML |   5 |
-| CSS | 3  |
-| JavaScript | -  |
-| Bootstrap | 4.5.x  |
-| Netlify | -  |
-| Visual Studio Code | 1.51.1 |
-| Git | 2.29.1.windows.1  |
-| FullCalendar API | 5.5.0  |
+## Instalación y ejecución
 
-</br>
-
-## Repositorios Oficiales(documentación)
-
-#### Bootstrap:   https://getbootstrap.com/
-#### HTML5:     https://angular.io/tutorial/toh-pt0
-#### CSS3:         https://www.w3schools.com/css/default.asp
-#### JS:        https://www.w3schools.com/js/default.asp
-#### Git:         https://git-scm.com/docs
-#### Visual Studio Code:        https://code.visualstudio.com/download
-#### Netlify:          https://www.netlify.com/
-#### FullCalendar API: https://fullcalendar.io/docs/getting-started
-
-</br>
-
-<hr>
-
-## Más Información
-
-
-## Subir el proyecto al repositorio con git desde el bash de visual studio Code 
-
-#### 1)Creamos un nuevo repositorio en GitHub
-
-#### 2)Inicializamos nuestro repositorio local .git
-* git init
-
-#### 3)Agregamos lo desarrollado a nuestro repo local
-* git add *
-
-#### 4)Agregamos lo que tenemos en nuestro repo local al área de Trabajo.
-* git commit -m "agrega un comentario entre comillas"
-
-#### 5)Le indicamos a git donde se va a almacenar nuestro proyecto(fijate en tu repositorio de github cual es el enlace de tu proyecto(esta en code)).
-* git remote add origin https://github.com/andresWeitzel/SitioWebTest_IT.git
-
-#### 6)Subimos nuestro proyecto.
-* git push -u origin master
-
-
-</br>
-
-
-## Actualización del repositorio del proyecto con git desde el bash de visual studio code
-
-#### 1)Visualizamos las modificaciones realizadas en local
-* git status
-
-#### 2)Agregamos lo modificado al area de trabajo
-* git add *
-
-#### 3)Confirmamos las modificaciones realizadas
-* git commit -m "tu commit entre comillas"
-
-#### 4)Sincronizamos y traemos todos los cambios del repositorio remoto a la rama en la que estemos trabajando actualmente.
-##### (Desconozco porqué tengo que ejecutar este comando, supongo que será porque no estoy trabajando con branchs en mi proyecto, el main por defecto de gitHub ahora es mi master(Yo realicé esa modificación para mejor visualización)).
-* git pull https://github.com/andresWeitzel/SitioWebTest_IT.git
-
-#### 5)Enviamos todos los cambios al repo en github
-* git push https://github.com/andresWeitzel/SitioWebTest_IT.git
-
-</br>
-
-## Uso de la Api de FullCalendar
-
-#### Contenedor en html para el calendario (Incorporar en la página deseada)
- ```<div id='calendar'></div> (También asegurate de darle margen para la correcta visualización del encabezado del calendario)```
-
-#### Usando los CDN de FullCalendar ( Incorporar en la misma pagina donde se aplico el contenedor para el calendario lo siguiente )
-
-* Maquetado
-```
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css'> 
-```
-* Themes de Full Calendar
-```
-<link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
-```
-* Funcionalidad
-```
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js'></script>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/locales-all.min.js'></script>
-<script type="text/javascript" src="../js/utilidades/calendario.js"></script> ( Nuestro Script JQuery para el consumo de la api )
+```bash
+cd WebSite_Test_IT
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # genera dist/
+npm run preview  # vista previa de producción
 ```
 
-#### Script Personalizado para la implementacion de la Api de FullCalendar ( calendario.js )
-```
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+---
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-
-        initialView: 'dayGridMonth',
-        initialDate: '2020-12-07',
-
-        themeSystem: 'bootstrap',
-
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-
-        events: [{
-                title: 'Se creo este proyecto',
-                start: '2020-12-22',
-
-
-            },
-            {
-                start: '2020-12-22',
-                overlap: false,
-                display: 'background',
-                color: '#7d93a6'
-            },
-            {
-                title: 'Creación de contenido al Proyecto',
-                start: '2020-12-25',
-                end: '2020-12-28'
-            },
-
-            {
-                title: 'Ocurrencia de este Proyecto',
-                start: '2020-12-19T03:00:00',
-                end: '2020-12-19T03:30:00'
-            },
-            {
-                title: 'Planificacion',
-                start: '2020-12-19T04:00:00'
-            },
-            {
-                title: 'Link del repo',
-                url: 'https://github.com/andresWeitzel/SitioWebTest_IT',
-                start: '2020-12-29'
-            },
-            {
-                title: 'STAND BY',
-                start: '2020-12-31',
-                end: '2021-01-05'
-            },
-            {
-                start: '2020-12-31',
-                end: '2021-01-05',
-                overlap: false,
-                display: 'background',
-                color: '#00ced1'
-            }
-        ]
-    });
-
-    calendar.setOption('locale', 'es');
-
-
-    calendar.render();
-
-
-});
+## Estructura del proyecto
 
 ```
+WebSite_Test_IT/
+├── index.html                 # Home (Vite)
+├── html/                      # Páginas internas (MPA)
+│   ├── testProgramacion.html
+│   ├── testRedes.html
+│   ├── testSeguridadInformatica.html
+│   ├── testFundamentosIT.html
+│   ├── testElectronica.html   # redirige a Fundamentos IT
+│   ├── materialEstudio.html
+│   └── novedades.html
+├── public/
+│   └── images/                # Assets estáticos (iconos, body)
+├── src/
+│   ├── main.js                # Entrada del home
+│   ├── components/            # UI reutilizable
+│   │   ├── navbar.js
+│   │   ├── footer.js
+│   │   ├── hero.js
+│   │   ├── areaCard.js
+│   │   ├── coursesSection.js
+│   │   ├── roadmapSection.js
+│   │   ├── topicsAccordion.js
+│   │   └── modal.js
+│   ├── data/
+│   │   ├── areas.js           # Áreas, cursos, hoja de ruta
+│   │   ├── site.js            # Rutas, navegación, ayuda
+│   │   └── variants.js        # Iconos de modalidades
+│   ├── data/questions/        # Bancos JSON + utilidades
+│   │   ├── normalize.js
+│   │   ├── loadBank.js
+│   │   ├── mergeSets.js
+│   │   ├── programacion/      # *.codigo.json
+│   │   ├── redes-infra/
+│   │   ├── seguridad/
+│   │   └── fundamentos-it/
+│   ├── js/
+│   │   ├── test/
+│   │   │   ├── testRunner.js
+│   │   │   ├── testStorage.js
+│   │   │   ├── initTestAreaPage.js
+│   │   │   └── variantPresets.js
+│   │   ├── testProgramacion/
+│   │   ├── testRedesInfra/
+│   │   ├── testSeguridad/
+│   │   ├── testFundamentosIT/
+│   │   ├── material/
+│   │   ├── novedades/
+│   │   └── utilidades/
+│   ├── layout/
+│   │   └── mountLayout.js     # Navbar + footer en páginas internas
+│   ├── pages/                 # Entradas por HTML
+│   └── styles/
+│       ├── tokens.css
+│       ├── layout.css
+│       ├── main.css
+│       ├── pages.css
+│       ├── test.css
+│       └── legacy-pages.css
+├── vite.config.js
+├── netlify.toml
+└── package.json
+```
+
+---
+
+## Áreas de test
+
+| Área | Ruta | ID storage |
+|------|------|------------|
+| Programación | `/html/testProgramacion.html` | `programacion` |
+| Redes e Infraestructura | `/html/testRedes.html` | `redes-infra` |
+| Seguridad Informática | `/html/testSeguridadInformatica.html` | `seguridad` |
+| Fundamentos IT | `/html/testFundamentosIT.html` | `fundamentos-it` |
+
+Cada intento guarda claves en `localStorage` con el formato:
+
+`testit_{areaId}_{nivel-modalidad}_{attempts|best|last}`
+
+---
+
+## Bancos de preguntas
+
+- **Teoría (programación):** módulos JS en `src/js/testProgramacion/preguntasTest*.js` (6 sets × 5 preguntas por nivel)
+- **Teoría (otras áreas):** `teoriaBanks.js` por área (30 preguntas por área)
+- **Lectura práctica:** JSON en `src/data/questions/{area}/practica.json` o `programacion/*.codigo.json`
+
+Formato canónico JSON (ver `src/data/questions/normalize.js`):
+
+```json
+{
+  "id": "prog-bas-cod-01",
+  "type": "code",
+  "question": "¿Qué imprime este código?",
+  "options": { "a": "...", "b": "...", "c": "..." },
+  "answer": "b",
+  "code": "...",
+  "language": "JavaScript",
+  "tags": ["variables"]
+}
+```
+
+---
+
+## Deploy (Netlify)
+
+El archivo `netlify.toml` ejecuta `npm run build` y publica la carpeta `dist/`.
+
+---
+
+## Repositorio y enlaces
+
+- **GitHub:** https://github.com/andresWeitzel/SitioWebTest_IT
+- **YouTube (cursos):** https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured
+- **Material de estudio (repo):** https://github.com/andresWeitzel/Material_de_Estudio
+
+---
+
+## Licencia
+
+Proyecto open source. Desarrollado por Andrés Weitzel.
