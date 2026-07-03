@@ -132,16 +132,40 @@ a {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+              rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .btn:hover:not(:disabled) {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn--primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: #042f2e;
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.25);
+}
+
+.btn--primary:hover:not(:disabled) {
+  box-shadow: 0 6px 24px rgba(34, 211, 238, 0.35);
 }
 
 .btn--outline {
@@ -165,6 +189,7 @@ a {
 .btn:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+  transform: none !important;
 }
 
 .site-footer {
@@ -285,7 +310,7 @@ a {
   padding: 1rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--duration-normal) var(--ease-out);
 }
 
 .modal.is-open {
@@ -296,7 +321,8 @@ a {
 .modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(2, 6, 23, 0.72);
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(4px);
 }
 
 .modal__dialog {
@@ -308,13 +334,16 @@ a {
   border-radius: var(--radius-lg);
   background: rgba(17, 27, 46, 0.96);
   backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-md);
-  transform: translateY(12px);
-  transition: transform 0.2s ease;
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transform: translateY(24px) scale(0.96);
+  opacity: 0;
+  transition: transform var(--duration-slow) var(--ease-out),
+              opacity var(--duration-normal) var(--ease-out);
 }
 
 .modal.is-open .modal__dialog {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .modal__header,
@@ -338,12 +367,26 @@ a {
 }
 
 .modal__close {
+  width: 36px;
+  height: 36px;
   border: none;
   background: transparent;
   color: var(--color-text-muted);
   font-size: 1.5rem;
   line-height: 1;
   cursor: pointer;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-spring);
+}
+
+.modal__close:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  transform: rotate(90deg);
 }
 
 .modal__body {

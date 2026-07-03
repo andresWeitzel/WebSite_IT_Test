@@ -46,6 +46,7 @@
   min-height: 0;
   height: 100%;
   overflow: hidden;
+  animation: fadeIn var(--duration-normal) var(--ease-out);
 }
 
 .test-runner__header {
@@ -66,13 +67,25 @@
   border-radius: 999px;
   background: rgba(148, 163, 184, 0.2);
   overflow: hidden;
+  position: relative;
+}
+
+.test-runner__progress-track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
 }
 
 .test-runner__progress-bar {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent-green));
-  transition: width 0.2s ease;
+  transition: width var(--duration-normal) var(--ease-out);
+  position: relative;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
 }
 
 .test-runner__progress-label {
@@ -121,7 +134,16 @@
   border-radius: var(--radius-md);
   background: rgba(17, 27, 46, 0.88);
   backdrop-filter: blur(6px);
+  animation: fadeInUp var(--duration-normal) var(--ease-out) both;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
 }
+
+.test-question:nth-child(1) { animation-delay: 0.05s; }
+.test-question:nth-child(2) { animation-delay: 0.1s; }
+.test-question:nth-child(3) { animation-delay: 0.15s; }
+.test-question:nth-child(4) { animation-delay: 0.2s; }
+.test-question:nth-child(5) { animation-delay: 0.25s; }
 
 .test-question__title {
   margin: 0 0 1rem;
@@ -145,18 +167,38 @@
   border-radius: 12px;
   background: rgba(22, 32, 51, 0.9);
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.test-option::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+              rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .test-option:hover {
   border-color: rgba(34, 211, 238, 0.4);
   background: rgba(34, 211, 238, 0.06);
+  transform: translateX(4px);
+}
+
+.test-option:active {
+  transform: translateX(4px) scale(0.99);
 }
 
 .test-option:has(input:checked) {
   border-color: rgba(34, 211, 238, 0.65);
   background: var(--color-primary-soft);
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2), 0 0 20px rgba(34, 211, 238, 0.1);
 }
 
 .test-option:has(input:focus-visible) {
@@ -185,11 +227,15 @@
   color: var(--color-accent-green);
   font-size: 0.78rem;
   font-weight: 800;
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-spring);
 }
 
 .test-option:has(input:checked) .test-option__marker {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent-green));
   color: #042f2e;
+  transform: scale(1.05);
 }
 
 .test-option__text {
@@ -211,10 +257,20 @@
 
 .test-question--correct {
   border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.05);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
+}
+
+.test-question--correct .test-question__title::before {
+  content: '✓ ';
+  color: var(--color-success);
+  font-weight: 700;
 }
 
 .test-question--incorrect {
   border-color: rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.05);
+  animation: shake 0.4s var(--ease-out);
 }
 
 .test-option--solution {
@@ -227,11 +283,13 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   background: var(--color-bg-elevated);
+  animation: fadeInScale var(--duration-normal) var(--ease-out);
 }
 
 .test-runner__result--warning {
   border-color: rgba(251, 191, 36, 0.45);
   background: rgba(251, 191, 36, 0.08);
+  animation: shake 0.4s var(--ease-out);
 }
 
 .test-score {
@@ -250,11 +308,27 @@
   background:
     radial-gradient(circle, var(--color-bg-elevated) 58%, transparent 59%),
     conic-gradient(var(--color-primary) calc(var(--score) * 1%), rgba(148, 163, 184, 0.2) 0);
+  position: relative;
+  animation: fadeInScale var(--duration-slow) var(--ease-out) 0.1s both;
+}
+
+.test-score__circle::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(34, 211, 238, 0.2);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .test-score__value {
   font-size: 1.1rem;
   font-weight: 700;
+  animation: fadeIn var(--duration-normal) var(--ease-out) 0.3s both;
+}
+
+.test-score__copy {
+  animation: fadeIn var(--duration-normal) var(--ease-out) 0.2s both;
 }
 
 .test-score__copy h3 {
@@ -304,6 +378,14 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: rgba(15, 23, 42, 0.55);
+  transition: transform var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.variant-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
 }
 
 .variant-tile__head {
@@ -322,6 +404,11 @@
   height: 2.35rem;
   border-radius: 12px;
   background: rgba(148, 163, 184, 0.12);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.variant-tile:hover .variant-tile__icon {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .variant-tile__title {
@@ -369,6 +456,10 @@
   border-color: rgba(251, 191, 36, 0.25);
 }
 
+.variant-tile--rapido:hover {
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
 .variant-tile--rapido .variant-tile__icon {
   background: rgba(251, 191, 36, 0.12);
 }
@@ -377,12 +468,24 @@
   border-color: rgba(34, 211, 238, 0.25);
 }
 
+.variant-tile--clasico:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+}
+
 .variant-tile--extendido {
   border-color: rgba(167, 139, 250, 0.25);
 }
 
+.variant-tile--extendido:hover {
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
 .variant-tile--codigo {
   border-color: rgba(52, 211, 153, 0.25);
+}
+
+.variant-tile--codigo:hover {
+  border-color: rgba(52, 211, 153, 0.45);
 }
 
 .test-question--code .test-question__title {
