@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "area": "programacion",
+    "level": "avanzado",
+    "kind": "codigo",
+    "version": 1
+  },
+  "questions": [
+    {
+      "id": "prog-avz-cod-01",
+      "type": "code",
+      "question": "¿Qué imprime este código recursivo?",
+      "language": "JavaScript",
+      "code": "function factorial(n) {\n  if (n <= 1) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(4));",
+      "options": { "a": "4", "b": "24", "c": "120" },
+      "answer": "b",
+      "tags": ["recursion"]
+    },
+    {
+      "id": "prog-avz-cod-02",
+      "type": "code",
+      "question": "¿Qué muestra la consola?",
+      "language": "JavaScript",
+      "code": "const promesa = Promise.resolve(42);\npromesa.then(valor => console.log(valor));",
+      "options": { "a": "Promise { 42 }", "b": "42", "c": "undefined" },
+      "answer": "b",
+      "tags": ["promises"]
+    },
+    {
+      "id": "prog-avz-cod-03",
+      "type": "code",
+      "question": "¿Qué imprime este código con `async/await`?",
+      "language": "JavaScript",
+      "code": "async function obtener() {\n  return 10;\n}\nobtener().then(v => console.log(v));",
+      "options": { "a": "10", "b": "Promise", "c": "undefined" },
+      "answer": "a",
+      "tags": ["async", "await"]
+    },
+    {
+      "id": "prog-avz-cod-04",
+      "type": "code",
+      "question": "¿Qué valor tiene `contador` al final?",
+      "language": "JavaScript",
+      "code": "function crearContador() {\n  let n = 0;\n  return () => ++n;\n}\nconst contador = crearContador();\ncontador();\ncontador();",
+      "options": { "a": "0", "b": "1", "c": "2" },
+      "answer": "c",
+      "tags": ["closures"]
+    },
+    {
+      "id": "prog-avz-cod-05",
+      "type": "code",
+      "question": "¿Qué propiedad hereda `perro` de `animal`?",
+      "language": "JavaScript",
+      "code": "const animal = { vive: true };\nconst perro = Object.create(animal);\nperro.nombre = \"Rex\";\nconsole.log(perro.vive);",
+      "options": { "a": "true", "b": "false", "c": "undefined" },
+      "answer": "a",
+      "tags": ["prototipos"]
+    },
+    {
+      "id": "prog-avz-cod-06",
+      "type": "code",
+      "question": "¿Qué imprime `Object.keys(obj)`?",
+      "language": "JavaScript",
+      "code": "const obj = { a: 1, b: 2 };\nconsole.log(Object.keys(obj).length);",
+      "options": { "a": "1", "b": "2", "c": "undefined" },
+      "answer": "b",
+      "tags": ["objetos"]
+    },
+    {
+      "id": "prog-avz-cod-07",
+      "type": "code",
+      "question": "¿Qué muestra la consola?",
+      "language": "JavaScript",
+      "code": "const lista = new Set([1, 2, 2, 3]);\nconsole.log(lista.size);",
+      "options": { "a": "4", "b": "3", "c": "2" },
+      "answer": "b",
+      "tags": ["set", "estructuras"]
+    },
+    {
+      "id": "prog-avz-cod-08",
+      "type": "code",
+      "question": "¿Qué valor retorna `buscar`?",
+      "language": "JavaScript",
+      "code": "function buscar(arr, valor) {\n  for (let i = 0; i < arr.length; i++) {\n    if (arr[i] === valor) return i;\n  }\n  return -1;\n}\nbuscar([5, 9, 2], 9);",
+      "options": { "a": "0", "b": "1", "c": "-1" },
+      "answer": "b",
+      "tags": ["busqueda", "algoritmos"]
+    },
+    {
+      "id": "prog-avz-cod-09",
+      "type": "code",
+      "question": "¿Qué imprime este código?",
+      "language": "JavaScript",
+      "code": "try {\n  JSON.parse(\"{invalido\");\n} catch (e) {\n  console.log(\"error\");\n}",
+      "options": { "a": "{invalido", "b": "error", "c": "undefined" },
+      "answer": "b",
+      "tags": ["excepciones", "json"]
+    },
+    {
+      "id": "prog-avz-cod-10",
+      "type": "code",
+      "question": "¿Qué muestra la consola?",
+      "language": "JavaScript",
+      "code": "const pila = [];\npila.push(1);\npila.push(2);\nconsole.log(pila.pop());",
+      "options": { "a": "1", "b": "2", "c": "undefined" },
+      "answer": "b",
+      "tags": ["pila", "estructuras"]
+    }
+  ]
+}
