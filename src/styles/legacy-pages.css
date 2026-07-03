@@ -1,0 +1,130 @@
+@import './tokens.css';
+
+.page-content {
+  min-height: calc(100vh - var(--header-height) - 12rem);
+  background: transparent;
+}
+
+.page-content .test {
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content .text-white {
+  color: var(--color-text) !important;
+}
+
+.page-content .modal-content {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.page-content .modal-header,
+.page-content .modal-footer {
+  border-color: var(--color-border);
+}
+
+.page-content .btn-close {
+  filter: invert(1) grayscale(1);
+}
+
+.page-content .btn-info,
+.page-content .btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border: none;
+  color: #042f2e;
+}
+
+.page-content .btn-info:hover,
+.page-content .btn-primary:hover {
+  filter: brightness(1.05);
+  color: #042f2e;
+}
+
+.page-content .badge-info,
+.page-content .badge.bg-info {
+  background: var(--color-primary-soft) !important;
+  color: var(--color-primary) !important;
+}
+
+.page-content .alert-info {
+  background: var(--color-primary-soft);
+  border-color: rgba(34, 211, 238, 0.25);
+  color: var(--color-text);
+}
+
+.page-content .card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.page-content .card-header {
+  background: var(--color-bg-elevated);
+  border-color: var(--color-border);
+}
+
+.page-content .nav-pills .nav-link.active,
+.page-content .nav-pills .show > .nav-link {
+  background: var(--color-primary);
+  color: #042f2e;
+}
+
+.page-content .nav-pills .nav-link {
+  color: var(--color-text-muted);
+}
+
+#calendar {
+  max-width: 100%;
+  margin: 0;
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: none;
+}
+
+/* FullCalendar theme tweaks */
+.fc {
+  color: var(--color-text);
+}
+
+.fc .fc-toolbar-title {
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.fc .fc-button-primary {
+  background: var(--color-primary-soft) !important;
+  border-color: rgba(34, 211, 238, 0.35) !important;
+  color: var(--color-primary) !important;
+}
+
+.fc .fc-button-primary:hover {
+  background: rgba(34, 211, 238, 0.22) !important;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: var(--glass-border) !important;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: var(--glass-border) !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: var(--color-text-muted);
+}
+
+.maintenance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}

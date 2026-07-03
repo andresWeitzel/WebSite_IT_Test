@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "area": "programacion",
+    "level": "basico",
+    "kind": "codigo",
+    "version": 1
+  },
+  "questions": [
+    {
+      "id": "prog-bas-cod-01",
+      "type": "code",
+      "question": "¿Qué imprime este código?",
+      "language": "JavaScript",
+      "code": "let x = 5;\nlet y = 2;\nconsole.log(x + y);",
+      "options": {
+        "a": "52 (concatenación de strings)",
+        "b": "7",
+        "c": "undefined"
+      },
+      "answer": "b",
+      "tags": ["aritmetica", "variables"]
+    },
+    {
+      "id": "prog-bas-cod-02",
+      "type": "code",
+      "question": "¿Cuál es el valor final de `total`?",
+      "language": "JavaScript",
+      "code": "let total = 0;\nfor (let i = 1; i <= 3; i++) {\n  total = total + i;\n}",
+      "options": { "a": "3", "b": "6", "c": "9" },
+      "answer": "b",
+      "tags": ["bucles", "acumulador"]
+    },
+    {
+      "id": "prog-bas-cod-03",
+      "type": "code",
+      "question": "¿Qué muestra la consola?",
+      "language": "JavaScript",
+      "code": "function saludar(nombre) {\n  return \"Hola \" + nombre;\n}\nconsole.log(saludar(\"Ana\"));",
+      "options": { "a": "Hola Ana", "b": "Hola nombre", "c": "undefined" },
+      "answer": "a",
+      "tags": ["funciones", "strings"]
+    },
+    {
+      "id": "prog-bas-cod-04",
+      "type": "code",
+      "question": "¿Cuántas veces se ejecuta el `console.log`?",
+      "language": "JavaScript",
+      "code": "for (let i = 0; i < 4; i++) {\n  console.log(i);\n}",
+      "options": { "a": "3 veces", "b": "4 veces", "c": "5 veces" },
+      "answer": "b",
+      "tags": ["bucles", "for"]
+    },
+    {
+      "id": "prog-bas-cod-05",
+      "type": "code",
+      "question": "¿Qué condición hace que el `if` sea verdadero?",
+      "language": "JavaScript",
+      "code": "let edad = 20;\nif (edad >= 18) {\n  console.log(\"Mayor de edad\");\n}",
+      "options": {
+        "a": "edad es menor que 18",
+        "b": "edad es mayor o igual a 18",
+        "c": "edad es exactamente 18"
+      },
+      "answer": "b",
+      "tags": ["condicionales"]
+    },
+    {
+      "id": "prog-bas-cod-06",
+      "type": "code",
+      "question": "¿Qué valor tiene `mensaje` al final?",
+      "language": "JavaScript",
+      "code": "let mensaje = \"Hola\";\nmensaje = mensaje + \" mundo\";",
+      "options": { "a": "Hola", "b": "Hola mundo", "c": "undefined" },
+      "answer": "b",
+      "tags": ["strings", "variables"]
+    },
+    {
+      "id": "prog-bas-cod-07",
+      "type": "code",
+      "question": "¿Qué imprime este código?",
+      "language": "JavaScript",
+      "code": "let activo = true;\nif (activo) {\n  console.log(\"Sí\");\n} else {\n  console.log(\"No\");\n}",
+      "options": { "a": "No", "b": "Sí", "c": "true" },
+      "answer": "b",
+      "tags": ["condicionales", "booleanos"]
+    },
+    {
+      "id": "prog-bas-cod-08",
+      "type": "code",
+      "question": "¿Cuál es el valor de `numeros[1]`?",
+      "language": "JavaScript",
+      "code": "let numeros = [10, 20, 30];\nconsole.log(numeros[1]);",
+      "options": { "a": "10", "b": "20", "c": "30" },
+      "answer": "b",
+      "tags": ["arrays"]
+    },
+    {
+      "id": "prog-bas-cod-09",
+      "type": "code",
+      "question": "¿Qué hace este bucle respecto a `i`?",
+      "language": "JavaScript",
+      "code": "let i = 0;\nwhile (i < 3) {\n  i = i + 1;\n}",
+      "options": {
+        "a": "Deja i en 0",
+        "b": "Deja i en 3",
+        "c": "Genera un bucle infinito"
+      },
+      "answer": "b",
+      "tags": ["bucles", "while"]
+    },
+    {
+      "id": "prog-bas-cod-10",
+      "type": "code",
+      "question": "¿Qué retorna la función?",
+      "language": "JavaScript",
+      "code": "function duplicar(n) {\n  return n * 2;\n}\nduplicar(4);",
+      "options": { "a": "4", "b": "8", "c": "undefined" },
+      "answer": "b",
+      "tags": ["funciones", "return"]
+    }
+  ]
+}
