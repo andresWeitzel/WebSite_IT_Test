@@ -1,0 +1,95 @@
+{
+  "meta": { "area": "redes-infra", "kind": "practica", "version": 1 },
+  "questions": [
+    {
+      "id": "ri-prac-01",
+      "type": "code",
+      "question": "¿Qué comando muestra la tabla de rutas en Linux?",
+      "language": "Bash",
+      "code": "ip route show",
+      "options": { "a": "Lista rutas del kernel", "b": "Lista procesos activos", "c": "Muestra usuarios conectados" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-02",
+      "type": "code",
+      "question": "¿Qué hace este fragmento de Dockerfile?",
+      "language": "Dockerfile",
+      "code": "FROM node:20-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci",
+      "options": { "a": "Prepara imagen Node e instala dependencias", "b": "Inicia Kubernetes", "c": "Configura un switch Cisco" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-03",
+      "type": "code",
+      "question": "¿Qué puerto usa HTTPS por defecto?",
+      "language": "Redes",
+      "code": "Servicio: HTTPS\nPuerto: 443/TCP",
+      "options": { "a": "443", "b": "22", "c": "53" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-04",
+      "type": "code",
+      "question": "¿Qué indica este registro DNS?",
+      "language": "DNS",
+      "code": "www.ejemplo.com. IN A 203.0.113.10",
+      "options": { "a": "Asocia nombre a IPv4", "b": "Define servidor de correo", "c": "Cifra el dominio" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-05",
+      "type": "code",
+      "question": "¿Qué hace ping?",
+      "language": "Redes",
+      "code": "ping -c 4 gateway.local",
+      "options": { "a": "Prueba conectividad ICMP con 4 paquetes", "b": "Escanea puertos TCP", "c": "Renueva certificado SSL" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-06",
+      "type": "code",
+      "question": "¿Qué servicio describe este unit de systemd?",
+      "language": "systemd",
+      "code": "[Service]\nExecStart=/usr/bin/nginx\nRestart=always",
+      "options": { "a": "Ejecuta nginx y reinicia si falla", "b": "Monta un volumen Docker", "c": "Configura VLAN 10" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-07",
+      "type": "code",
+      "question": "¿Qué hace kubectl apply -f deploy.yaml?",
+      "language": "Kubernetes",
+      "code": "kubectl apply -f deploy.yaml",
+      "options": { "a": "Declara/actualiza recursos del manifiesto", "b": "Borra el clúster", "c": "Compila código Java" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-08",
+      "type": "code",
+      "question": "¿Qué muestra netstat/ss en este contexto?",
+      "language": "Bash",
+      "code": "ss -tuln",
+      "options": { "a": "Sockets TCP/UDP en escucha sin resolver nombres", "b": "Tabla ARP completa", "c": "Logs del firewall" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-09",
+      "type": "code",
+      "question": "¿Qué define esta regla iptables simplificada?",
+      "language": "iptables",
+      "code": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+      "options": { "a": "Permite SSH entrante TCP 22", "b": "Bloquea todo tráfico", "c": "Habilita DHCP" },
+      "answer": "a"
+    },
+    {
+      "id": "ri-prac-10",
+      "type": "code",
+      "question": "¿Qué hace terraform plan?",
+      "language": "Terraform",
+      "code": "terraform plan",
+      "options": { "a": "Muestra cambios previstos sin aplicarlos", "b": "Destruye la infraestructura", "c": "Instala Windows Server" },
+      "answer": "a"
+    }
+  ]
+}

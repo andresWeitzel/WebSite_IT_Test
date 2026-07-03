@@ -1,42 +1,5 @@
-import { mergeSets } from '../../data/questions/mergeSets.js';
+import { createStandardVariants, getStorageKey, getAllTestKeys } from '../test/variantPresets.js';
 import { PROGRAMACION_BANKS } from './programacionBanks.js';
-
-function createStandardVariants(teoriaSets, codigoBank, copy = {}) {
-  return [
-    {
-      id: 'rapido',
-      title: 'Rápido',
-      badge: '10 preguntas',
-      description: copy.rapido ?? 'Repaso ágil de conceptos del nivel.',
-      icon: '⚡',
-      resolveQuestions: (useSetA) => mergeSets(teoriaSets, useSetA ? [0, 1] : [4, 5]),
-    },
-    {
-      id: 'clasico',
-      title: 'Clásico',
-      badge: '20 preguntas',
-      description: copy.clasico ?? 'Formato tradicional de conceptos teóricos.',
-      icon: '📋',
-      resolveQuestions: (useSetA) => mergeSets(teoriaSets, useSetA ? [0, 1, 2, 3] : [2, 3, 4, 5]),
-    },
-    {
-      id: 'extendido',
-      title: 'Extendido',
-      badge: '30 preguntas',
-      description: copy.extendido ?? 'Recorrido completo del banco teórico del nivel.',
-      icon: '📚',
-      resolveQuestions: () => mergeSets(teoriaSets, [0, 1, 2, 3, 4, 5]),
-    },
-    {
-      id: 'codigo',
-      title: 'Lectura de código',
-      badge: '10 fragmentos',
-      description: copy.codigo ?? 'Analizá snippets y elegí la salida o comportamiento correcto.',
-      icon: '💻',
-      resolveQuestions: () => codigoBank,
-    },
-  ];
-}
 
 export const PROGRAMACION_LEVELS = [
   {
@@ -53,6 +16,7 @@ export const PROGRAMACION_LEVELS = [
     variants: createStandardVariants(
       PROGRAMACION_BANKS.basico.teoria,
       PROGRAMACION_BANKS.basico.codigo,
+      'programacion',
       {
         rapido: 'Repaso ágil de conceptos fundamentales.',
         codigo: 'Fragmentos JavaScript introductorios.',
@@ -73,6 +37,7 @@ export const PROGRAMACION_LEVELS = [
     variants: createStandardVariants(
       PROGRAMACION_BANKS.medio.teoria,
       PROGRAMACION_BANKS.medio.codigo,
+      'programacion',
       {
         rapido: 'Conceptos intermedios en formato breve.',
         extendido: 'Paradigmas, patrones, estructuras y buenas prácticas.',
@@ -94,6 +59,7 @@ export const PROGRAMACION_LEVELS = [
     variants: createStandardVariants(
       PROGRAMACION_BANKS.avanzado.teoria,
       PROGRAMACION_BANKS.avanzado.codigo,
+      'programacion',
       {
         rapido: 'Repaso intenso de temas avanzados.',
         extendido: 'TDA, redes, sistemas distribuidos y arquitectura.',
@@ -103,18 +69,6 @@ export const PROGRAMACION_LEVELS = [
   },
 ];
 
-export const PROGRAMACION_INFO = `Cada nivel (básico, medio y avanzado) ofrece cuatro modalidades: rápido (10 preguntas), clásico (20), extendido (30) y lectura de código (10 fragmentos). Las preguntas teóricas alternan bloques por intento; el contenido vive en bancos versionados del proyecto.`;
+export const PROGRAMACION_INFO = `Cada nivel ofrece cuatro modalidades: rápido (10), clásico (20), extendido (30) y lectura práctica (10 fragmentos). El contenido se versiona en el repositorio del proyecto.`;
 
-export function getStorageKey(levelId, variantId = null) {
-  return variantId ? `${levelId}-${variantId}` : levelId;
-}
-
-export function getAllTestKeys() {
-  const keys = [];
-
-  PROGRAMACION_LEVELS.forEach((level) => {
-    level.variants.forEach((variant) => keys.push(getStorageKey(level.id, variant.id)));
-  });
-
-  return keys;
-}
+export { getStorageKey, getAllTestKeys };

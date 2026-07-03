@@ -48,7 +48,7 @@ function renderQuestionsHtml(questions) {
 
       const typeBadge =
         item.tipo === 'codigo'
-          ? '<span class="test-question__type">Fragmento de código</span>'
+          ? '<span class="test-question__type">Fragmento práctico</span>'
           : '';
 
       return `

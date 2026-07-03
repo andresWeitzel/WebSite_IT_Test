@@ -315,6 +315,13 @@
 .variant-tile__icon {
   font-size: 1.35rem;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 12px;
+  background: rgba(148, 163, 184, 0.12);
 }
 
 .variant-tile__title {
@@ -356,6 +363,26 @@
 .variant-tile__cta {
   width: 100%;
   margin-top: auto;
+}
+
+.variant-tile--rapido {
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.variant-tile--rapido .variant-tile__icon {
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.variant-tile--clasico {
+  border-color: rgba(34, 211, 238, 0.25);
+}
+
+.variant-tile--extendido {
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.variant-tile--codigo {
+  border-color: rgba(52, 211, 153, 0.25);
 }
 
 .test-question--code .test-question__title {
