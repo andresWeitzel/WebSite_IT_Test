@@ -1,0 +1,95 @@
+{
+  "meta": { "area": "seguridad", "kind": "practica", "version": 1 },
+  "questions": [
+    {
+      "id": "seg-prac-01",
+      "type": "code",
+      "question": "¿Qué indica este log?",
+      "language": "Log",
+      "code": "Failed password for invalid user admin from 203.0.113.55 port 22 ssh2",
+      "options": { "a": "Intento fallido de login SSH", "b": "Backup exitoso", "c": "Certificado renovado" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-02",
+      "type": "code",
+      "question": "¿Qué vulnerabilidad sugiere esta URL?",
+      "language": "Web",
+      "code": "https://tienda.com/producto?id=5 OR 1=1--",
+      "options": { "a": "Posible SQL injection", "b": "XSS reflejado en CSS", "c": "Configuración DNS correcta" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-03",
+      "type": "code",
+      "question": "¿Qué encabezado ayuda contra clickjacking?",
+      "language": "HTTP",
+      "code": "X-Frame-Options: DENY",
+      "options": { "a": "Impide embeber la página en iframes", "b": "Cifra el body JSON", "c": "Abre todos los puertos" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-04",
+      "type": "code",
+      "question": "¿Qué política CSP restringe scripts?",
+      "language": "HTTP",
+      "code": "Content-Security-Policy: default-src 'self'",
+      "options": { "a": "Solo recursos del mismo origen por defecto", "b": "Permite cualquier dominio", "c": "Desactiva HTTPS" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-05",
+      "type": "code",
+      "question": "¿Qué comando lista permisos de archivo en Linux?",
+      "language": "Bash",
+      "code": "ls -l /etc/shadow",
+      "options": { "a": "Muestra permisos y propietario", "b": "Cambia la contraseña root", "c": "Inicia firewall Windows" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-06",
+      "type": "code",
+      "question": "¿Qué indica este hash bcrypt?",
+      "language": "Seguridad",
+      "code": "Almacenar: $2b$12$... (bcrypt con cost 12)",
+      "options": { "a": "Password hasheado con salt y cost factor", "b": "Texto plano recomendado", "c": "Token JWT firmado" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-07",
+      "type": "code",
+      "question": "¿Qué regla de firewall es más restrictiva?",
+      "language": "Firewall",
+      "code": "DEFAULT DENY ALL\nALLOW TCP 443 FROM ANY",
+      "options": { "a": "Deniega todo salvo HTTPS explícito", "b": "Permite todo tráfico", "c": "Solo permite ICMP" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-08",
+      "type": "code",
+      "question": "¿Qué muestra nmap en este escaneo?",
+      "language": "nmap",
+      "code": "nmap -sV 192.168.1.10",
+      "options": { "a": "Detecta puertos y versiones de servicio", "b": "Formatea el disco", "c": "Crea usuario AD" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-09",
+      "type": "code",
+      "question": "¿Qué problema hay en este código?",
+      "language": "JavaScript",
+      "code": "const query = \"SELECT * FROM users WHERE id = \" + req.params.id;",
+      "options": { "a": "Concatenación vulnerable a SQL injection", "b": "Uso correcto de prepared statements", "c": "Error de sintaxis CSS" },
+      "answer": "a"
+    },
+    {
+      "id": "seg-prac-10",
+      "type": "code",
+      "question": "¿Qué acción tomar ante ransomware detectado?",
+      "language": "IR",
+      "code": "1. Aislar host\n2. Preservar evidencia\n3. Notificar equipo IR",
+      "options": { "a": "Contención y respuesta formal", "b": "Pagar rescate inmediato sin avisar", "c": "Ignorar y seguir trabajando" },
+      "answer": "a"
+    }
+  ]
+}

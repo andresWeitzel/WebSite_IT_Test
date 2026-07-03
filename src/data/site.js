@@ -3,16 +3,16 @@ export const ROUTES = {
   novedades: '/html/novedades.html',
   material: '/html/materialEstudio.html',
   testProgramacion: '/html/testProgramacion.html',
-  testRedes: '/html/testRedes.html',
+  testRedesInfra: '/html/testRedes.html',
   testSeguridad: '/html/testSeguridadInformatica.html',
-  testElectronica: '/html/testElectronica.html',
+  testFundamentosIT: '/html/testFundamentosIT.html',
 };
 
 export const SITE = {
   name: 'Test IT',
   tagline: 'Test de Conocimientos IT',
   description:
-    'Los tests son ilimitados. Si encontrás algún problema o error, reportalo: será de gran ayuda.',
+    'Cuatro áreas con tests ilimitados, múltiples modalidades y seguimiento de puntajes. Si encontrás un error, reportalo.',
   author: 'Andrés Weitzel',
   year: new Date().getFullYear(),
   email: 'andres96energy@hotmail.com',
@@ -30,6 +30,6 @@ export const NAV_LINKS = [
   { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material },
 ];
 
-export const HELP_TEXT = `Para comenzar algún test, seleccioná primero el área: programación, redes, seguridad informática o electrónica. Una vez elegida el área con el botón "Comenzar", podrás elegir el nivel de complejidad según tu conocimiento.
+export const HELP_TEXT = `Para comenzar, elegí un área desde el inicio: Programación, Redes e Infraestructura, Seguridad Informática o Fundamentos IT. Cada área tiene tres niveles y cuatro modalidades (rápido, clásico, extendido y lectura práctica).
 
-Si necesitás repasar temas, visitá "Material de Estudio" en la barra de navegación. También podés tomar cursos gratuitos online que el autor desarrolló.`;
+Si necesitás repasar, visitá Material de Estudio. También podés seguir los cursos gratuitos del canal de YouTube del autor.`;

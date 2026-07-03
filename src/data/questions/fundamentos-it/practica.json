@@ -1,0 +1,95 @@
+{
+  "meta": { "area": "fundamentos-it", "kind": "practica", "version": 1 },
+  "questions": [
+    {
+      "id": "fit-prac-01",
+      "type": "code",
+      "question": "¿Qué comando reinicia un servicio en Windows?",
+      "language": "PowerShell",
+      "code": "Restart-Service spooler",
+      "options": { "a": "Reinicia el servicio de cola de impresión", "b": "Formatea el disco C:", "c": "Cambia la IP estática" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-02",
+      "type": "code",
+      "question": "¿Qué muestra este comando?",
+      "language": "CMD",
+      "code": "systeminfo | findstr /B /C:\"OS Name\"",
+      "options": { "a": "Nombre del sistema operativo", "b": "Lista de usuarios AD", "c": "Tabla de rutas" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-03",
+      "type": "code",
+      "question": "¿Qué hace chkdsk /f?",
+      "language": "Windows",
+      "code": "chkdsk C: /f",
+      "options": { "a": "Verifica y corrige errores del disco", "b": "Instala drivers de red", "c": "Une dominio Active Directory" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-04",
+      "type": "code",
+      "question": "¿Qué indica ipconfig /all?",
+      "language": "Windows",
+      "code": "ipconfig /all",
+      "options": { "a": "Configuración detallada de interfaces de red", "b": "Borra caché DNS", "c": "Desinstala Office" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-05",
+      "type": "code",
+      "question": "¿Qué hace gpupdate /force?",
+      "language": "Windows",
+      "code": "gpupdate /force",
+      "options": { "a": "Reaplica políticas de grupo inmediatamente", "b": "Elimina perfil de usuario", "c": "Resetea BIOS" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-06",
+      "type": "code",
+      "question": "¿Qué comando lista discos en PowerShell?",
+      "language": "PowerShell",
+      "code": "Get-Disk",
+      "options": { "a": "Muestra discos físicos del sistema", "b": "Abre Outlook", "c": "Configura VPN Cisco" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-07",
+      "type": "code",
+      "question": "¿Qué problema describe este evento?",
+      "language": "Event Viewer",
+      "code": "Event ID 41 Kernel-Power: el sistema se reinició sin apagado limpio",
+      "options": { "a": "Apagado inesperado o fallo de energía", "b": "Login exitoso", "c": "Parche instalado OK" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-08",
+      "type": "code",
+      "question": "¿Qué hace sfc /scannow?",
+      "language": "Windows",
+      "code": "sfc /scannow",
+      "options": { "a": "Repara archivos protegidos del sistema", "b": "Escanea malware en red", "c": "Crea imagen Ghost" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-09",
+      "type": "code",
+      "question": "¿Qué indica Task Manager con 100% de disco?",
+      "language": "Soporte",
+      "code": "Disco activo al 100% constante, apps lentas",
+      "options": { "a": "Posible cuello de botella de almacenamiento", "b": "Red saturada", "c": "Monitor apagado" },
+      "answer": "a"
+    },
+    {
+      "id": "fit-prac-10",
+      "type": "code",
+      "question": "¿Qué paso sigue al ticket de usuario nuevo?",
+      "language": "ITIL",
+      "code": "Crear AD user → Asignar grupos → Entregar equipo → KB entrega",
+      "options": { "a": "Onboarding estándar de identidad y activo", "b": "Dar admin local a todos", "c": "Omitir políticas de seguridad" },
+      "answer": "a"
+    }
+  ]
+}

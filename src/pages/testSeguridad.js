@@ -1,13 +1,22 @@
 import { mountLayout } from '../layout/mountLayout.js';
 import { ROUTES } from '../data/site.js';
-import { initAreaComingSoon } from '../js/test/initAreaComingSoon.js';
+import { initTestAreaPage } from '../js/test/initTestAreaPage.js';
+import {
+  SEGURIDAD_LEVELS,
+  SEGURIDAD_INFO,
+  getStorageKey,
+  getAllTestKeys,
+} from '../js/testSeguridad/levels.js';
 
 mountLayout({ activePath: ROUTES.testSeguridad });
-initAreaComingSoon({
+initTestAreaPage({
   areaId: 'seguridad',
-  title: 'Seguridad Informática',
-  description: 'Amenazas, vulnerabilidades, malware y buenas prácticas.',
-  infoText:
-    'Los tests de seguridad abordarán ingeniería social, hardening, tipos de ataques y protección de sistemas.',
-  gradient: 'linear-gradient(135deg, #7c2d12 0%, #431407 100%)',
+  pageTitle: 'Test de Seguridad Informática',
+  pageDescription:
+    'Amenazas, controles, vulnerabilidades y respuesta a incidentes. Cuatro modalidades por nivel.',
+  levels: SEGURIDAD_LEVELS,
+  infoText: SEGURIDAD_INFO,
+  getStorageKey,
+  getAllTestKeys: () => getAllTestKeys(SEGURIDAD_LEVELS),
+  attemptsLabel: 'en seguridad informática',
 });
