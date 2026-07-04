@@ -6,7 +6,9 @@ export function renderNavbar({ activePath = '/' } = {}) {
     if (link.modal) {
       return `
         <li class="nav__item">
-          <a class="nav__link" href="${link.href}" data-modal-open="${link.modal}">${escapeHtml(link.label)}</a>
+          <button type="button" class="nav__link nav__link--button" data-modal-open="${link.modal}">
+            ${escapeHtml(link.label)}
+          </button>
         </li>
       `;
     }
@@ -38,6 +40,13 @@ export function renderNavbar({ activePath = '/' } = {}) {
   `;
 }
 
+function closeMobileNav() {
+  const menu = document.querySelector('.nav__menu');
+  const toggle = document.querySelector('.nav__toggle');
+  menu?.classList.remove('is-open');
+  toggle?.setAttribute('aria-expanded', 'false');
+}
+
 export function initNavbar() {
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');
@@ -48,9 +57,12 @@ export function initNavbar() {
   });
 
   menu?.querySelectorAll('.nav__link:not([data-modal-open])').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  menu?.querySelectorAll('[data-modal-open]').forEach((trigger) => {
+    trigger.addEventListener('click', closeMobileNav);
   });
 }
+
+export { closeMobileNav };

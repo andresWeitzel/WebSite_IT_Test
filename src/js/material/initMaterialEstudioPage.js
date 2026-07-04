@@ -12,11 +12,10 @@ export function initMaterialEstudioPage() {
   const main = document.querySelector('.page-content');
   if (!main) return;
 
-  main.querySelector('.alert')?.remove();
-  main.querySelector('.slider')?.remove();
-
   const legacyBlock = main.querySelector('.test');
   if (!legacyBlock) return;
+
+  legacyBlock.querySelector('.alert')?.remove();
 
   const wrapper = document.createElement('section');
   wrapper.className = 'area-page material-page';

@@ -100,6 +100,14 @@ a {
   background: var(--color-primary-soft);
 }
 
+.nav__link--button {
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 .nav__toggle {
   display: none;
   width: 44px;
@@ -398,6 +406,112 @@ a {
   justify-content: flex-end;
   gap: 0.65rem;
   border-top: 1px solid var(--color-border);
+}
+
+.modal--wide .modal__dialog {
+  width: min(100%, 680px);
+  max-height: min(88vh, 780px);
+}
+
+.modal--wide .modal__body {
+  overflow-y: auto;
+}
+
+.help-modal__intro {
+  margin: 0 0 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.help-modal__heading {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.help-modal__steps {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.help-modal__steps li + li {
+  margin-top: 0.35rem;
+}
+
+.help-modal__areas {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.help-modal__area {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  padding: 0.75rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.help-modal__area-icon {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.help-modal__area-link {
+  font-weight: 600;
+}
+
+.help-modal__area-desc {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.help-modal__resources {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.help-modal__resource {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.help-modal__resource:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  background: var(--color-primary-soft);
+}
+
+.help-modal__resource-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.help-modal__resource-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.help-modal__footer-note {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 768px) {

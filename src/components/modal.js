@@ -1,15 +1,18 @@
 import { escapeHtml } from '../utils/dom.js';
+import { closeMobileNav } from './navbar.js';
 
 let activeModal = null;
+let modalsInitialized = false;
 
 export function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
 
+  closeMobileNav();
   activeModal = modal;
   modal.hidden = false;
-  requestAnimationFrame(() => modal.classList.add('is-open'));
   document.body.classList.add('modal-open');
+  requestAnimationFrame(() => modal.classList.add('is-open'));
 
   const focusable = modal.querySelector('[data-modal-close], .btn');
   focusable?.focus();
@@ -28,6 +31,9 @@ export function closeModal(modal) {
 }
 
 export function initModals() {
+  if (modalsInitialized) return;
+  modalsInitialized = true;
+
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-modal-open]');
     if (trigger) {
@@ -55,9 +61,10 @@ export function initModals() {
   });
 }
 
-export function renderModal({ id, title, body, footerExtra = '' }) {
+export function renderModal({ id, title, body, footerExtra = '', wide = false }) {
+  const wideClass = wide ? ' modal--wide' : '';
   return `
-    <div class="modal" id="${id}" hidden>
+    <div class="modal${wideClass}" id="${id}" hidden>
       <div class="modal__backdrop" aria-hidden="true"></div>
       <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="${id}-title">
         <div class="modal__header">
