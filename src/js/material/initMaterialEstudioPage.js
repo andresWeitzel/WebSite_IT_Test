@@ -45,7 +45,10 @@ export function initMaterialEstudioPage() {
           <p class="material-nav__hint">¿Listo para practicar?</p>
           ${AREAS.map(
             (area) => `
-            <a class="btn btn--outline btn--sm" href="${area.href}">${area.icon} ${area.title}</a>
+            <a class="material-nav__test-link" href="${area.href}">
+              <span class="material-nav__test-icon" aria-hidden="true">${area.icon}</span>
+              <span>${area.title}</span>
+            </a>
           `
           ).join('')}
         </div>

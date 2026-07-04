@@ -166,11 +166,19 @@
 .fc .fc-daygrid-event {
   border-radius: 6px;
   padding: 1px 4px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   margin-bottom: 2px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.fc .fc-daygrid-event .fc-event-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fc .fc-daygrid-event:hover {

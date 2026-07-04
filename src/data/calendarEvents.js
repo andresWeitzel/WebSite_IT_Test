@@ -46,10 +46,9 @@ export const CALENDAR_EVENTS = [
     id: 'vite-migration',
     title: 'Migración a Vite',
     start: '2025-06-01',
-    end: '2025-07-15',
     category: 'hito',
     description:
-      'Etapa 1 de la hoja de ruta: migración del build, diseño renovado y motor de tests con puntajes locales.',
+      'Etapa 1 de la hoja de ruta: migración del build, diseño renovado y motor de tests con puntajes locales. Periodo: jun–jul 2025.',
   },
   {
     id: 'four-areas',
@@ -63,28 +62,25 @@ export const CALENDAR_EVENTS = [
     id: 'modalities',
     title: 'Modalidades de test',
     start: '2025-08-01',
-    end: '2025-09-30',
     category: 'hito',
     description:
-      'Etapa 2: rápido, clásico, extendido y lectura práctica en cada nivel, con bancos versionados.',
+      'Etapa 2: rápido, clásico, extendido y lectura práctica en cada nivel, con bancos versionados. Periodo: ago–sep 2025.',
   },
   {
     id: 'study-exp',
     title: 'Experiencia de estudio',
     start: '2025-10-01',
-    end: '2026-06-30',
     category: 'hito',
     description:
-      'Etapa actual: material reorganizado, mejoras de interfaz, más preguntas y explicaciones al finalizar cada test.',
+      'Etapa actual: material reorganizado, mejoras de interfaz, más preguntas y explicaciones al finalizar cada test. Periodo: oct 2025 – jun 2026.',
   },
   {
     id: 'cert-mode',
     title: 'Modo certificación',
     start: '2026-07-01',
-    end: '2026-12-31',
     category: 'planificado',
     description:
-      'Tests cronometrados, insignias por área y resumen exportable de tu progreso.',
+      'Tests cronometrados, insignias por área y resumen exportable de tu progreso. Planificado: jul–dic 2026.',
   },
   {
     id: 'authoring',

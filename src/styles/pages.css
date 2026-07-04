@@ -231,7 +231,7 @@
 /* Novedades */
 .novedades-page__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   margin-bottom: 1.5rem;
   align-items: start;
@@ -240,6 +240,26 @@
 .novedades-page__calendar-wrap,
 .novedades-page__roadmap-wrap {
   padding: 1.25rem 1.35rem;
+}
+
+.novedades-page__roadmap-wrap .roadmap-section--embedded .section-heading__title {
+  font-size: 1.05rem;
+}
+
+.novedades-page__roadmap-wrap .roadmap-timeline {
+  max-width: none;
+}
+
+.novedades-page__roadmap-wrap .roadmap-step__card {
+  padding: 1rem 1.2rem;
+}
+
+.novedades-page__roadmap-wrap .roadmap-step__title {
+  font-size: 1.05rem;
+}
+
+.novedades-page__roadmap-wrap .roadmap-step__text {
+  font-size: 0.9rem;
 }
 
 .novedades-page__block-header {
@@ -529,7 +549,7 @@
 /* Material layout */
 .material-page__layout {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) 1fr;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   gap: 1.25rem;
   align-items: start;
 }
@@ -603,6 +623,33 @@
   color: var(--color-text-muted);
 }
 
+.material-nav__test-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.material-nav__test-link:hover {
+  color: var(--color-text);
+  border-color: rgba(34, 211, 238, 0.45);
+  background: var(--color-primary-soft);
+}
+
+.material-nav__test-icon {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
 .material-area-section__title {
   margin: 1.5rem 0 0.5rem;
   font-size: 1.05rem;
@@ -616,9 +663,8 @@
   font-size: 0.82rem;
 }
 
-@media (max-width: 900px) {
-  .material-page__layout,
-  .novedades-page__grid {
+@media (max-width: 1100px) {
+  .material-page__layout {
     grid-template-columns: 1fr;
   }
 
@@ -630,5 +676,11 @@
 
   .material-nav {
     position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .novedades-page__grid {
+    grid-template-columns: 1fr;
   }
 }

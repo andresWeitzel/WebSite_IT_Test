@@ -411,10 +411,21 @@ a {
 .modal--wide .modal__dialog {
   width: min(100%, 680px);
   max-height: min(88vh, 780px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal--wide .modal__header,
+.modal--wide .modal__footer {
+  flex-shrink: 0;
 }
 
 .modal--wide .modal__body {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .help-modal__intro {
