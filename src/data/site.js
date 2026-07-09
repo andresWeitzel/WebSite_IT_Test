@@ -24,10 +24,10 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-  { label: 'Inicio', href: ROUTES.home, path: ROUTES.home },
-  { label: 'Ayuda', modal: 'ayuda' },
-  { label: 'Novedades', href: ROUTES.novedades, path: ROUTES.novedades },
-  { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material },
+  { label: 'Inicio', href: ROUTES.home, path: ROUTES.home, navId: 'inicio' },
+  { label: 'Ayuda', modal: 'ayuda', navId: 'ayuda' },
+  { label: 'Novedades', href: ROUTES.novedades, path: ROUTES.novedades, navId: 'novedades' },
+  { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material, navId: 'material' },
 ];
 
 export const HELP_TEXT = `Para comenzar, elegí un área desde el inicio: Programación, Redes e Infraestructura, Seguridad Informática o Fundamentos IT. Cada área tiene tres niveles y cuatro modalidades (rápido, clásico, extendido y lectura práctica).

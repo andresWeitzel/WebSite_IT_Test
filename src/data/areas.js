@@ -1,3 +1,5 @@
+import { ROUTES } from './site.js';
+
 export const AREAS = [
   {
     id: 'programacion',
@@ -66,55 +68,111 @@ export const AREAS = [
   },
 ];
 
+/** Guía de uso en el home: cómo practicar, no repetir las tarjetas de área. */
+export const PRACTICE_PATH = {
+  title: 'Cómo practicar bien',
+  subtitle:
+    'Un flujo concreto para progresar: teoría primero, tests cortos para calibrar y recién después subir nivel y modalidad.',
+  phases: [
+    {
+      status: 'current',
+      label: 'Paso 1',
+      icon: '📖',
+      title: 'Repasá el material del área',
+      text: 'Antes del primer intento, leé los temas en Material de estudio. Conocer el mapa alinea vocabulario y reduce sorpresas en las preguntas.',
+      href: ROUTES.material,
+      ctaLabel: 'Abrir material',
+    },
+    {
+      status: 'step',
+      label: 'Paso 2',
+      icon: '⚡',
+      title: 'Calibrá con rápido + básico',
+      text: 'Elegí tu área y empezá en nivel básico con modalidad rápida. Son pocas preguntas: sirve para detectar en qué tema te falta base.',
+      href: '#areas-title',
+      ctaLabel: 'Ver áreas',
+    },
+    {
+      status: 'step',
+      label: 'Paso 3',
+      icon: '🎯',
+      title: 'Profundizá con clásico o extendido',
+      text: 'Cuando el básico te salga cómodo, probá clásico o extendido en el mismo nivel. Ahí hay más escenarios y lectura de código o comandos.',
+    },
+    {
+      status: 'step',
+      label: 'Paso 4',
+      icon: '📈',
+      title: 'Subí de nivel con criterio',
+      text: 'Pasá a medio cuando repitas buenos resultados en básico. Avanzado asume que dominás el nivel anterior: no apures el salto.',
+    },
+    {
+      status: 'step',
+      label: 'Paso 5',
+      icon: '🔀',
+      title: 'Cruzá áreas relacionadas',
+      text: 'Redes encaja con seguridad; fundamentos IT con todo lo demás. Alternar áreas afines refuerza lo aprendido sin quemarte en una sola.',
+    },
+  ],
+  modalities: [
+    { name: 'Rápido', hint: 'Calentamiento y diagnóstico' },
+    { name: 'Clásico', hint: 'Ritmo estándar por nivel' },
+    { name: 'Extendido', hint: 'Más preguntas, más profundidad' },
+    { name: 'Lectura', hint: 'Código, logs y comandos' },
+  ],
+  profiles: [
+    {
+      id: 'helpdesk',
+      title: 'Mesa de ayuda',
+      icon: '🎧',
+      hint: 'Soporte y operaciones',
+      steps: ['Fundamentos IT', 'Redes', 'Seguridad'],
+      href: ROUTES.testFundamentosIT,
+    },
+    {
+      id: 'infra',
+      title: 'Infra y redes',
+      icon: '🌐',
+      hint: 'Servicios y plataforma',
+      steps: ['Redes e Infra', 'Seguridad', 'Programación'],
+      href: ROUTES.testRedesInfra,
+    },
+    {
+      id: 'dev',
+      title: 'Desarrollo',
+      icon: '💻',
+      hint: 'Código y lógica',
+      steps: ['Programación', 'Fundamentos IT', 'Seguridad'],
+      href: ROUTES.testProgramacion,
+    },
+  ],
+};
+
+/** Resumen de áreas para la página de Novedades (sidebar). */
+export const AREAS_OVERVIEW = {
+  title: 'Áreas de test activas',
+  subtitle: 'Cuatro bloques con 3 niveles y 4 modalidades cada uno.',
+  phases: AREAS.map((area) => ({
+    status: 'area',
+    label: area.title,
+    icon: area.icon,
+    title: area.infoTitle,
+    text: area.infoBody,
+    href: area.href,
+  })),
+};
+
 export const COURSES = {
   title: 'Cursos gratuitos del autor',
   description:
     'Playlists en YouTube organizadas por tema y complejidad progresiva. Ideal para reforzar lo que practicás en los tests antes de subir de nivel.',
-  image: '/images/body/cusos.jpg',
   youtubeUrl: 'https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured',
   materialUrl: 'https://github.com/andresWeitzel/Material_de_Estudio',
   topics: ['Informática', 'Redes', 'Linux', 'Automatización', 'Robótica', 'Electricidad'],
   highlights: [
     'Contenido gratuito y actualizado por el autor del sitio',
     'Playlists por área, de baja a mayor complejidad',
-    'Complementa el material de estudio integrado en Test IT',
+    'Complementa el material de estudio integrado en IT Test',
   ],
   infoBody: `El canal de YouTube está organizado por áreas: automatización, robótica, informática, Linux y más. Cada sección incluye playlists por tema, empezando por contenido de baja complejidad. Todos los cursos son gratuitos.`,
-};
-
-export const ROADMAP = {
-  title: 'Hoja de ruta',
-  subtitle: 'Evolución del proyecto y próximos pasos',
-  phases: [
-    {
-      status: 'done',
-      label: 'Etapa 1',
-      title: 'Base moderna del sitio',
-      text: 'Migración a Vite, diseño renovado, motor de tests con puntajes locales y cuatro áreas activas.',
-    },
-    {
-      status: 'done',
-      label: 'Etapa 2',
-      title: 'Modalidades y bancos de preguntas',
-      text: 'Rápido, clásico, extendido y lectura práctica en cada nivel, con contenido versionado en el repositorio.',
-    },
-    {
-      status: 'current',
-      label: 'Ahora',
-      title: 'Experiencia de estudio',
-      text: 'Material reorganizado, mejoras de interfaz, más preguntas y explicaciones al finalizar cada test.',
-    },
-    {
-      status: 'planned',
-      label: 'Próximo',
-      title: 'Modo certificación',
-      text: 'Tests cronometrados, insignias por área y resumen exportable de tu progreso.',
-    },
-    {
-      status: 'planned',
-      label: 'Futuro',
-      title: 'Autoría y validación',
-      text: 'Panel para cargar preguntas en JSON y chequeos automáticos de calidad en el build.',
-    },
-  ],
 };

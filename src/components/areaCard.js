@@ -35,7 +35,7 @@ export function renderAreaCard(area) {
         ${meta ?? ''}
         <div class="area-card__actions">
           ${primaryAction}
-          <button type="button" class="btn btn--outline" data-modal-open="${area.modalId}">Más info</button>
+          <button type="button" class="btn btn--outline btn--sm area-card__info" data-modal-open="${area.modalId}">Más info</button>
         </div>
       </div>
     </article>

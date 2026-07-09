@@ -1,5 +1,6 @@
 import { COURSES } from '../data/areas.js';
 import { ROUTES } from '../data/site.js';
+import { renderCoursesIllustration } from './coursesIllustration.js';
 import { escapeHtml } from '../utils/dom.js';
 
 export function renderCoursesSection() {
@@ -11,17 +12,20 @@ export function renderCoursesSection() {
     <section class="courses-section" aria-labelledby="courses-title">
       <div class="container">
         <div class="courses-card glass-panel">
-          <div class="courses-card__media">
-            <img
-              src="${COURSES.image}"
-              alt=""
-              loading="lazy"
-              onerror="this.closest('.courses-card__media').classList.add('courses-card__media--fallback')"
-            >
+          <a
+            class="courses-card__media"
+            href="${COURSES.youtubeUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir canal de YouTube con cursos gratuitos"
+          >
+            <div class="courses-card__media-visual" aria-hidden="true">
+              ${renderCoursesIllustration()}
+            </div>
             <div class="courses-card__media-overlay">
               <span class="courses-card__media-badge">100% gratuito</span>
             </div>
-          </div>
+          </a>
           <div class="courses-card__body">
             <p class="courses-card__eyebrow">Complemento recomendado</p>
             <h2 id="courses-title" class="courses-card__title">${escapeHtml(COURSES.title)}</h2>

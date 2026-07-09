@@ -3,12 +3,22 @@ import { AREAS } from '../../data/areas.js';
 import { EXTRA_STUDY_TOPICS } from '../../data/studyMaterial.js';
 import { renderStudyTopicsHtml } from '../../components/studyMaterialTopics.js';
 
-const AREA_NAV = [
-  { id: 'programacion', label: 'Programación', icon: '💻', target: 'seccionProgramacion' },
-  { id: 'redes-infra', label: 'Redes e Infraestructura', icon: '🌐', target: 'seccionRedes' },
-  { id: 'seguridad', label: 'Seguridad Informática', icon: '🛡️', target: 'seccionSegInformatica' },
-  { id: 'fundamentos-it', label: 'Fundamentos IT', icon: '🖥️', target: 'seccionFundamentosIT' },
-];
+const MATERIAL_SECTION_BY_AREA = {
+  programacion: 'seccionProgramacion',
+  'redes-infra': 'seccionRedes',
+  seguridad: 'seccionSegInformatica',
+  'fundamentos-it': 'seccionFundamentosIT',
+};
+
+function getMaterialAreaNav() {
+  return AREAS.map((area) => ({
+    id: area.id,
+    label: area.title,
+    icon: area.icon,
+    target: MATERIAL_SECTION_BY_AREA[area.id],
+    testHref: area.href,
+  }));
+}
 
 function findLegacyRoot(main) {
   return (
@@ -20,11 +30,13 @@ function findLegacyRoot(main) {
 }
 
 function renderMaterialShell(legacyMount) {
+  const areaNav = getMaterialAreaNav();
+
   const section = document.createElement('section');
   section.className = 'area-page material-page';
   section.innerHTML = `
     <div class="container area-page__inner material-page__layout">
-      <header class="area-page__header">
+      <header class="area-page__header" id="material-page-top">
         <a class="area-page__back" href="/">← Volver al inicio</a>
         <p class="area-page__eyebrow">Recursos</p>
         <h1 class="area-page__title">Material de estudio</h1>
@@ -36,34 +48,34 @@ function renderMaterialShell(legacyMount) {
       <aside class="material-nav glass-panel" aria-label="Índice por área">
         <h2 class="material-nav__title">Áreas</h2>
         <nav class="material-nav__list material-nav__tabs" role="tablist">
-          ${AREA_NAV.map(
-            (item, index) => `
-            <button
-              type="button"
-              class="material-nav__tab"
-              role="tab"
-              id="material-tab-${item.id}"
-              data-material-area="${item.target}"
-              aria-selected="${index === 0 ? 'true' : 'false'}"
-              aria-controls="${item.target}"
-            >
-              <span class="material-nav__tab-icon" aria-hidden="true">${item.icon}</span>
-              <span class="material-nav__tab-label">${item.label}</span>
-            </button>
+          ${areaNav
+            .map(
+              (item, index) => `
+            <div class="material-nav__tab-row">
+              <button
+                type="button"
+                class="material-nav__tab"
+                role="tab"
+                id="material-tab-${item.id}"
+                data-material-area="${item.target}"
+                aria-selected="${index === 0 ? 'true' : 'false'}"
+                aria-controls="${item.target}"
+              >
+                <span class="material-nav__tab-icon" aria-hidden="true">${item.icon}</span>
+                <span class="material-nav__tab-label">${item.label}</span>
+              </button>
+              <a
+                class="material-nav__tab-test"
+                href="${item.testHref}"
+                title="Ir al test de ${item.label}"
+              >
+                Test
+              </a>
+            </div>
           `
-          ).join('')}
+            )
+            .join('')}
         </nav>
-        <div class="material-nav__tests">
-          <p class="material-nav__hint">¿Listo para practicar?</p>
-          ${AREAS.map(
-            (area) => `
-            <a class="material-nav__test-link" href="${area.href}">
-              <span class="material-nav__test-icon" aria-hidden="true">${area.icon}</span>
-              <span>${area.title}</span>
-            </a>
-          `
-          ).join('')}
-        </div>
       </aside>
 
       <div class="glass-panel material-page__content" id="material-content">
@@ -225,7 +237,6 @@ function initMaterialStudyUX(page, contentRoot) {
     const activePanel = panels.find((p) => p.id === areaId);
     if (activePanel) {
       closeAllTopics(activePanel);
-      activePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   };
 
