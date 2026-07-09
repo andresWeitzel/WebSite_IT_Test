@@ -41,7 +41,7 @@ function renderMaterialShell(legacyMount) {
         <p class="area-page__eyebrow">Recursos</p>
         <h1 class="area-page__title">Material de estudio</h1>
         <p class="area-page__description">
-          Elegí un área en el índice y expandí un tema a la vez para repasar sin scroll infinito.
+          Elegí un área, expandí un tema del índice y repasá conceptos clave antes de practicar en los tests.
         </p>
       </header>
 
@@ -51,35 +51,47 @@ function renderMaterialShell(legacyMount) {
           ${areaNav
             .map(
               (item, index) => `
-            <div class="material-nav__tab-row">
-              <button
-                type="button"
-                class="material-nav__tab"
-                role="tab"
-                id="material-tab-${item.id}"
-                data-material-area="${item.target}"
-                aria-selected="${index === 0 ? 'true' : 'false'}"
-                aria-controls="${item.target}"
-              >
-                <span class="material-nav__tab-icon" aria-hidden="true">${item.icon}</span>
-                <span class="material-nav__tab-label">${item.label}</span>
-              </button>
-              <a
-                class="material-nav__tab-test"
-                href="${item.testHref}"
-                title="Ir al test de ${item.label}"
-              >
-                Test
-              </a>
-            </div>
+            <button
+              type="button"
+              class="material-nav__tab"
+              role="tab"
+              id="material-tab-${item.id}"
+              data-material-area="${item.target}"
+              aria-selected="${index === 0 ? 'true' : 'false'}"
+              aria-controls="${item.target}"
+            >
+              <span class="material-nav__tab-icon" aria-hidden="true">${item.icon}</span>
+              <span class="material-nav__tab-label">${item.label}</span>
+            </button>
           `
             )
             .join('')}
         </nav>
+        <div class="material-nav__tests">
+          <h3 class="material-nav__tests-title">Practicar con tests</h3>
+          <ul class="material-nav__tests-list">
+            ${areaNav
+              .map(
+                (item, index) => `
+              <li>
+                <a
+                  class="material-nav__test-link${index === 0 ? ' is-active' : ''}"
+                  href="${item.testHref}"
+                  data-material-test="${item.target}"
+                >
+                  <span class="material-nav__test-icon" aria-hidden="true">${item.icon}</span>
+                  <span class="material-nav__test-label">${item.label}</span>
+                </a>
+              </li>
+            `
+              )
+              .join('')}
+          </ul>
+        </div>
       </aside>
 
       <div class="glass-panel material-page__content" id="material-content">
-        <p class="material-content-hint">Un tema abierto por área. Usá el índice para cambiar de sección.</p>
+        <p class="material-content-hint">Un tema abierto por vez. En Programación: Fundamentos → POO → Bases de datos → Estructuras → JavaScript y temas avanzados.</p>
       </div>
     </div>
   `;
@@ -156,10 +168,12 @@ function appendExtraStudyMaterial(root) {
     const section = root.querySelector(`#${sectionId}`);
     if (!section || !topics.length) return;
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'material-extra-topics';
-    wrapper.innerHTML = renderStudyTopicsHtml(topics);
-    section.appendChild(wrapper);
+    topics.forEach((topic) => {
+      const mount = document.createElement('div');
+      mount.innerHTML = renderStudyTopicsHtml([topic]);
+      const card = mount.firstElementChild;
+      if (card) section.appendChild(card);
+    });
   });
 }
 
@@ -216,6 +230,7 @@ function enhanceLegacyAccordions(root) {
 function initMaterialStudyUX(page, contentRoot) {
   const panels = [...contentRoot.querySelectorAll('.material-area-panel')];
   const tabs = [...page.querySelectorAll('[data-material-area]')];
+  const testLinks = [...page.querySelectorAll('[data-material-test]')];
 
   if (!panels.length || !tabs.length) return;
 
@@ -232,6 +247,10 @@ function initMaterialStudyUX(page, contentRoot) {
       const isSelected = tab.dataset.materialArea === areaId;
       tab.classList.toggle('material-nav__tab--active', isSelected);
       tab.setAttribute('aria-selected', String(isSelected));
+    });
+
+    testLinks.forEach((link) => {
+      link.classList.toggle('is-active', link.dataset.materialTest === areaId);
     });
 
     const activePanel = panels.find((p) => p.id === areaId);

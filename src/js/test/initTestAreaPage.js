@@ -55,20 +55,27 @@ function renderLevelCard(level, areaId, storageKeyFn) {
   );
 
   return `
-    <article class="level-card level-card--variants">
-      <div class="level-card__head">
-        <span class="level-card__badge">${escapeHtml(level.badge)}</span>
-        <h3 class="level-card__title">${escapeHtml(level.title)}</h3>
+    <details class="level-card level-card--variants">
+      <summary class="level-card__summary">
+        <div class="level-card__summary-main">
+          <div class="level-card__head">
+            <span class="level-card__badge">${escapeHtml(level.badge)}</span>
+            <h3 class="level-card__title">${escapeHtml(level.title)}</h3>
+          </div>
+          <ul class="level-card__meta">
+            <li>${formatAttemptLabel(totalAttempts)}</li>
+            <li>${bestOverall > 0 ? `Mejor puntaje: ${bestOverall}%` : 'Probá distintas modalidades'}</li>
+          </ul>
+        </div>
+        <span class="level-card__chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="level-card__body">
+        <p class="level-card__text">${escapeHtml(level.description)}</p>
+        <div class="variant-grid">
+          ${level.variants.map((variant) => renderVariantTile(level, variant, areaId, storageKeyFn)).join('')}
+        </div>
       </div>
-      <p class="level-card__text">${escapeHtml(level.description)}</p>
-      <ul class="level-card__meta">
-        <li>${formatAttemptLabel(totalAttempts)}</li>
-        <li>${bestOverall > 0 ? `Mejor puntaje: ${bestOverall}%` : 'Probá distintas modalidades'}</li>
-      </ul>
-      <div class="variant-grid">
-        ${level.variants.map((variant) => renderVariantTile(level, variant, areaId, storageKeyFn)).join('')}
-      </div>
-    </article>
+    </details>
   `;
 }
 
@@ -172,7 +179,7 @@ export function initTestAreaPage({
 
   function refreshLevelStats() {
     levels.forEach((level) => {
-      const levelCard = [...app.querySelectorAll('.level-card')].find(
+      const levelCard = [...app.querySelectorAll('.level-card--variants')].find(
         (el) => el.querySelector('.level-card__title')?.textContent === level.title
       );
       if (!levelCard) return;
@@ -249,5 +256,35 @@ export function initTestAreaPage({
   });
 
   refreshLevelStats();
+  initCollapsibleLevelCards(app);
   markPageReady();
+}
+
+function initCollapsibleLevelCards(root) {
+  const cards = root.querySelectorAll('.level-card--variants');
+  if (!cards.length) return;
+
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+  function syncOpenState() {
+    cards.forEach((card) => {
+      if (mobileQuery.matches) {
+        card.removeAttribute('open');
+      } else {
+        card.setAttribute('open', '');
+      }
+    });
+  }
+
+  syncOpenState();
+  mobileQuery.addEventListener('change', syncOpenState);
+
+  cards.forEach((card) => {
+    card.addEventListener('toggle', () => {
+      if (!mobileQuery.matches || !card.open) return;
+      cards.forEach((other) => {
+        if (other !== card) other.removeAttribute('open');
+      });
+    });
+  });
 }

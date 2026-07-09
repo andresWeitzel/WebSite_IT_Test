@@ -133,9 +133,13 @@ export function createTestRunner({
         </div>
         <div class="test-runner__result" data-result hidden></div>
         <div class="test-runner__actions">
-          <button type="button" class="btn btn--ghost" data-action="close">Salir</button>
-          <button type="button" class="btn btn--primary" data-action="submit">Enviar respuestas</button>
-          <button type="button" class="btn btn--outline" data-action="retry" hidden>Reintentar</button>
+          <div class="test-runner__actions-secondary">
+            <button type="button" class="btn btn--ghost" data-action="close">Salir</button>
+            <button type="button" class="btn btn--outline" data-action="retry" hidden>Reintentar</button>
+          </div>
+          <button type="button" class="btn btn--primary test-runner__action-submit" data-action="submit">
+            Enviar respuestas
+          </button>
         </div>
       </div>
     `;

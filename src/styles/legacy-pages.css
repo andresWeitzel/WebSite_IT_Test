@@ -251,6 +251,107 @@
   border-bottom-color: transparent;
 }
 
+@media (max-width: 900px) {
+  .fc .fc-toolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+    margin-bottom: 0.55rem !important;
+  }
+
+  .fc .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .fc .fc-toolbar-chunk:nth-child(2) {
+    flex: 1 1 100%;
+    justify-content: center;
+    order: -1;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 0.92rem !important;
+    font-weight: 700;
+  }
+
+  .fc .fc-button {
+    padding: 0.38rem 0.6rem !important;
+    font-size: 0.74rem !important;
+  }
+
+  .novedades-calendar--mobile .fc .fc-dayGridMonth-button,
+  .novedades-calendar--mobile .fc .fc-timeGridWeek-button,
+  .novedades-calendar--mobile .fc .fc-listMonth-button,
+  .novedades-calendar--mobile .fc-button-group {
+    display: none !important;
+  }
+
+  .fc .fc-list {
+    border: none;
+  }
+
+  .fc .fc-list-table {
+    border: none;
+  }
+
+  .fc .fc-list-day-cushion {
+    background: transparent;
+    padding: 0.65rem 0 0.35rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .fc .fc-list-event {
+    cursor: pointer;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 10px;
+  }
+
+  .fc .fc-list-event td {
+    border: none;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .fc .fc-list-event:hover td {
+    background: rgba(34, 211, 238, 0.06);
+  }
+
+  .fc .fc-list-event-dot {
+    border-width: 7px;
+    margin-top: 0.35rem;
+  }
+
+  .fc .fc-list-event-title,
+  .fc .fc-list-event-time {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .fc .fc-list-event-time {
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+  }
+
+  .fc .fc-daygrid-day-number {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.35rem;
+  }
+
+  .fc .fc-daygrid-event {
+    font-size: 0.68rem;
+    padding: 0.1rem 0.25rem;
+  }
+}
+
 .maintenance-actions {
   display: flex;
   flex-wrap: wrap;

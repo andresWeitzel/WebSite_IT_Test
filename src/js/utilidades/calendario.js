@@ -2,6 +2,12 @@ import { EVENT_CATEGORIES, getCalendarEventsForRange } from '../../data/calendar
 import { escapeHtml } from '../../utils/dom.js';
 import { openModal } from '../../components/modal.js';
 
+const MOBILE_MQ = window.matchMedia('(max-width: 900px)');
+
+function isMobileCalendar() {
+  return MOBILE_MQ.matches;
+}
+
 function renderLegend() {
   const legendEl = document.getElementById('calendar-legend');
   if (!legendEl) return;
@@ -16,6 +22,27 @@ function renderLegend() {
       `
     )
     .join('');
+}
+
+function syncCalendarShell() {
+  const mount = document.getElementById('calendar-mount');
+  mount?.classList.toggle('novedades-calendar--mobile', isMobileCalendar());
+}
+
+function getHeaderToolbar(mobile) {
+  if (mobile) {
+    return {
+      left: 'prev,next',
+      center: 'title',
+      right: 'today',
+    };
+  }
+
+  return {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,listMonth',
+  };
 }
 
 function showEventDetail(event) {
@@ -59,24 +86,23 @@ export function initCalendar() {
   if (!calendarEl || !window.FullCalendar) return;
 
   renderLegend();
+  syncCalendarShell();
+
+  const mobile = isMobileCalendar();
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
+    initialView: mobile ? 'listMonth' : 'dayGridMonth',
     locale: 'es',
     firstDay: 1,
     height: 'auto',
     fixedWeekCount: false,
-    dayMaxEvents: 3,
+    dayMaxEvents: mobile ? 1 : 3,
     moreLinkClick: 'popover',
-    navLinks: true,
+    navLinks: !mobile,
     nowIndicator: true,
     eventDisplay: 'block',
     eventTimeFormat: { hour: '2-digit', minute: '2-digit', meridiem: false },
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,listMonth',
-    },
+    headerToolbar: getHeaderToolbar(mobile),
     buttonText: {
       today: 'Hoy',
       month: 'Mes',
@@ -84,7 +110,11 @@ export function initCalendar() {
       list: 'Agenda',
     },
     views: {
-      listMonth: { buttonText: 'Agenda' },
+      listMonth: {
+        buttonText: 'Agenda',
+        listDayFormat: { weekday: 'long', day: 'numeric', month: 'short' },
+        listDaySideFormat: false,
+      },
     },
     events(info, successCallback) {
       successCallback(getCalendarEventsForRange(info.start, info.end));
@@ -102,4 +132,18 @@ export function initCalendar() {
   });
 
   calendar.render();
+
+  const applyResponsiveLayout = () => {
+    const nowMobile = isMobileCalendar();
+    syncCalendarShell();
+    calendar.setOption('headerToolbar', getHeaderToolbar(nowMobile));
+    calendar.setOption('navLinks', !nowMobile);
+    calendar.setOption('dayMaxEvents', nowMobile ? 1 : 3);
+
+    if (nowMobile && !calendar.view.type.startsWith('list')) {
+      calendar.changeView('listMonth');
+    }
+  };
+
+  MOBILE_MQ.addEventListener('change', applyResponsiveLayout);
 }

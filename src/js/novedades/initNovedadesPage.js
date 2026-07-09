@@ -51,7 +51,10 @@ export function initNovedadesPage() {
           <div class="glass-panel novedades-page__calendar-wrap" id="calendar-mount">
             <div class="novedades-page__block-header">
               <h2 class="novedades-page__block-title">Calendario de actividad</h2>
-              <p class="novedades-page__block-hint">Eventos del mes, sugerencias de hoy y hitos del proyecto</p>
+              <p class="novedades-page__block-hint">
+                <span class="novedades-page__block-hint--desktop">Eventos del mes, sugerencias de hoy y hitos del proyecto</span>
+                <span class="novedades-page__block-hint--mobile">Lista por día. Tocá un evento para ver el detalle.</span>
+              </p>
             </div>
             <div class="calendar-legend" id="calendar-legend" aria-label="Leyenda de categorías"></div>
           </div>

@@ -55,9 +55,8 @@ export const AREAS = [
     icon: '🖥️',
     description:
       'Mesa de ayuda y operaciones: hardware, Windows, Active Directory, tickets, ITIL y escenarios reales de soporte.',
-    image: '/images/body/abstract2.jpg',
-    imageClass: 'area-card__image--soft',
-    gradient: 'linear-gradient(135deg, rgba(51, 65, 85, 0.85) 0%, rgba(30, 58, 95, 0.9) 55%, rgba(49, 46, 129, 0.88) 100%)',
+    image: '/images/body/electronica.jpeg',
+    gradient: 'linear-gradient(135deg, #1e3a5f 0%, #3730a3 55%, #6d28d9 100%)',
     href: '/html/testFundamentosIT.html',
     available: true,
     modalId: 'area-fundamentos-it',

@@ -1,4 +1,4 @@
-/** Temas ampliados de Programación. */
+/** Temas de Programación integrados al acordeón (después de Fundamentos, POO, BD y Estructuras). */
 export const PROGRAMACION_TOPICS = [
   {
     id: 'prog-javascript',
