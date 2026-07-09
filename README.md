@@ -30,7 +30,7 @@
 
 Web platform to **practice and assess IT knowledge** with unlimited tests, multiple modalities per level, integrated study material, and score tracking in the browser.
 
-**Live site:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
+**Live site:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
 **Author:** [Andrés Weitzel](https://github.com/andresWeitzel) <a href="https://github.com/andresWeitzel" target="_blank"><img src="./doc/assets/icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
 
