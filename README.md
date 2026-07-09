@@ -32,10 +32,6 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 
 **Live site:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
-**Repository:** [WebSite_Test_IT](https://github.com/andresWeitzel/WebSite_Test_IT) <a href="https://github.com/andresWeitzel/WebSite_Test_IT" target="_blank"><img src="./doc/assets/icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
-
-**Channel:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="./doc/assets/social-networks/yt.png" width="25" alt="YouTube" /></a>
-
 <br>
 
 ## Index 📜
