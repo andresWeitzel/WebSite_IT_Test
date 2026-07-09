@@ -10,7 +10,7 @@ async function bootMaterialPage() {
   }
   window.scrollTo(0, 0);
 
-  mountLayout({ activePath: ROUTES.material, excludeNav: ['ayuda'] });
+  mountLayout({ activePath: ROUTES.material });
   initMaterialEstudioPage();
   await initLegacyBootstrapContent();
   finalizeMaterialTopics();

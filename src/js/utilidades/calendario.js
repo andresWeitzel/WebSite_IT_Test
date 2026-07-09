@@ -1,4 +1,4 @@
-import { EVENT_CATEGORIES, toFullCalendarEvents } from '../../data/calendarEvents.js';
+import { EVENT_CATEGORIES, getCalendarEventsForRange } from '../../data/calendarEvents.js';
 import { escapeHtml } from '../../utils/dom.js';
 import { openModal } from '../../components/modal.js';
 
@@ -44,6 +44,7 @@ function showEventDetail(event) {
   const linkEl = modal.querySelector('.calendar-event-modal__link');
   if (url) {
     linkEl.href = url;
+    linkEl.textContent = url.startsWith('/') ? 'Ir a la sección relacionada →' : 'Ver enlace relacionado →';
     linkEl.hidden = false;
   } else {
     linkEl.hidden = true;
@@ -85,7 +86,9 @@ export function initCalendar() {
     views: {
       listMonth: { buttonText: 'Agenda' },
     },
-    events: toFullCalendarEvents(),
+    events(info, successCallback) {
+      successCallback(getCalendarEventsForRange(info.start, info.end));
+    },
     eventClick(info) {
       info.jsEvent.preventDefault();
       showEventDetail(info.event);
