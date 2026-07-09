@@ -53,7 +53,7 @@ export function initNovedadesPage() {
               <h2 class="novedades-page__block-title">Calendario de actividad</h2>
               <p class="novedades-page__block-hint">
                 <span class="novedades-page__block-hint--desktop">Eventos del mes, sugerencias de hoy y hitos del proyecto</span>
-                <span class="novedades-page__block-hint--mobile">Lista por día. Tocá un evento para ver el detalle.</span>
+                <span class="novedades-page__block-hint--mobile">Vista mensual. Tocá un punto o «+N» para ver eventos.</span>
               </p>
             </div>
             <div class="calendar-legend" id="calendar-legend" aria-label="Leyenda de categorías"></div>
