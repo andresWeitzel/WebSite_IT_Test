@@ -138,7 +138,8 @@ export function createTestRunner({
             <button type="button" class="btn btn--outline" data-action="retry" hidden>Reintentar</button>
           </div>
           <button type="button" class="btn btn--primary test-runner__action-submit" data-action="submit">
-            Enviar respuestas
+            <span class="test-runner__action-label test-runner__action-label--full">Enviar respuestas</span>
+            <span class="test-runner__action-label test-runner__action-label--short">Enviar</span>
           </button>
         </div>
       </div>
