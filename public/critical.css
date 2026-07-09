@@ -1,0 +1,24 @@
+/* Evita flash blanco antes de que cargue el bundle JS/CSS */
+html {
+  background-color: #0a1220;
+  color-scheme: dark;
+}
+
+html.is-booting,
+html.is-booting body {
+  background-color: #0a1220;
+  color: #f1f5f9;
+}
+
+html.is-booting .page-content--booting {
+  opacity: 0;
+}
+
+.page-content.is-ready {
+  opacity: 1;
+  transition: opacity 0.18s ease;
+}
+
+html.is-booting #app:empty {
+  min-height: calc(100vh - 72px);
+}

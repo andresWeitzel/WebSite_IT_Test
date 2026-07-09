@@ -1,6 +1,7 @@
 import { ROUTES } from '../../data/site.js';
 import { renderModal } from '../../components/modal.js';
 import { escapeHtml } from '../../utils/dom.js';
+import { markPageReady } from '../../utils/pageReady.js';
 
 export function initAreaComingSoon({ areaId, title, description, infoText, gradient }) {
   const app = document.getElementById('area-app');
@@ -44,4 +45,6 @@ export function initAreaComingSoon({ areaId, title, description, infoText, gradi
       })
     );
   }
+
+  markPageReady();
 }

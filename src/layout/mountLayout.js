@@ -1,19 +1,17 @@
-import { SITE, HELP_TEXT } from '../data/site.js';
+import { SITE } from '../data/site.js';
 import { renderFooter } from '../components/footer.js';
+import { renderHelpModal } from '../components/helpModal.js';
 import { initModals, renderModal } from '../components/modal.js';
 import { initNavbar, renderNavbar } from '../components/navbar.js';
 import '../styles/layout.css';
 import '../styles/legacy-pages.css';
+import '../styles/roadmap.css';
 import '../styles/pages.css';
 import '../styles/test.css';
 
 function renderShellModals() {
   return [
-    renderModal({
-      id: 'ayuda',
-      title: 'Ayuda',
-      body: `<p>${HELP_TEXT.replace(/\n/g, '</p><p>')}</p>`,
-    }),
+    renderHelpModal(),
     renderModal({
       id: 'contacto',
       title: 'Contacto',

@@ -1,9 +1,10 @@
 import { AREAS, COURSES, ROADMAP } from './data/areas.js';
-import { ROUTES, SITE, HELP_TEXT } from './data/site.js';
+import { ROUTES, SITE } from './data/site.js';
 import { renderAreasGrid } from './components/areaCard.js';
 import { renderCoursesSection } from './components/coursesSection.js';
 import { renderFooter } from './components/footer.js';
 import { renderHero } from './components/hero.js';
+import { renderHelpModal } from './components/helpModal.js';
 import { renderRoadmapSection } from './components/roadmapSection.js';
 import { initModals, renderModal } from './components/modal.js';
 import { initNavbar, renderNavbar } from './components/navbar.js';
@@ -37,7 +38,7 @@ function renderApp() {
       ${renderCoursesSection()}
     </main>
     ${renderFooter()}
-    ${renderModal({ id: 'ayuda', title: 'Ayuda', body: `<p>${HELP_TEXT.replace(/\n/g, '</p><p>')}</p>` })}
+    ${renderHelpModal()}
     ${renderModal({
       id: 'contacto',
       title: 'Contacto',
@@ -47,6 +48,9 @@ function renderApp() {
   `;
 }
 
+import { markPageReady } from './utils/pageReady.js';
+
 renderApp();
 initNavbar();
 initModals();
+markPageReady();

@@ -6,7 +6,7 @@ const STATUS_LABELS = {
   planned: 'Planificado',
 };
 
-export function renderRoadmapSection(roadmap) {
+export function renderRoadmapSection(roadmap, { embedded = false } = {}) {
   const steps = roadmap.phases
     .map(
       (phase, index) => `
@@ -28,13 +28,28 @@ export function renderRoadmapSection(roadmap) {
     )
     .join('');
 
+  const heading = `
+    <div class="section-heading">
+      <h2 id="roadmap-title" class="section-heading__title">${escapeHtml(roadmap.title)}</h2>
+      <p class="section-heading__subtitle">${escapeHtml(roadmap.subtitle)}</p>
+    </div>
+  `;
+
+  const embeddedClass = embedded ? ' roadmap-section--embedded' : '';
+
+  if (embedded) {
+    return `
+      <section class="roadmap-section${embeddedClass}" aria-labelledby="roadmap-title">
+        ${heading}
+        <ol class="roadmap-timeline">${steps}</ol>
+      </section>
+    `;
+  }
+
   return `
-    <section class="roadmap-section" aria-labelledby="roadmap-title">
+    <section class="roadmap-section${embeddedClass}" aria-labelledby="roadmap-title">
       <div class="container">
-        <div class="section-heading">
-          <h2 id="roadmap-title" class="section-heading__title">${escapeHtml(roadmap.title)}</h2>
-          <p class="section-heading__subtitle">${escapeHtml(roadmap.subtitle)}</p>
-        </div>
+        ${heading}
         <ol class="roadmap-timeline">${steps}</ol>
       </div>
     </section>

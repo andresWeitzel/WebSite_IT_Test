@@ -9,7 +9,7 @@ export const ROUTES = {
 };
 
 export const SITE = {
-  name: 'Test IT',
+  name: 'IT Test',
   tagline: 'Test de Conocimientos IT',
   description:
     'Cuatro áreas con tests ilimitados, múltiples modalidades y seguimiento de puntajes. Si encontrás un error, reportalo.',
@@ -25,7 +25,7 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: 'Inicio', href: ROUTES.home, path: ROUTES.home },
-  { label: 'Ayuda', href: '#ayuda', modal: 'ayuda' },
+  { label: 'Ayuda', modal: 'ayuda' },
   { label: 'Novedades', href: ROUTES.novedades, path: ROUTES.novedades },
   { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material },
 ];

@@ -1,44 +1,55 @@
 import { ROUTES } from '../../data/site.js';
 import { AREAS } from '../../data/areas.js';
+import { EXTRA_STUDY_TOPICS } from '../../data/studyMaterial.js';
+import { renderStudyTopicsHtml } from '../../components/studyMaterialTopics.js';
 
 const AREA_NAV = [
-  { id: 'programacion', label: 'Programación', target: 'seccionProgramacion' },
-  { id: 'redes-infra', label: 'Redes e Infraestructura', target: 'seccionRedes' },
-  { id: 'seguridad', label: 'Seguridad Informática', target: 'seccionSegInformatica' },
-  { id: 'fundamentos-it', label: 'Fundamentos IT', target: 'seccionFundamentosIT' },
+  { id: 'programacion', label: 'Programación', icon: '💻', target: 'seccionProgramacion' },
+  { id: 'redes-infra', label: 'Redes e Infraestructura', icon: '🌐', target: 'seccionRedes' },
+  { id: 'seguridad', label: 'Seguridad Informática', icon: '🛡️', target: 'seccionSegInformatica' },
+  { id: 'fundamentos-it', label: 'Fundamentos IT', icon: '🖥️', target: 'seccionFundamentosIT' },
 ];
 
-export function initMaterialEstudioPage() {
-  const main = document.querySelector('.page-content');
-  if (!main) return;
+function findLegacyRoot(main) {
+  return (
+    document.getElementById('material-legacy-root') ??
+    main.querySelector('#material-legacy-root') ??
+    main.querySelector('.material-legacy') ??
+    main.querySelector('.test')
+  );
+}
 
-  main.querySelector('.alert')?.remove();
-  main.querySelector('.slider')?.remove();
-
-  const legacyBlock = main.querySelector('.test');
-  if (!legacyBlock) return;
-
-  const wrapper = document.createElement('section');
-  wrapper.className = 'area-page material-page';
-  wrapper.innerHTML = `
+function renderMaterialShell(legacyMount) {
+  const section = document.createElement('section');
+  section.className = 'area-page material-page';
+  section.innerHTML = `
     <div class="container area-page__inner material-page__layout">
       <header class="area-page__header">
         <a class="area-page__back" href="/">← Volver al inicio</a>
         <p class="area-page__eyebrow">Recursos</p>
         <h1 class="area-page__title">Material de estudio</h1>
         <p class="area-page__description">
-          Teoría, videos y definiciones por área. Usá el índice para saltar directo al tema que necesitás repasar.
+          Elegí un área en el índice y expandí un tema a la vez para repasar sin scroll infinito.
         </p>
       </header>
 
       <aside class="material-nav glass-panel" aria-label="Índice por área">
-        <h2 class="material-nav__title">Índice</h2>
-        <nav class="material-nav__list">
+        <h2 class="material-nav__title">Áreas</h2>
+        <nav class="material-nav__list material-nav__tabs" role="tablist">
           ${AREA_NAV.map(
-            (item) => `
-            <a class="material-nav__link" href="#${item.target}" data-material-jump="${item.target}">
-              <span>${item.label}</span>
-            </a>
+            (item, index) => `
+            <button
+              type="button"
+              class="material-nav__tab"
+              role="tab"
+              id="material-tab-${item.id}"
+              data-material-area="${item.target}"
+              aria-selected="${index === 0 ? 'true' : 'false'}"
+              aria-controls="${item.target}"
+            >
+              <span class="material-nav__tab-icon" aria-hidden="true">${item.icon}</span>
+              <span class="material-nav__tab-label">${item.label}</span>
+            </button>
           `
           ).join('')}
         </nav>
@@ -46,90 +57,246 @@ export function initMaterialEstudioPage() {
           <p class="material-nav__hint">¿Listo para practicar?</p>
           ${AREAS.map(
             (area) => `
-            <a class="btn btn--outline btn--sm" href="${area.href}">${area.icon} ${area.title}</a>
+            <a class="material-nav__test-link" href="${area.href}">
+              <span class="material-nav__test-icon" aria-hidden="true">${area.icon}</span>
+              <span>${area.title}</span>
+            </a>
           `
           ).join('')}
         </div>
       </aside>
 
-      <div class="glass-panel material-page__content" id="material-content"></div>
+      <div class="glass-panel material-page__content" id="material-content">
+        <p class="material-content-hint">Un tema abierto por área. Usá el índice para cambiar de sección.</p>
+      </div>
     </div>
   `;
 
-  const contentMount = wrapper.querySelector('#material-content');
-  contentMount.appendChild(legacyBlock);
-  legacyBlock.classList.remove('m-lg-5', 'test');
-  legacyBlock.classList.add('material-legacy');
+  const contentMount = section.querySelector('#material-content');
+  if (legacyMount) {
+    contentMount.appendChild(legacyMount);
+    legacyMount.classList.remove('m-lg-5', 'test');
+    legacyMount.classList.add('material-legacy');
+    legacyMount.id = 'material-legacy-root';
+    injectFundamentosSection(legacyMount);
+    appendExtraStudyMaterial(legacyMount);
+  } else {
+    contentMount.innerHTML = `
+      <div class="material-page__empty">
+        <p>No se encontró el contenido de estudio en esta página.</p>
+        <p class="material-page__empty-hint">Probá recargar o volvé al inicio para elegir un área de test.</p>
+        <div class="material-page__empty-actions">
+          <button type="button" class="btn btn--outline" data-material-reload>Recargar</button>
+          <a class="btn btn--outline" href="${ROUTES.home}">Volver al inicio</a>
+        </div>
+      </div>
+    `;
+  }
 
-  injectFundamentosSection(legacyBlock);
+  return section;
+}
 
-  main.innerHTML = '';
-  main.appendChild(wrapper);
+export function initMaterialEstudioPage() {
+  const main = document.querySelector('.page-content');
+  if (!main) return;
 
-  enhanceLegacyAccordions(contentMount);
-  bindMaterialNav(wrapper);
+  try {
+    const legacyBlock = findLegacyRoot(main);
+    legacyBlock?.querySelector('.alert')?.remove();
+
+    const page = renderMaterialShell(legacyBlock);
+    main.replaceChildren(page);
+
+    if (legacyBlock) {
+      const contentRoot = page.querySelector('#material-content');
+      enhanceLegacyAccordions(contentRoot);
+      initMaterialStudyUX(page, contentRoot);
+    }
+
+    page.querySelector('[data-material-reload]')?.addEventListener('click', () => location.reload());
+  } catch (error) {
+    console.error('Error al inicializar Material de estudio:', error);
+    const page = renderMaterialShell(null);
+    main.replaceChildren(page);
+    page.querySelector('[data-material-reload]')?.addEventListener('click', () => location.reload());
+  }
 }
 
 function injectFundamentosSection(root) {
   if (root.querySelector('#seccionFundamentosIT')) return;
 
+  const topics = EXTRA_STUDY_TOPICS.seccionFundamentosIT ?? [];
   const section = document.createElement('div');
-  section.className = 'accordion mt-5 material-area-section';
+  section.className = 'accordion material-area-section material-area-panel';
   section.id = 'seccionFundamentosIT';
   section.innerHTML = `
-    <h2 class="material-area-section__title">FUNDAMENTOS IT</h2>
-    <div class="card">
-      <div class="card-header" id="headingFundamentosIT">
-        <h2 class="mb-0">
-          <button class="btn btn-link btn-block collapsed text-info" type="button" data-toggle="collapse" data-target="#collapseFundamentosIT" aria-expanded="false">
-            <h4>Soporte técnico y operaciones</h4>
-          </button>
-        </h2>
-      </div>
-      <div id="collapseFundamentosIT" class="collapse" data-parent="#seccionFundamentosIT">
-        <div class="card-body text-justify">
-          <dl>
-            <dt><strong>¿Qué es el soporte IT?</strong></dt>
-            <dd>Área que resuelve incidencias de hardware, software, accesos y conectividad de los usuarios.</dd>
-            <dt><strong>Active Directory</strong></dt>
-            <dd>Servicio de directorio de Microsoft para gestionar identidades, equipos y políticas en red.</dd>
-            <dt><strong>ITIL</strong></dt>
-            <dd>Marco de buenas prácticas para gestión de servicios: tickets, SLAs, cambios e incidentes.</dd>
-            <dt><strong>DevOps vs Soporte</strong></dt>
-            <dd>DevOps automatiza despliegue e infraestructura; soporte IT atiende usuarios y mantiene el puesto de trabajo.</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
+    <h2 class="material-area-section__title">Fundamentos IT</h2>
+    ${renderStudyTopicsHtml(topics)}
   `;
 
   root.appendChild(section);
 }
 
+function appendExtraStudyMaterial(root) {
+  Object.entries(EXTRA_STUDY_TOPICS).forEach(([sectionId, topics]) => {
+    if (sectionId === 'seccionFundamentosIT') return;
+
+    const section = root.querySelector(`#${sectionId}`);
+    if (!section || !topics.length) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'material-extra-topics';
+    wrapper.innerHTML = renderStudyTopicsHtml(topics);
+    section.appendChild(wrapper);
+  });
+}
+
 function enhanceLegacyAccordions(root) {
+  root.querySelectorAll('.accordion[id^="seccion"]').forEach((section) => {
+    section.classList.add('material-area-section', 'material-area-panel');
+  });
+
   root.querySelectorAll('.accordion > h2.text-white, .accordion > h2.material-area-section__title').forEach((heading) => {
-    const section = heading.parentElement;
-    section.classList.add('material-area-section');
     heading.classList.remove('text-white', 'p-2', 'text-center');
     heading.classList.add('material-area-section__title');
   });
 
-  root.querySelectorAll('.card').forEach((card) => {
-    card.classList.add('material-topic-card');
+  root.querySelectorAll('.material-area-panel .card').forEach((card) => {
+    card.classList.add('material-topic-card', 'material-topic');
+
+    const trigger = card.querySelector('.card-header button, .card-header .btn-link');
+    const titleEl = trigger?.querySelector('h4');
+    if (trigger && titleEl) {
+      const titleText = titleEl.textContent.trim();
+      titleEl.remove();
+      trigger.innerHTML = `
+        <span class="material-topic__title">${titleText}</span>
+        <span class="material-topic__chevron" aria-hidden="true"></span>
+      `;
+      trigger.classList.add('material-topic__trigger');
+      trigger.removeAttribute('data-toggle');
+      trigger.removeAttribute('data-target');
+      trigger.removeAttribute('data-bs-toggle');
+      trigger.removeAttribute('data-bs-target');
+    }
+
+    const body = card.querySelector('.collapse, .material-topic__body');
+    if (body) {
+      body.classList.remove('collapse', 'show', 'collapsing');
+      body.classList.add('material-topic__body');
+      body.hidden = true;
+    }
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', 'false');
+    }
   });
 
-  const redesTitle = root.querySelector('#seccionRedes h2');
-  if (redesTitle) redesTitle.textContent = 'REDES E INFRAESTRUCTURA';
+  const redesTitle = root.querySelector('#seccionRedes .material-area-section__title');
+  if (redesTitle) redesTitle.textContent = 'Redes e Infraestructura';
+
+  const segTitle = root.querySelector('#seccionSegInformatica .material-area-section__title');
+  if (segTitle) segTitle.textContent = 'Seguridad Informática';
+
+  const progTitle = root.querySelector('#seccionProgramacion .material-area-section__title');
+  if (progTitle) progTitle.textContent = 'Programación';
 }
 
-function bindMaterialNav(root) {
-  root.querySelectorAll('[data-material-jump]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = link.dataset.materialJump;
-      const target = document.getElementById(id);
-      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      root.querySelectorAll('.material-nav__link').forEach((l) => l.classList.toggle('is-active', l === link));
+function initMaterialStudyUX(page, contentRoot) {
+  const panels = [...contentRoot.querySelectorAll('.material-area-panel')];
+  const tabs = [...page.querySelectorAll('[data-material-area]')];
+
+  if (!panels.length || !tabs.length) return;
+
+  panels.forEach((panel) => initTopicAccordion(panel));
+
+  const showArea = (areaId) => {
+    panels.forEach((panel) => {
+      const isActive = panel.id === areaId;
+      panel.hidden = !isActive;
+      panel.classList.toggle('material-area-panel--active', isActive);
+    });
+
+    tabs.forEach((tab) => {
+      const isSelected = tab.dataset.materialArea === areaId;
+      tab.classList.toggle('material-nav__tab--active', isSelected);
+      tab.setAttribute('aria-selected', String(isSelected));
+    });
+
+    const activePanel = panels.find((p) => p.id === areaId);
+    if (activePanel) {
+      closeAllTopics(activePanel);
+      activePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => showArea(tab.dataset.materialArea));
+  });
+
+  showArea(tabs[0].dataset.materialArea);
+}
+
+function initTopicAccordion(areaPanel) {
+  const topics = [...areaPanel.querySelectorAll('.material-topic')];
+
+  topics.forEach((card) => {
+    const trigger = card.querySelector('.material-topic__trigger');
+    const body = card.querySelector('.material-topic__body');
+    if (!trigger || !body) return;
+
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const isOpen = card.classList.contains('material-topic--open');
+
+      closeAllTopics(areaPanel);
+
+      if (!isOpen) {
+        openTopic(card, trigger, body);
+      }
     });
   });
 }
+
+function closeAllTopics(areaPanel) {
+  areaPanel.querySelectorAll('.material-topic').forEach((card) => {
+    const trigger = card.querySelector('.material-topic__trigger');
+    const body = card.querySelector('.material-topic__body');
+    if (body) {
+      body.hidden = true;
+      body.style.display = '';
+    }
+    trigger?.setAttribute('aria-expanded', 'false');
+    card.classList.remove('material-topic--open');
+  });
+}
+
+/** Limpia restos de Bootstrap collapse tras cargar la librería legacy. */
+export function finalizeMaterialTopics() {
+  document.querySelectorAll('.material-topic').forEach((card) => {
+    const body = card.querySelector('.material-topic__body');
+    const trigger = card.querySelector('.material-topic__trigger');
+    if (body) {
+      body.classList.remove('collapse', 'show', 'collapsing');
+      body.hidden = true;
+      body.style.display = '';
+    }
+    trigger?.setAttribute('aria-expanded', 'false');
+    card.classList.remove('material-topic--open');
+  });
+  document.querySelectorAll('.material-topic__trigger').forEach((trigger) => {
+    trigger.removeAttribute('data-toggle');
+    trigger.removeAttribute('data-target');
+    trigger.removeAttribute('data-bs-toggle');
+    trigger.removeAttribute('data-bs-target');
+  });
+}
+
+function openTopic(card, trigger, body) {
+  body.hidden = false;
+  body.classList.remove('collapse', 'collapsing');
+  body.style.display = '';
+  trigger.setAttribute('aria-expanded', 'true');
+  card.classList.add('material-topic--open');
+}
+
