@@ -30,11 +30,11 @@
 
 Plataforma web para **practicar y evaluar conocimientos IT** con tests ilimitados, múltiples modalidades por nivel, material de estudio integrado y seguimiento de puntajes en el navegador.
 
-**Sitio en producción:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
+**Sitio en producción:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
-**Autor:** [Andrés Weitzel](https://github.com/andresWeitzel) <a href="https://github.com/andresWeitzel" target="_blank"><img src="../icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
+**Repositorio:** [WebSite_Test_IT](https://github.com/andresWeitzel/WebSite_Test_IT) <a href="https://github.com/andresWeitzel/WebSite_Test_IT" target="_blank"><img src="../icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
 
-**Canal de cursos:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="../social-networks/yt.png" width="25" alt="YouTube" /></a>
+**Canal:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="../social-networks/yt.png" width="25" alt="YouTube" /></a>
 
 <br>
 
@@ -452,7 +452,7 @@ El archivo `netlify.toml` define:
 2. Build command: `npm run build`.
 3. Publish directory: `dist`.
 
-**Sitio publicado:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
+**Sitio publicado:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
 <br>
 

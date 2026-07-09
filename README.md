@@ -32,9 +32,9 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 
 **Live site:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
-**Author:** [Andrés Weitzel](https://github.com/andresWeitzel) <a href="https://github.com/andresWeitzel" target="_blank"><img src="./doc/assets/icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
+**Repository:** [WebSite_Test_IT](https://github.com/andresWeitzel/WebSite_Test_IT) <a href="https://github.com/andresWeitzel/WebSite_Test_IT" target="_blank"><img src="./doc/assets/icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
 
-**Courses channel:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="./doc/assets/social-networks/yt.png" width="25" alt="YouTube" /></a>
+**Channel:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="./doc/assets/social-networks/yt.png" width="25" alt="YouTube" /></a>
 
 <br>
 
@@ -452,7 +452,7 @@ The `netlify.toml` file defines:
 2. Build command: `npm run build`.
 3. Publish directory: `dist`.
 
-**Published site:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
+**Published site:** [it-tests.netlify.app](https://it-tests.netlify.app/)
 
 <br>
 
