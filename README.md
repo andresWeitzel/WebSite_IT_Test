@@ -1,99 +1,216 @@
-# Test IT
+<div align="center">
+  <img src="./doc/assets/home_readme.png" alt="IT Test — IT knowledge test platform" width="720">
+</div>
 
-Plataforma web para practicar y evaluar conocimientos en el área IT. Tests ilimitados, múltiples modalidades por nivel y seguimiento de puntajes en el navegador.
+<div align="right">
+  <img width="22" height="22" src="./doc/assets/icons/frontend/png/vite.png" alt="Vite" />
+  <img width="22" height="22" src="./doc/assets/icons/frontend/png/js.png" alt="JavaScript" />
+  <img width="20" height="20" src="./doc/assets/icons/frontend/png/html.png" alt="HTML" />
+  <img width="20" height="20" src="./doc/assets/icons/frontend/png/css.png" alt="CSS" />
+  <img width="22" height="22" src="./doc/assets/icons/devops/png/git.png" alt="Git" />
+  <img width="20" height="20" src="./doc/assets/icons/devops/png/npm.png" alt="npm" />
+</div>
 
-**Sitio en producción:** https://gestion-test-it.netlify.app/
+<br>
 
-**Autor:** [Andrés Weitzel](https://github.com/andresWeitzel)
+<div align="right">
+  <a href="./doc/assets/translation/README.es.md" target="_blank">
+    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" />
+  </a>
+  <a href="https://github.com/andresWeitzel/WebSite_Test_IT" target="_blank">
+    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="English" />
+  </a>
+</div>
 
----
+<div align="center">
 
-## Características
+# IT Test — IT Knowledge Test Platform ![(status-completed)](./doc/assets/icons/badges/status-completed.svg)
 
-- **4 áreas activas:** Programación, Redes e Infraestructura, Seguridad Informática y Fundamentos IT
-- **3 niveles** por área: Básico, Medio y Avanzado
-- **4 modalidades** por nivel: Rápido (10), Clásico (20), Extendido (30) y Lectura práctica (10)
-- Motor de tests con modal, progreso, corrección y mejor puntaje en `localStorage`
-- Material de estudio, novedades con calendario y hoja de ruta del proyecto
+</div>
 
----
+Web platform to **practice and assess IT knowledge** with unlimited tests, multiple modalities per level, integrated study material, and score tracking in the browser.
 
-## Stack tecnológico
+**Live site:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
 
-| Tecnología | Uso |
-|------------|-----|
-| [Vite 6](https://vitejs.dev/) | Build y dev server |
-| JavaScript ES modules | Sin framework frontend |
-| CSS modular | Tokens, layout, páginas y tests |
-| Bootstrap 4 | Solo en páginas legacy (material, novedades) |
-| FullCalendar 5 | Calendario de novedades |
-| Netlify | Deploy estático (`dist/`) |
+**Author:** [Andrés Weitzel](https://github.com/andresWeitzel) <a href="https://github.com/andresWeitzel" target="_blank"><img src="./doc/assets/icons/social-networks/github.gif" width="25" alt="GitHub" /></a>
 
----
+**Courses channel:** [YouTube](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured) <a href="https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured" target="_blank"><img src="./doc/assets/social-networks/yt.png" width="25" alt="YouTube" /></a>
 
-## Requisitos
+<br>
 
-- Node.js 18+
-- npm
+## Index 📜
 
----
+<details>
+  <summary> View details </summary>
 
-## Instalación y ejecución
+<div align="right">
+
+`Last update: 07/08/26`
+
+</div>
+
+### Section 1) Description, configuration and technologies
+
+* [1.0) Description.](#10-description-)
+* [1.1) Project execution.](#11-project-execution-)
+* [1.2) Project structure.](#12-project-structure-)
+* [1.3) Technologies.](#13-technologies-)
+
+### Section 2) Usage flow and behavior
+
+* [2.0) Platform flow.](#20-platform-flow-)
+* [2.1) Areas, levels and modalities.](#21-areas-levels-and-modalities-)
+* [2.2) Score storage.](#22-score-storage-)
+* [2.3) Question banks.](#23-question-banks-)
+
+### Section 3) Testing, deploy and references
+
+* [3.0) Functional test.](#30-functional-test-)
+* [3.1) Netlify deploy.](#31-netlify-deploy-)
+* [3.2) Contributing.](#32-contributing-)
+* [3.3) License.](#33-license-)
+
+<br>
+
+</details>
+
+<br>
+
+## Section 1) Description, configuration and technologies
+
+### 1.0) Description [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+**IT Test** is a static web application (MPA with Vite) aimed at students and IT professionals who want to review and measure knowledge in a practical way. The project includes:
+
+* **Home with test areas:** Programming, Networks & Infrastructure, Cybersecurity, and IT Fundamentals.
+
+* **Assessment engine:** full-screen modal tests (mobile), progress bar, grading on submit, and retry.
+
+* **Four modalities per level:** Quick (10), Classic (20), Extended (30), and Practical reading (10 code fragments or scenarios).
+
+* **Study material:** content per area with accordions, navigation sidebar, and links to tests.
+
+* **News:** dynamic calendar (FullCalendar) with project milestones, practice suggestions, and month/day events.
+
+* **Local tracking:** attempts, best score, and last result stored in the browser `localStorage`.
+
+**Requirements:**
+
+* Node.js 18 or higher.
+
+* npm (included with Node).
+
+<br>
+
+</details>
+
+### 1.1) Project execution [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+* Open your workspace and go to the repository root:
 
 ```bash
+cd WebSite_IT_Test
+```
+
+* Clone the repository (if you have not yet):
+
+```bash
+git clone https://github.com/andresWeitzel/WebSite_Test_IT.git
 cd WebSite_Test_IT
+```
+
+* Install dependencies:
+
+```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # genera dist/
-npm run preview  # vista previa de producción
 ```
 
----
+* Development mode (hot reload):
 
-## Estructura del proyecto
+```bash
+npm run dev
+```
+
+The app is available at `http://localhost:5173`.
+
+* Production build:
+
+```bash
+npm run build
+```
+
+This generates the `dist/` folder ready to publish.
+
+* Preview the build:
+
+```bash
+npm run preview
+```
+
+* `Important:` if any step fails due to Node versions, check with `node -v` (18+) and reinstall dependencies with `rm -rf node_modules && npm install`.
+
+<br>
+
+</details>
+
+### 1.2) Project structure [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
 
 ```
-WebSite_Test_IT/
-├── index.html                 # Home (Vite)
-├── html/                      # Páginas internas (MPA)
+WebSite_IT_Test/
+├── index.html                    # Home (Vite entry)
+├── html/                         # Internal pages (MPA)
 │   ├── testProgramacion.html
 │   ├── testRedes.html
 │   ├── testSeguridadInformatica.html
 │   ├── testFundamentosIT.html
-│   ├── testElectronica.html   # redirige a Fundamentos IT
+│   ├── testElectronica.html      # redirects to IT Fundamentals
 │   ├── materialEstudio.html
 │   └── novedades.html
 ├── public/
-│   └── images/                # Assets estáticos (iconos, body)
+│   ├── critical.css              # Critical CSS referenced in HTML
+│   └── images/                   # Icons, backgrounds and assets
+├── doc/
+│   └── assets/
+│       ├── home_readme.png       # Home screenshot for docs
+│       ├── translation/          # Flags and Spanish README
+│       ├── icons/                # Stack icons and badges
+│       └── social-networks/      # Social icons (YouTube, etc.)
 ├── src/
-│   ├── main.js                # Entrada del home
-│   ├── components/            # UI reutilizable
+│   ├── main.js                   # Home entry
+│   ├── components/               # Reusable UI
 │   │   ├── navbar.js
 │   │   ├── footer.js
+│   │   ├── pageTabs.js
 │   │   ├── hero.js
 │   │   ├── areaCard.js
-│   │   ├── coursesSection.js
 │   │   ├── roadmapSection.js
 │   │   ├── topicsAccordion.js
+│   │   ├── helpModal.js
 │   │   └── modal.js
 │   ├── data/
-│   │   ├── areas.js           # Áreas, cursos, hoja de ruta
-│   │   ├── site.js            # Rutas, navegación, ayuda
-│   │   └── variants.js        # Iconos de modalidades
-│   ├── data/questions/        # Bancos JSON + utilidades
-│   │   ├── normalize.js
-│   │   ├── loadBank.js
-│   │   ├── mergeSets.js
-│   │   ├── programacion/      # *.codigo.json
-│   │   ├── redes-infra/
-│   │   ├── seguridad/
-│   │   └── fundamentos-it/
+│   │   ├── areas.js              # Areas, courses, practice path
+│   │   ├── site.js               # Routes, navigation, global copy
+│   │   ├── calendarEvents.js     # News calendar events
+│   │   ├── variants.js           # Modality metadata
+│   │   ├── studyMaterial/        # Content per area
+│   │   └── questions/            # JSON banks and utilities
 │   ├── js/
-│   │   ├── test/
-│   │   │   ├── testRunner.js
-│   │   │   ├── testStorage.js
-│   │   │   ├── initTestAreaPage.js
-│   │   │   └── variantPresets.js
+│   │   ├── test/                 # Shared test engine
 │   │   ├── testProgramacion/
 │   │   ├── testRedesInfra/
 │   │   ├── testSeguridad/
@@ -102,8 +219,8 @@ WebSite_Test_IT/
 │   │   ├── novedades/
 │   │   └── utilidades/
 │   ├── layout/
-│   │   └── mountLayout.js     # Navbar + footer en páginas internas
-│   ├── pages/                 # Entradas por HTML
+│   │   └── mountLayout.js        # Navbar + tabs + footer on internal pages
+│   ├── pages/                    # Vite entries per HTML page
 │   └── styles/
 │       ├── tokens.css
 │       ├── layout.css
@@ -116,36 +233,137 @@ WebSite_Test_IT/
 └── package.json
 ```
 
----
+<br>
 
-## Áreas de test
+</details>
 
-| Área | Ruta | ID storage |
-|------|------|------------|
-| Programación | `/html/testProgramacion.html` | `programacion` |
-| Redes e Infraestructura | `/html/testRedes.html` | `redes-infra` |
-| Seguridad Informática | `/html/testSeguridadInformatica.html` | `seguridad` |
-| Fundamentos IT | `/html/testFundamentosIT.html` | `fundamentos-it` |
+### 1.3) Technologies [🔝](#index-)
 
-Cada intento guarda claves en `localStorage` con el formato:
+<details>
+  <summary>View details</summary>
 
-`testit_{areaId}_{nivel-modalidad}_{attempts|best|last}`
+<br>
 
----
+| **Technology** | **Version** | **Purpose** |
+| ------------- | ------------- | ------------- |
+| [Vite](https://vitejs.dev/) | 6.x | Build, dev server and MPA bundling |
+| JavaScript (ES modules) | ES2020+ | App logic without a frontend framework |
+| Modular CSS | — | Tokens, layout, pages, tests and components |
+| [FullCalendar](https://fullcalendar.io/) | 5.5 | News calendar (CDN) |
+| [Netlify](https://www.netlify.com/) | — | Static hosting for `dist/` |
+| [Git](https://git-scm.com/) | 2.x | Version control |
+| localStorage | Native API | Persistence of attempts and scores |
+| Playwright (dev) | 1.x | Dependency available for future E2E tests |
 
-## Bancos de preguntas
+<br>
 
-- **Teoría (programación):** módulos JS en `src/js/testProgramacion/preguntasTest*.js` (6 sets × 5 preguntas por nivel)
-- **Teoría (otras áreas):** `teoriaBanks.js` por área (30 preguntas por área)
-- **Lectura práctica:** JSON en `src/data/questions/{area}/practica.json` o `programacion/*.codigo.json`
+</details>
 
-Formato canónico JSON (ver `src/data/questions/normalize.js`):
+<br>
+
+## Section 2) Usage flow and behavior
+
+### 2.0) Platform flow [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+1. **Home:** the user picks an area from the home page or from the test tabs in the navbar.
+
+2. **Level and modality selection:** each area has three levels (Basic, Intermediate, Advanced) with four variants each.
+
+3. **Test modal:** a modal opens with questions, answer progress, and a submit button.
+
+4. **Grading:** on submit, correct/incorrect answers are highlighted, the score is shown, and it is saved to `localStorage`.
+
+5. **Review:** the user can retry, open study material, or follow the suggested path in News.
+
+<br>
+
+</details>
+
+### 2.1) Areas, levels and modalities [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+| Area | Route | Storage ID |
+|------|------|----------------|
+| Programming | `/html/testProgramacion.html` | `programacion` |
+| Networks & Infrastructure | `/html/testRedes.html` | `redes-infra` |
+| Cybersecurity | `/html/testSeguridadInformatica.html` | `seguridad` |
+| IT Fundamentals | `/html/testFundamentosIT.html` | `fundamentos-it` |
+
+**Modalities per level:**
+
+| Modality | Questions | Brief description |
+|-----------|-----------|---------------------|
+| Quick | 10 | Express review of the level |
+| Classic | 20 | Standard assessment |
+| Extended | 30 | Full level coverage |
+| Practical reading | 10 | Code fragments or real scenarios |
+
+Each area also includes a **Topics by level** section (accordion with content blocks) and links to study material.
+
+<br>
+
+</details>
+
+### 2.2) Score storage [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+Results are stored in the browser with the `testit_` prefix:
+
+```
+testit_{areaId}_{level-modality}_{attempts|best|last}
+```
+
+Example:
+
+```
+testit_programacion_basico-rapido_attempts
+testit_programacion_basico-rapido_best
+testit_programacion_basico-rapido_last
+```
+
+* **attempts:** number of attempts (also alternates the theoretical question set).
+
+* **best:** highest percentage achieved.
+
+* **last:** JSON with the last result (correct, total, percentage, date).
+
+<br>
+
+</details>
+
+### 2.3) Question banks [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+* **Programming (theory):** modules in `src/js/testProgramacion/preguntasTest*.js` (6 sets × 5 questions per level).
+
+* **Other areas (theory):** `teoriaBanks.js` per area (~30 questions per area).
+
+* **Practical reading:** JSON in `src/data/questions/{area}/practica.json` or `programacion/*.codigo.json`.
+
+Canonical format (see `src/data/questions/normalize.js`):
 
 ```json
 {
   "id": "prog-bas-cod-01",
   "type": "code",
-  "question": "¿Qué imprime este código?",
+  "question": "What does this code print?",
   "options": { "a": "...", "b": "...", "c": "..." },
   "answer": "b",
   "code": "...",
@@ -154,22 +372,130 @@ Formato canónico JSON (ver `src/data/questions/normalize.js`):
 }
 ```
 
----
+<br>
 
-## Deploy (Netlify)
+</details>
 
-El archivo `netlify.toml` ejecuta `npm run build` y publica la carpeta `dist/`.
+<br>
 
----
+## Section 3) Testing, deploy and references
 
-## Repositorio y enlaces
+### 3.0) Functional test [🔝](#index-)
 
-- **GitHub:** https://github.com/andresWeitzel/SitioWebTest_IT
-- **YouTube (cursos):** https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured
-- **Material de estudio (repo):** https://github.com/andresWeitzel/Material_de_Estudio
+<details>
+  <summary>View details</summary>
 
----
+<br>
 
-## Licencia
+#### 3.0.1) Verify the app runs locally
 
-Proyecto open source. Desarrollado por Andrés Weitzel.
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173` and check:
+
+* Home with the 4 area cards.
+* Navbar: Home, News, Study Material, Help.
+* Test tabs per area (desktop) or hamburger menu (mobile).
+
+#### 3.0.2) Case 1 — Complete a quick test
+
+1. Go to **Programming** → **Basic** level → **Quick** modality.
+2. Answer all 10 questions and tap **Submit**.
+3. Verify score, visual grading, and **Retry** button.
+4. In DevTools → Application → Local Storage, look for `testit_programacion_…` keys.
+
+#### 3.0.3) Case 2 — Study material
+
+1. Open `/html/materialEstudio.html`.
+2. Browse areas in the sidebar (or tabs on mobile).
+3. Expand a topic and use the link to that area's tests.
+
+#### 3.0.4) Case 3 — News and calendar
+
+1. Open `/html/novedades.html`.
+2. Review the monthly calendar and tap an event for details.
+3. Check the embedded practice path below the calendar.
+
+#### 3.0.5) Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+Confirm all routes (`/`, `/html/testRedes.html`, etc.) load without console errors.
+
+<br>
+
+</details>
+
+### 3.1) Netlify deploy [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+The `netlify.toml` file defines:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+```
+
+**Manual deploy:**
+
+1. Connect the repo on Netlify.
+2. Build command: `npm run build`.
+3. Publish directory: `dist`.
+
+**Published site:** [gestion-test-it.netlify.app](https://gestion-test-it.netlify.app/)
+
+<br>
+
+</details>
+
+### 3.2) Contributing [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+1. Fork the project.
+
+2. Create a branch (`git checkout -b feature/my-improvement`).
+
+3. Commit your changes (`git commit -m 'feat: short description'`).
+
+4. Push to the branch (`git push origin feature/my-improvement`).
+
+5. Open a Pull Request.
+
+If you find an error in a question or study content, you can also open an **Issue** with the area, level, and question text.
+
+<br>
+
+</details>
+
+### 3.3) License [🔝](#index-)
+
+<details>
+  <summary>View details</summary>
+
+<br>
+
+Open source project. Developed by [Andrés Weitzel](https://github.com/andresWeitzel).
+
+**Related links:**
+
+* **Repository:** [github.com/andresWeitzel/WebSite_Test_IT](https://github.com/andresWeitzel/WebSite_Test_IT)
+* **Study material (repo):** [github.com/andresWeitzel/Material_de_Estudio](https://github.com/andresWeitzel/Material_de_Estudio)
+* **YouTube channel:** [youtube.com/@andresWeitzel](https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured)
+
+<br>
+
+</details>
