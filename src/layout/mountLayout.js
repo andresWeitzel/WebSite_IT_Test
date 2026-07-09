@@ -3,6 +3,7 @@ import { renderFooter } from '../components/footer.js';
 import { renderHelpModal } from '../components/helpModal.js';
 import { initModals, renderModal } from '../components/modal.js';
 import { initNavbar, renderNavbar } from '../components/navbar.js';
+import { mountPageTabs } from '../components/pageTabs.js';
 import '../styles/layout.css';
 import '../styles/legacy-pages.css';
 import '../styles/roadmap.css';
@@ -33,10 +34,12 @@ export function mountLayout({ activePath, extraModals = '', excludeNav = [] }) {
     throw new Error('Faltan contenedores #site-header, #site-footer o #site-modals');
   }
 
+  headerEl.classList.add('site-chrome');
   headerEl.innerHTML = renderNavbar({ activePath, excludeNav });
   footerEl.innerHTML = renderFooter();
   modalsEl.innerHTML = renderShellModals() + extraModals;
 
+  mountPageTabs({ activePath, container: headerEl });
   initNavbar();
   initModals();
 }

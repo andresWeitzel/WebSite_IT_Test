@@ -1,4 +1,4 @@
-import { SITE, NAV_LINKS } from '../data/site.js';
+import { SITE, NAV_LINKS, TEST_PAGE_TABS } from '../data/site.js';
 import { escapeHtml } from '../utils/dom.js';
 
 export function renderNavbar({ activePath = '/', excludeNav = [] } = {}) {
@@ -15,9 +15,27 @@ export function renderNavbar({ activePath = '/', excludeNav = [] } = {}) {
 
     const isActive = link.path === activePath;
     const activeClass = isActive ? ' nav__link--active' : '';
+    const label = link.shortLabel
+      ? `<span class="nav__label-full">${escapeHtml(link.label)}</span><span class="nav__label-short">${escapeHtml(link.shortLabel)}</span>`
+      : escapeHtml(link.label);
     return `
       <li class="nav__item">
-        <a class="nav__link${activeClass}" href="${link.href}">${escapeHtml(link.label)}</a>
+        <a class="nav__link${activeClass}" href="${link.href}">${label}</a>
+      </li>
+    `;
+  }).join('');
+
+  const testLinks = TEST_PAGE_TABS.map((tab) => {
+    const isActive = tab.path === activePath;
+    const activeClass = isActive ? ' nav__link--active' : '';
+    const icon = tab.icon ? `<span class="nav__link-icon" aria-hidden="true">${tab.icon}</span>` : '';
+
+    return `
+      <li class="nav__item nav__item--test">
+        <a class="nav__link nav__link--test${activeClass}" href="${tab.href}" ${isActive ? 'aria-current="page"' : ''}>
+          ${icon}
+          <span>${escapeHtml(tab.label)}</span>
+        </a>
       </li>
     `;
   }).join('');
@@ -45,6 +63,8 @@ export function renderNavbar({ activePath = '/', excludeNav = [] } = {}) {
         <ul class="nav__menu" id="nav-menu">
           <li class="nav__menu-heading" aria-hidden="true">Navegación</li>
           ${links}
+          <li class="nav__menu-heading nav__menu-heading--tests" aria-hidden="true">Tests por área</li>
+          ${testLinks}
         </ul>
       </nav>
     </header>

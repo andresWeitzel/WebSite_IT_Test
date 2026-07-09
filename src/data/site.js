@@ -25,9 +25,44 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: 'Inicio', href: ROUTES.home, path: ROUTES.home, navId: 'inicio' },
-  { label: 'Ayuda', modal: 'ayuda', navId: 'ayuda' },
   { label: 'Novedades', href: ROUTES.novedades, path: ROUTES.novedades, navId: 'novedades' },
-  { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material, navId: 'material' },
+  { label: 'Material de Estudio', href: ROUTES.material, path: ROUTES.material, navId: 'material', shortLabel: 'Material' },
+  { label: 'Ayuda', modal: 'ayuda', navId: 'ayuda' },
+];
+
+/** Pestañas secundarias: solo tests (Inicio/Novedades/Material van en el navbar). */
+export const TEST_PAGE_TABS = [
+  {
+    id: 'programacion',
+    label: 'Programación',
+    shortLabel: 'Prog.',
+    href: ROUTES.testProgramacion,
+    path: ROUTES.testProgramacion,
+    icon: '💻',
+  },
+  {
+    id: 'redes',
+    label: 'Redes',
+    href: ROUTES.testRedesInfra,
+    path: ROUTES.testRedesInfra,
+    icon: '🌐',
+  },
+  {
+    id: 'seguridad',
+    label: 'Seguridad',
+    shortLabel: 'Seg.',
+    href: ROUTES.testSeguridad,
+    path: ROUTES.testSeguridad,
+    icon: '🛡️',
+  },
+  {
+    id: 'fundamentos',
+    label: 'Fundamentos',
+    shortLabel: 'Fund.',
+    href: ROUTES.testFundamentosIT,
+    path: ROUTES.testFundamentosIT,
+    icon: '🖥️',
+  },
 ];
 
 export const HELP_TEXT = `Para comenzar, elegí un área desde el inicio: Programación, Redes e Infraestructura, Seguridad Informática o Fundamentos IT. Cada área tiene tres niveles y cuatro modalidades (rápido, clásico, extendido y lectura práctica).

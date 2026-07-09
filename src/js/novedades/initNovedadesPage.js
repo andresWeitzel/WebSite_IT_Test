@@ -43,15 +43,15 @@ export function initNovedadesPage() {
           <p class="area-page__eyebrow">Actualizaciones</p>
           <h1 class="area-page__title">Novedades</h1>
           <p class="area-page__description">
-            Calendario de hitos del proyecto y resumen de las áreas de test disponibles en IT Test.
+            Calendario vivo del proyecto: hitos reales, sugerencias de práctica y novedades que se actualizan según el mes y el día.
           </p>
         </header>
 
         <div class="novedades-page__grid">
           <div class="glass-panel novedades-page__calendar-wrap" id="calendar-mount">
             <div class="novedades-page__block-header">
-              <h2 class="novedades-page__block-title">Calendario de hitos</h2>
-              <p class="novedades-page__block-hint">Hacé clic en un evento para ver detalles</p>
+              <h2 class="novedades-page__block-title">Calendario de actividad</h2>
+              <p class="novedades-page__block-hint">Eventos del mes, sugerencias de hoy y hitos del proyecto</p>
             </div>
             <div class="calendar-legend" id="calendar-legend" aria-label="Leyenda de categorías"></div>
           </div>

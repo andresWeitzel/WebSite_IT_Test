@@ -19,7 +19,7 @@ export function renderHelpModalBody() {
   return `
     <div class="help-modal">
       <p class="help-modal__intro">
-        Test IT te permite practicar conocimientos IT con tests ilimitados, cuatro modalidades por nivel y puntajes guardados en tu navegador.
+        IT Test te permite practicar conocimientos IT con tests ilimitados, cuatro modalidades por nivel y puntajes guardados en tu navegador.
       </p>
 
       <h3 class="help-modal__heading">Cómo empezar</h3>

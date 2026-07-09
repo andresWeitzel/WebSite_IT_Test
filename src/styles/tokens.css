@@ -24,6 +24,8 @@
   --radius-lg: 24px;
   --container: 1120px;
   --header-height: 72px;
+  --tabs-height: 46px;
+  --chrome-height: calc(var(--header-height) + var(--tabs-height));
   --font-sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --glass-bg: rgba(17, 27, 46, 0.78);
   --glass-border: rgba(148, 163, 184, 0.22);

@@ -34,25 +34,29 @@ export function initModals() {
   if (modalsInitialized) return;
   modalsInitialized = true;
 
-  document.addEventListener('click', (event) => {
-    const trigger = event.target.closest('[data-modal-open]');
-    if (trigger) {
-      event.preventDefault();
-      openModal(trigger.dataset.modalOpen);
-      return;
-    }
+  document.addEventListener(
+    'click',
+    (event) => {
+      const trigger = event.target.closest('[data-modal-open]');
+      if (trigger) {
+        event.preventDefault();
+        openModal(trigger.dataset.modalOpen);
+        return;
+      }
 
-    const closeBtn = event.target.closest('[data-modal-close]');
-    if (closeBtn) {
-      event.preventDefault();
-      closeModal(closeBtn.closest('.modal'));
-      return;
-    }
+      const closeBtn = event.target.closest('[data-modal-close]');
+      if (closeBtn) {
+        event.preventDefault();
+        closeModal(closeBtn.closest('.modal'));
+        return;
+      }
 
-    if (event.target.classList.contains('modal__backdrop')) {
-      closeModal(event.target.closest('.modal'));
-    }
-  });
+      if (event.target.classList.contains('modal__backdrop')) {
+        closeModal(event.target.closest('.modal'));
+      }
+    },
+    true
+  );
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && activeModal) {

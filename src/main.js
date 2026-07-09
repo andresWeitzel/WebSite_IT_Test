@@ -8,6 +8,7 @@ import { renderHelpModal } from './components/helpModal.js';
 import { renderRoadmapSection } from './components/roadmapSection.js';
 import { initModals, renderModal } from './components/modal.js';
 import { initNavbar, renderNavbar } from './components/navbar.js';
+import { mountPageTabs } from './components/pageTabs.js';
 import './styles/main.css';
 
 const app = document.getElementById('app');
@@ -24,7 +25,9 @@ function renderAreaModals() {
 
 function renderApp() {
   app.innerHTML = `
-    ${renderNavbar({ activePath: ROUTES.home })}
+    <div id="site-chrome" class="site-chrome">
+      ${renderNavbar({ activePath: ROUTES.home })}
+    </div>
     <main>
       ${renderHero({ areas: AREAS })}
       ${renderAreasGrid(AREAS)}
@@ -51,6 +54,7 @@ function renderApp() {
 import { markPageReady } from './utils/pageReady.js';
 
 renderApp();
+mountPageTabs({ activePath: ROUTES.home, container: document.getElementById('site-chrome') });
 initNavbar();
 initModals();
 markPageReady();
