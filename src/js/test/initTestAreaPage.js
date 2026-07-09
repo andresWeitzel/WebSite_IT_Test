@@ -1,6 +1,6 @@
 import { ROUTES } from '../../data/site.js';
 import { openModal, closeModal, renderModal } from '../../components/modal.js';
-import { renderTopicsAccordion } from '../../components/topicsAccordion.js';
+import { renderTopicsAccordion, initTopicsAccordion } from '../../components/topicsAccordion.js';
 import { escapeHtml } from '../../utils/dom.js';
 import { createTestRunner, formatAttemptLabel, formatBestLabel } from './testRunner.js';
 import { markPageReady } from '../../utils/pageReady.js';
@@ -257,6 +257,7 @@ export function initTestAreaPage({
 
   refreshLevelStats();
   initCollapsibleLevelCards(app);
+  initTopicsAccordion(app);
   markPageReady();
 }
 

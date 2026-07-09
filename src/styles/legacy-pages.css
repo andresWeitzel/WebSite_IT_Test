@@ -266,6 +266,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 0.3rem;
+    min-width: 0;
   }
 
   .fc .fc-toolbar-chunk:nth-child(2) {
@@ -277,6 +278,10 @@
   .fc .fc-toolbar-title {
     font-size: 0.92rem !important;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
   }
 
   .fc .fc-button {
@@ -291,12 +296,91 @@
     display: none !important;
   }
 
+  .novedades-calendar--mobile .fc .fc-view-harness {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .novedades-calendar--mobile .fc .fc-scrollgrid {
+    width: 100% !important;
+    border-radius: var(--radius-sm);
+  }
+
+  .novedades-calendar--mobile .fc .fc-scrollgrid-sync-table {
+    width: 100% !important;
+  }
+
+  .novedades-calendar--mobile .fc .fc-col-header-cell-cushion {
+    font-size: 0.62rem;
+    padding: 0.2rem 0;
+    text-transform: lowercase;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-day-frame {
+    min-height: 2.6rem;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-day-top {
+    justify-content: center;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-day-number {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.25rem;
+    float: none;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-day-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 0.1rem;
+    min-height: 0;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-event {
+    width: 6px;
+    height: 6px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-event .fc-event-main,
+  .novedades-calendar--mobile .fc .fc-daygrid-event .fc-event-title,
+  .novedades-calendar--mobile .fc .fc-daygrid-event .fc-event-time {
+    display: none;
+  }
+
+  .novedades-calendar--mobile .fc .fc-daygrid-more-link {
+    font-size: 0.58rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+  }
+
+  .novedades-calendar--mobile .fc .fc-popover {
+    max-width: min(18rem, calc(100vw - 2.5rem));
+  }
+
   .fc .fc-list {
     border: none;
   }
 
   .fc .fc-list-table {
     border: none;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .fc .fc-list-day > * {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .fc .fc-list-day-cushion {
@@ -307,48 +391,74 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-primary);
+    overflow-wrap: anywhere;
   }
 
-  .fc .fc-list-event {
+  .novedades-calendar--mobile .fc .fc-list-table,
+  .novedades-calendar--mobile .fc .fc-list-table tbody,
+  .novedades-calendar--mobile .fc .fc-list-day,
+  .novedades-calendar--mobile .fc .fc-list-event {
+    display: block;
+    width: 100%;
+  }
+
+  .novedades-calendar--mobile .fc .fc-list-event {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 0.5rem;
     cursor: pointer;
     background: rgba(15, 23, 42, 0.55);
     border: 1px solid rgba(148, 163, 184, 0.16);
     border-radius: 10px;
-  }
-
-  .fc .fc-list-event td {
-    border: none;
+    margin-bottom: 0.4rem;
     padding: 0.65rem 0.75rem;
+    box-sizing: border-box;
   }
 
-  .fc .fc-list-event:hover td {
-    background: rgba(34, 211, 238, 0.06);
+  .novedades-calendar--mobile .fc .fc-list-event td {
+    display: block;
+    border: none;
+    padding: 0;
+    background: transparent !important;
+  }
+
+  .novedades-calendar--mobile .fc .fc-list-event-graphic {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0.15rem;
+  }
+
+  .novedades-calendar--mobile .fc .fc-list-event-title {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .novedades-calendar--mobile .fc .fc-list-event-time {
+    display: none;
+  }
+
+  .novedades-calendar--mobile .fc .fc-list-event:hover {
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.22);
+  }
+
+  .fc .fc-list-event {
+    cursor: pointer;
   }
 
   .fc .fc-list-event-dot {
     border-width: 7px;
-    margin-top: 0.35rem;
+    margin-top: 0.15rem;
   }
 
   .fc .fc-list-event-title,
   .fc .fc-list-event-time {
     font-size: 0.84rem;
     line-height: 1.4;
-  }
-
-  .fc .fc-list-event-time {
-    color: var(--color-text-muted);
-    font-size: 0.72rem;
-  }
-
-  .fc .fc-daygrid-day-number {
-    font-size: 0.72rem;
-    padding: 0.2rem 0.35rem;
-  }
-
-  .fc .fc-daygrid-event {
-    font-size: 0.68rem;
-    padding: 0.1rem 0.25rem;
   }
 }
 

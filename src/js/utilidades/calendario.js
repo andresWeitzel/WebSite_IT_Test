@@ -45,6 +45,10 @@ function getHeaderToolbar(mobile) {
   };
 }
 
+function getDayMaxEvents(mobile) {
+  return mobile ? 2 : 3;
+}
+
 function showEventDetail(event) {
   const modal = document.getElementById('calendar-event-modal');
   if (!modal) return;
@@ -91,14 +95,14 @@ export function initCalendar() {
   const mobile = isMobileCalendar();
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: mobile ? 'listMonth' : 'dayGridMonth',
+    initialView: 'dayGridMonth',
     locale: 'es',
     firstDay: 1,
     height: 'auto',
     fixedWeekCount: false,
-    dayMaxEvents: mobile ? 1 : 3,
+    dayMaxEvents: getDayMaxEvents(mobile),
     moreLinkClick: 'popover',
-    navLinks: !mobile,
+    navLinks: true,
     nowIndicator: true,
     eventDisplay: 'block',
     eventTimeFormat: { hour: '2-digit', minute: '2-digit', meridiem: false },
@@ -110,6 +114,9 @@ export function initCalendar() {
       list: 'Agenda',
     },
     views: {
+      dayGridMonth: {
+        dayHeaderFormat: { weekday: 'narrow' },
+      },
       listMonth: {
         buttonText: 'Agenda',
         listDayFormat: { weekday: 'long', day: 'numeric', month: 'short' },
@@ -124,9 +131,11 @@ export function initCalendar() {
       showEventDetail(info.event);
     },
     eventDidMount(info) {
-      const desc = info.event.extendedProps.description;
-      if (desc) {
-        info.el.title = desc;
+      const { title, extendedProps } = info.event;
+      const desc = extendedProps.description;
+      info.el.title = desc || title;
+      if (isMobileCalendar()) {
+        info.el.setAttribute('aria-label', title);
       }
     },
   });
@@ -137,11 +146,11 @@ export function initCalendar() {
     const nowMobile = isMobileCalendar();
     syncCalendarShell();
     calendar.setOption('headerToolbar', getHeaderToolbar(nowMobile));
-    calendar.setOption('navLinks', !nowMobile);
-    calendar.setOption('dayMaxEvents', nowMobile ? 1 : 3);
+    calendar.setOption('dayMaxEvents', getDayMaxEvents(nowMobile));
 
-    if (nowMobile && !calendar.view.type.startsWith('list')) {
-      calendar.changeView('listMonth');
+    const viewType = calendar.view.type;
+    if (nowMobile && viewType.startsWith('list')) {
+      calendar.changeView('dayGridMonth');
     }
   };
 
