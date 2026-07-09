@@ -9,13 +9,20 @@ const FOOTER_LINKS = [
   { label: 'Contacto', modal: 'contacto' },
 ];
 
+const FOOTER_AREA_LABELS = {
+  programacion: 'Programación',
+  'redes-infra': 'Redes',
+  seguridad: 'Seguridad',
+  'fundamentos-it': 'Fundamentos IT',
+};
+
 export function renderFooter() {
   const areaLinks = AREAS.map(
     (area) => `
       <li>
         <a class="site-footer__link" href="${area.href}">
-          <span aria-hidden="true">${area.icon}</span>
-          ${escapeHtml(area.title)}
+          <span class="site-footer__link-icon" aria-hidden="true">${area.icon}</span>
+          <span class="site-footer__link-text">${escapeHtml(FOOTER_AREA_LABELS[area.id] ?? area.title)}</span>
         </a>
       </li>
     `
@@ -42,17 +49,17 @@ export function renderFooter() {
             </p>
           </div>
 
-          <div class="site-footer__column">
+          <div class="site-footer__column site-footer__column--areas">
             <h3 class="site-footer__heading">Áreas de test</h3>
             <ul class="site-footer__list">${areaLinks}</ul>
           </div>
 
-          <div class="site-footer__column">
+          <div class="site-footer__column site-footer__column--resources">
             <h3 class="site-footer__heading">Recursos</h3>
             <ul class="site-footer__list">${resourceLinks}</ul>
           </div>
 
-          <div class="site-footer__column">
+          <div class="site-footer__column site-footer__column--author">
             <h3 class="site-footer__heading">Autor</h3>
             <ul class="site-footer__list">
               <li>

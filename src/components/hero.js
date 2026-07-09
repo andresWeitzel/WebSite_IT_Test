@@ -28,7 +28,10 @@ export function renderHero({ areas = [] }) {
           </div>
           <div class="hero__stat">
             <span class="hero__stat-value">${totalModalities}</span>
-            <span class="hero__stat-label">Tests distintos</span>
+            <span class="hero__stat-label">
+              <span class="hero__stat-label-short">Tests</span>
+              <span class="hero__stat-label-full">Tests distintos</span>
+            </span>
           </div>
           <div class="hero__stat">
             <span class="hero__stat-value">∞</span>

@@ -22,9 +22,9 @@ function renderShellModals() {
 
 /**
  * Monta navbar, footer y modales compartidos en páginas legacy.
- * @param {{ activePath: string, extraModals?: string }} options
+ * @param {{ activePath: string, extraModals?: string, excludeNav?: string[] }} options
  */
-export function mountLayout({ activePath, extraModals = '' }) {
+export function mountLayout({ activePath, extraModals = '', excludeNav = [] }) {
   const headerEl = document.getElementById('site-header');
   const footerEl = document.getElementById('site-footer');
   const modalsEl = document.getElementById('site-modals');
@@ -33,7 +33,7 @@ export function mountLayout({ activePath, extraModals = '' }) {
     throw new Error('Faltan contenedores #site-header, #site-footer o #site-modals');
   }
 
-  headerEl.innerHTML = renderNavbar({ activePath });
+  headerEl.innerHTML = renderNavbar({ activePath, excludeNav });
   footerEl.innerHTML = renderFooter();
   modalsEl.innerHTML = renderShellModals() + extraModals;
 

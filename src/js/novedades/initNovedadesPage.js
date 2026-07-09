@@ -1,5 +1,5 @@
 import { ROUTES } from '../../data/site.js';
-import { ROADMAP } from '../../data/areas.js';
+import { AREAS_OVERVIEW } from '../../data/areas.js';
 import { renderRoadmapSection } from '../../components/roadmapSection.js';
 
 export function renderCalendarEventModal() {
@@ -41,9 +41,9 @@ export function initNovedadesPage() {
         <header class="area-page__header">
           <a class="area-page__back" href="/">← Volver al inicio</a>
           <p class="area-page__eyebrow">Actualizaciones</p>
-          <h1 class="area-page__title">Novedades y futuro</h1>
+          <h1 class="area-page__title">Novedades</h1>
           <p class="area-page__description">
-            Calendario de hitos del proyecto y hoja de ruta de lo que estamos construyendo en Test IT.
+            Calendario de hitos del proyecto y resumen de las áreas de test disponibles en IT Test.
           </p>
         </header>
 
@@ -73,6 +73,6 @@ export function initNovedadesPage() {
 
   const roadmapMount = document.getElementById('roadmap-mount');
   if (roadmapMount) {
-    roadmapMount.innerHTML = renderRoadmapSection(ROADMAP, { embedded: true });
+    roadmapMount.innerHTML = renderRoadmapSection(AREAS_OVERVIEW, { embedded: true });
   }
 }

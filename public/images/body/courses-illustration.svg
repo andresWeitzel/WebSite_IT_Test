@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" fill="none" role="img" aria-labelledby="coursesArtTitle coursesArtDesc">
+  <title id="coursesArtTitle">Cursos gratuitos en video</title>
+  <desc id="coursesArtDesc">Ilustración de pantalla con botón de reproducción y temas de informática, redes y automatización</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="480" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0e7490"/>
+      <stop offset="0.45" stop-color="#134e4a"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="120" y1="80" x2="360" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="playGrad" x1="200" y1="150" x2="280" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <radialGradient id="glowCyan" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 180) rotate(90) scale(160 140)">
+      <stop stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="480" height="360" rx="0" fill="url(#bgGrad)"/>
+  <circle cx="240" cy="180" r="150" fill="url(#glowCyan)"/>
+
+  <!-- grid -->
+  <g stroke="#94a3b8" stroke-opacity="0.08" stroke-width="1">
+    <path d="M0 60h480M0 120h480M0 180h480M0 240h480M0 300h480"/>
+    <path d="M60 0v360M120 0v360M180 0v360M240 0v360M300 0v360M360 0v360M420 0v360"/>
+  </g>
+
+  <!-- orbit rings -->
+  <circle cx="240" cy="175" r="118" stroke="#22d3ee" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="6 10"/>
+  <circle cx="240" cy="175" r="92" stroke="#34d399" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- main screen -->
+  <g filter="url(#softGlow)">
+    <rect x="118" y="88" width="244" height="168" rx="18" fill="url(#screenGrad)" stroke="#22d3ee" stroke-opacity="0.45" stroke-width="2"/>
+    <rect x="134" y="104" width="212" height="120" rx="10" fill="#020617" fill-opacity="0.65"/>
+    <circle cx="240" cy="164" r="34" fill="url(#playGrad)"/>
+    <path d="M232 148v32l26-16-26-16z" fill="#0f172a"/>
+    <rect x="150" y="238" width="56" height="6" rx="3" fill="#22d3ee" fill-opacity="0.5"/>
+    <rect x="214" y="238" width="88" height="6" rx="3" fill="#64748b" fill-opacity="0.45"/>
+    <rect x="310" y="238" width="36" height="6" rx="3" fill="#34d399" fill-opacity="0.55"/>
+  </g>
+
+  <!-- topic chips floating -->
+  <g>
+    <rect x="36" y="52" width="88" height="32" rx="16" fill="#0f172a" fill-opacity="0.72" stroke="#22d3ee" stroke-opacity="0.35"/>
+    <text x="80" y="73" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="12" font-weight="600">Redes</text>
+
+    <rect x="356" y="58" width="96" height="32" rx="16" fill="#0f172a" fill-opacity="0.72" stroke="#34d399" stroke-opacity="0.35"/>
+    <text x="404" y="79" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="12" font-weight="600">Linux</text>
+
+    <rect x="24" y="248" width="112" height="32" rx="16" fill="#0f172a" fill-opacity="0.72" stroke="#22d3ee" stroke-opacity="0.35"/>
+    <text x="80" y="269" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Automatización</text>
+
+    <rect x="344" y="252" width="104" height="32" rx="16" fill="#0f172a" fill-opacity="0.72" stroke="#34d399" stroke-opacity="0.35"/>
+    <text x="396" y="273" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Robótica</text>
+  </g>
+
+  <!-- code brackets -->
+  <g stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M72 128L48 148l24 20"/>
+    <path d="M408 128l24 20-24 20"/>
+  </g>
+
+  <!-- network nodes -->
+  <g fill="#34d399" fill-opacity="0.85">
+    <circle cx="392" cy="148" r="5"/>
+    <circle cx="420" cy="168" r="4"/>
+    <circle cx="404" cy="188" r="4"/>
+  </g>
+  <g stroke="#34d399" stroke-opacity="0.45" stroke-width="1.5">
+    <path d="M392 148l28 20M392 148l12 40M420 168l-16 20"/>
+  </g>
+
+  <!-- terminal window mini -->
+  <rect x="52" y="156" width="54" height="42" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#64748b" stroke-opacity="0.4"/>
+  <circle cx="64" cy="168" r="2.5" fill="#f87171"/>
+  <circle cx="74" cy="168" r="2.5" fill="#fbbf24"/>
+  <circle cx="84" cy="168" r="2.5" fill="#34d399"/>
+  <path d="M60 184h20M60 190h14" stroke="#22d3ee" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- book icon -->
+  <path d="M388 268c-8-4-18-4-26 0v28c8-4 18-4 26 0V268z" fill="#22d3ee" fill-opacity="0.2" stroke="#22d3ee" stroke-opacity="0.55" stroke-width="1.5"/>
+  <path d="M362 268c8-4 18-4 26 0v28c-8-4-18-4-26 0V268z" fill="#34d399" fill-opacity="0.15" stroke="#34d399" stroke-opacity="0.45" stroke-width="1.5"/>
+</svg>

@@ -1,4 +1,4 @@
-import { AREAS, COURSES, ROADMAP } from './data/areas.js';
+import { AREAS, COURSES, PRACTICE_PATH } from './data/areas.js';
 import { ROUTES, SITE } from './data/site.js';
 import { renderAreasGrid } from './components/areaCard.js';
 import { renderCoursesSection } from './components/coursesSection.js';
@@ -28,7 +28,7 @@ function renderApp() {
     <main>
       ${renderHero({ areas: AREAS })}
       ${renderAreasGrid(AREAS)}
-      ${renderRoadmapSection(ROADMAP)}
+      ${renderRoadmapSection(PRACTICE_PATH)}
       <section class="info-banner container" aria-label="Información">
         <div class="info-banner__card">
           <h2 class="info-banner__title">${SITE.tagline}</h2>

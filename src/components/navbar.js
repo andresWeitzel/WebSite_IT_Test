@@ -1,8 +1,8 @@
 import { SITE, NAV_LINKS } from '../data/site.js';
 import { escapeHtml } from '../utils/dom.js';
 
-export function renderNavbar({ activePath = '/' } = {}) {
-  const links = NAV_LINKS.map((link) => {
+export function renderNavbar({ activePath = '/', excludeNav = [] } = {}) {
+  const links = NAV_LINKS.filter((link) => !excludeNav.includes(link.navId)).map((link) => {
     if (link.modal) {
       return `
         <li class="nav__item">
@@ -29,10 +29,21 @@ export function renderNavbar({ activePath = '/' } = {}) {
           <img src="/images/iconos/lapiz.svg" width="32" height="32" alt="" class="nav__logo" loading="lazy">
           <span>${escapeHtml(SITE.name)}</span>
         </a>
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
-          <span></span><span></span><span></span>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Abrir menú"
+        >
+          <span class="nav__toggle-bars" aria-hidden="true">
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+          </span>
         </button>
         <ul class="nav__menu" id="nav-menu">
+          <li class="nav__menu-heading" aria-hidden="true">Navegación</li>
           ${links}
         </ul>
       </nav>
@@ -40,20 +51,39 @@ export function renderNavbar({ activePath = '/' } = {}) {
   `;
 }
 
-function closeMobileNav() {
+function setMobileNavOpen(isOpen) {
   const menu = document.querySelector('.nav__menu');
   const toggle = document.querySelector('.nav__toggle');
-  menu?.classList.remove('is-open');
-  toggle?.setAttribute('aria-expanded', 'false');
+  menu?.classList.toggle('is-open', isOpen);
+  toggle?.setAttribute('aria-expanded', String(isOpen));
+  toggle?.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  document.body.classList.toggle('nav-open', isOpen);
+}
+
+function closeMobileNav() {
+  setMobileNavOpen(false);
 }
 
 export function initNavbar() {
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');
 
-  toggle?.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
+  toggle?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = !menu?.classList.contains('is-open');
+    setMobileNavOpen(isOpen);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!menu?.classList.contains('is-open')) return;
+    const target = event.target;
+    if (target instanceof Node && !menu.contains(target) && !toggle?.contains(target)) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMobileNav();
   });
 
   menu?.querySelectorAll('.nav__link:not([data-modal-open])').forEach((link) => {
