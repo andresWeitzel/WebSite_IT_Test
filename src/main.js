@@ -48,6 +48,9 @@ function renderApp() {
   `;
 }
 
+import { markPageReady } from './utils/pageReady.js';
+
 renderApp();
 initNavbar();
 initModals();
+markPageReady();

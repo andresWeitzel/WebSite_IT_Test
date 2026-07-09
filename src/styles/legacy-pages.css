@@ -1,5 +1,26 @@
 @import './tokens.css';
 
+/* Bootstrap no debe teñir de azul los links del navbar propio */
+.site-header .nav__link,
+.site-header .nav__link:visited,
+.site-header .nav__link--button,
+.site-header .nav__brand,
+.site-header .nav__brand:visited {
+  color: var(--color-text-muted);
+}
+
+.site-header .nav__brand,
+.site-header .nav__brand:visited {
+  color: var(--color-text);
+}
+
+.site-header .nav__link:hover,
+.site-header .nav__link--active,
+.site-header .nav__link--active:visited,
+.site-header .nav__link--button:hover {
+  color: var(--color-text) !important;
+}
+
 .page-content {
   min-height: calc(100vh - var(--header-height) - 12rem);
   background: transparent;

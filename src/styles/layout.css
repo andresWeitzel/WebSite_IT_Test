@@ -94,10 +94,29 @@ a {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
+.site-header .nav__link,
+.site-header .nav__link:visited,
+.site-header .nav__link--button {
+  color: var(--color-text-muted);
+}
+
+.site-header .nav__link:hover,
+.site-header .nav__link--active,
+.site-header .nav__link--active:visited,
+.site-header .nav__link--button:hover {
+  color: var(--color-text);
+  background: var(--color-primary-soft);
+}
+
 .nav__link:hover,
 .nav__link--active {
   color: var(--color-text);
   background: var(--color-primary-soft);
+}
+
+.nav__brand,
+.nav__brand:visited {
+  color: var(--color-text);
 }
 
 .nav__link--button {
