@@ -10,7 +10,7 @@ export const ROUTES = {
 
 export const SITE = {
   name: 'IT Test',
-  url: 'https://it-tests.netlify.app',
+  url: 'https://it-tests.vercel.app',
   tagline: 'Test de Conocimientos IT',
   description:
     'Cuatro áreas con tests ilimitados, múltiples modalidades y seguimiento de puntajes. Si encontrás un error, reportalo.',

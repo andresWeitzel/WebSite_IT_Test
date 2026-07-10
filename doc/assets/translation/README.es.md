@@ -30,7 +30,7 @@
 
 Plataforma web para **practicar y evaluar conocimientos IT** con tests ilimitados, múltiples modalidades por nivel, material de estudio integrado y seguimiento de puntajes en el navegador.
 
-**Sitio en producción:** [it-tests.netlify.app](https://it-tests.netlify.app/)
+**Sitio en producción:** [it-tests.vercel.app](https://it-tests.vercel.app/)
 
 <br>
 
@@ -62,7 +62,7 @@ Plataforma web para **practicar y evaluar conocimientos IT** con tests ilimitado
 ### Sección 3) Pruebas, deploy y referencias
 
 * [3.0) Prueba funcional.](#30-prueba-funcional-)
-* [3.1) Deploy en Netlify.](#31-deploy-en-netlify-)
+* [3.1) Deploy en Vercel.](#31-deploy-en-vercel-)
 * [3.2) Contribuir.](#32-contribuir-)
 * [3.3) Licencia.](#33-licencia-)
 
@@ -225,7 +225,7 @@ WebSite_IT_Test/
 │       ├── test.css
 │       └── legacy-pages.css
 ├── vite.config.js
-├── netlify.toml
+├── vercel.json
 └── package.json
 ```
 
@@ -246,7 +246,7 @@ WebSite_IT_Test/
 | JavaScript (ES modules) | ES2020+ | Lógica de la app sin framework frontend |
 | CSS modular | — | Tokens, layout, páginas, tests y componentes |
 | [FullCalendar](https://fullcalendar.io/) | 5.5 | Calendario de novedades (CDN) |
-| [Netlify](https://www.netlify.com/) | — | Hosting estático de `dist/` |
+| [Vercel](https://vercel.com/) | — | Hosting estático de `dist/` |
 | [Git](https://git-scm.com/) | 2.x | Control de versiones |
 | localStorage | API nativa | Persistencia de intentos y puntajes |
 | Playwright (dev) | 1.x | Dependencia disponible para pruebas E2E futuras |
@@ -427,28 +427,23 @@ Confirmá que todas las rutas (`/`, `/html/testRedes.html`, etc.) cargan sin err
 
 </details>
 
-### 3.1) Deploy en Netlify [🔝](#índice-)
+### 3.1) Deploy en Vercel [🔝](#índice-)
 
 <details>
   <summary>Ver detalle</summary>
 
 <br>
 
-El archivo `netlify.toml` define:
+El archivo `vercel.json` define el build, headers de seguridad y el redirect legacy de Electrónica a Fundamentos IT.
 
-```toml
-[build]
-  command = "npm run build"
-  publish = "dist"
-```
+**Deploy:**
 
-**Deploy manual:**
+1. Conectá el repo en [Vercel](https://vercel.com/).
+2. Framework preset: Vite (u Other).
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
 
-1. Conectá el repo en Netlify.
-2. Build command: `npm run build`.
-3. Publish directory: `dist`.
-
-**Sitio publicado:** [it-tests.netlify.app](https://it-tests.netlify.app/)
+**Sitio publicado:** [it-tests.vercel.app](https://it-tests.vercel.app/)
 
 <br>
 

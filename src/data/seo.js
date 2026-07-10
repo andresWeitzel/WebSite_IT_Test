@@ -1,5 +1,5 @@
 /** Base URL de producción (SEO, canonical, Open Graph). */
-export const SITE_URL = 'https://it-tests.netlify.app';
+export const SITE_URL = 'https://it-tests.vercel.app';
 
 export const SEO_DEFAULTS = {
   siteName: 'IT Test',
