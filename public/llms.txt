@@ -1,0 +1,30 @@
+# IT Test
+
+> Free IT knowledge tests: programming, networking, cybersecurity and IT fundamentals.
+
+- Site: https://it-tests.netlify.app/
+- Repo: https://github.com/andresWeitzel/WebSite_Test_IT
+- Language: Spanish (es-AR)
+- License: Open source
+
+## Pages
+
+- Home: https://it-tests.netlify.app/
+- Programming tests: https://it-tests.netlify.app/html/testProgramacion.html
+- Networks & Infrastructure tests: https://it-tests.netlify.app/html/testRedes.html
+- Cybersecurity tests: https://it-tests.netlify.app/html/testSeguridadInformatica.html
+- IT Fundamentals tests: https://it-tests.netlify.app/html/testFundamentosIT.html
+- Study material: https://it-tests.netlify.app/html/materialEstudio.html
+- News / calendar: https://it-tests.netlify.app/html/novedades.html
+
+## Features
+
+- 4 IT areas, 3 levels each, 4 modalities per level (quick, classic, extended, practical reading)
+- Unlimited attempts with local score tracking
+- Free study material and practice path
+
+## Contact
+
+- Author: Andrés Weitzel
+- Email: andres96energy@hotmail.com
+- YouTube: https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured

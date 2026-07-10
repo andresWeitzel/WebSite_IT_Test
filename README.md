@@ -2,7 +2,7 @@
 
 Plataforma web para practicar y evaluar conocimientos en el área IT. Tests ilimitados, múltiples modalidades por nivel y seguimiento de puntajes en el navegador.
 
-**Sitio en producción:** https://gestion-test-it.netlify.app/
+**Sitio en producción:** https://it-tests.netlify.app/
 
 **Autor:** [Andrés Weitzel](https://github.com/andresWeitzel)
 

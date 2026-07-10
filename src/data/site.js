@@ -10,6 +10,7 @@ export const ROUTES = {
 
 export const SITE = {
   name: 'IT Test',
+  url: 'https://it-tests.netlify.app',
   tagline: 'Test de Conocimientos IT',
   description:
     'Cuatro áreas con tests ilimitados, múltiples modalidades y seguimiento de puntajes. Si encontrás un error, reportalo.',
@@ -20,6 +21,7 @@ export const SITE = {
     github: 'https://github.com/andresWeitzel',
     youtube: 'https://www.youtube.com/channel/UCuSVXmBcMURyTvbmbcgZalQ/featured',
     material: 'https://github.com/andresWeitzel/Material_de_Estudio',
+    repo: 'https://github.com/andresWeitzel/WebSite_Test_IT',
   },
 };
 

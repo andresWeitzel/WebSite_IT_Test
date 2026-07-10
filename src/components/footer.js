@@ -41,7 +41,7 @@ export function renderFooter() {
         <div class="site-footer__grid">
           <div class="site-footer__brand">
             <a class="site-footer__brand-link" href="${ROUTES.home}">
-              <img src="/images/iconos/lapiz.svg" alt="" width="28" height="28">
+              <img src="/images/iconos/lapiz.svg" alt="Logo de IT Test" width="28" height="28">
               <span>${escapeHtml(SITE.name)}</span>
             </a>
             <p class="site-footer__tagline">
@@ -63,10 +63,13 @@ export function renderFooter() {
             <h3 class="site-footer__heading">Autor</h3>
             <ul class="site-footer__list">
               <li>
-                <a class="site-footer__link" href="${SITE.links.youtube}" target="_blank" rel="noopener noreferrer">Canal de YouTube</a>
+                <a class="site-footer__link" href="${SITE.links.youtube}" target="_blank" rel="noopener noreferrer me">Canal de YouTube</a>
               </li>
               <li>
-                <a class="site-footer__link" href="${SITE.links.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="site-footer__link" href="${SITE.links.github}" target="_blank" rel="noopener noreferrer me">GitHub del autor</a>
+              </li>
+              <li>
+                <a class="site-footer__link" href="${SITE.links.repo ?? 'https://github.com/andresWeitzel/WebSite_Test_IT'}" target="_blank" rel="noopener noreferrer">Repositorio del proyecto</a>
               </li>
               <li>
                 <a class="site-footer__link" href="${SITE.links.material}" target="_blank" rel="noopener noreferrer">Material en GitHub</a>

@@ -1,7 +1,9 @@
 import { AREAS, COURSES, PRACTICE_PATH } from './data/areas.js';
 import { ROUTES, SITE } from './data/site.js';
+import { buildFaqJsonLd, buildHowToJsonLd } from './data/seo.js';
 import { renderAreasGrid } from './components/areaCard.js';
 import { renderCoursesSection } from './components/coursesSection.js';
+import { renderFaqSection } from './components/faqSection.js';
 import { renderFooter } from './components/footer.js';
 import { renderHero } from './components/hero.js';
 import { renderHelpModal } from './components/helpModal.js';
@@ -9,6 +11,8 @@ import { renderRoadmapSection } from './components/roadmapSection.js';
 import { initModals, renderModal } from './components/modal.js';
 import { initNavbar, renderNavbar } from './components/navbar.js';
 import { mountPageTabs } from './components/pageTabs.js';
+import { injectJsonLd, renderSkipLink } from './utils/seo.js';
+import { markPageReady } from './utils/pageReady.js';
 import './styles/main.css';
 
 const app = document.getElementById('app');
@@ -25,10 +29,11 @@ function renderAreaModals() {
 
 function renderApp() {
   app.innerHTML = `
+    ${renderSkipLink('main-content')}
     <div id="site-chrome" class="site-chrome">
       ${renderNavbar({ activePath: ROUTES.home })}
     </div>
-    <main>
+    <main id="main-content">
       ${renderHero({ areas: AREAS })}
       ${renderAreasGrid(AREAS)}
       ${renderRoadmapSection(PRACTICE_PATH)}
@@ -39,6 +44,7 @@ function renderApp() {
         </div>
       </section>
       ${renderCoursesSection()}
+      ${renderFaqSection()}
     </main>
     ${renderFooter()}
     ${renderHelpModal()}
@@ -51,9 +57,9 @@ function renderApp() {
   `;
 }
 
-import { markPageReady } from './utils/pageReady.js';
-
 renderApp();
+injectJsonLd(buildFaqJsonLd(), 'seo-faq-jsonld');
+injectJsonLd(buildHowToJsonLd(), 'seo-howto-jsonld');
 mountPageTabs({ activePath: ROUTES.home, container: document.getElementById('site-chrome') });
 initNavbar();
 initModals();

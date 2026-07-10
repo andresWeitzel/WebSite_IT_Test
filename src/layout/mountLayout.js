@@ -1,9 +1,12 @@
 import { SITE } from '../data/site.js';
+import { buildBreadcrumbItems } from '../data/seo.js';
+import { mountBreadcrumbs } from '../components/breadcrumbs.js';
 import { renderFooter } from '../components/footer.js';
 import { renderHelpModal } from '../components/helpModal.js';
 import { initModals, renderModal } from '../components/modal.js';
 import { initNavbar, renderNavbar } from '../components/navbar.js';
 import { mountPageTabs } from '../components/pageTabs.js';
+import { renderSkipLink } from '../utils/seo.js';
 import '../styles/layout.css';
 import '../styles/legacy-pages.css';
 import '../styles/roadmap.css';
@@ -34,12 +37,22 @@ export function mountLayout({ activePath, extraModals = '', excludeNav = [] }) {
     throw new Error('Faltan contenedores #site-header, #site-footer o #site-modals');
   }
 
+  if (!document.querySelector('.skip-link')) {
+    document.body.insertAdjacentHTML('afterbegin', renderSkipLink('main-content'));
+  }
+
+  const mainEl = document.querySelector('main.page-content, main');
+  if (mainEl && !mainEl.id) {
+    mainEl.id = 'main-content';
+  }
+
   headerEl.classList.add('site-chrome');
   headerEl.innerHTML = renderNavbar({ activePath, excludeNav });
   footerEl.innerHTML = renderFooter();
   modalsEl.innerHTML = renderShellModals() + extraModals;
 
   mountPageTabs({ activePath, container: headerEl });
+  mountBreadcrumbs(buildBreadcrumbItems(activePath));
   initNavbar();
   initModals();
 }

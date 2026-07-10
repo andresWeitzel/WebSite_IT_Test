@@ -1,0 +1,23 @@
+{
+  "name": "IT Test",
+  "short_name": "IT Test",
+  "description": "Plataforma de tests de conocimientos IT: programación, redes, seguridad y fundamentos.",
+  "lang": "es-AR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1220",
+  "theme_color": "#0a1220",
+  "icons": [
+    {
+      "src": "/images/iconos/lapiz.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/iconos/lapiz.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

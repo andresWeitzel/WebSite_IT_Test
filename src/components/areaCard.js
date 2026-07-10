@@ -23,8 +23,11 @@ export function renderAreaCard(area) {
         <img
           class="area-card__image${area.imageClass ? ` ${area.imageClass}` : ''}"
           src="${area.image}"
-          alt=""
+          alt="${escapeHtml(area.title)} — área de práctica en IT Test"
           loading="lazy"
+          decoding="async"
+          width="640"
+          height="360"
           onerror="this.hidden=true"
         >
         ${badge}
