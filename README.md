@@ -77,7 +77,7 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 ### 1.0) Description [🔝](#index-)
 
 <details>
-  <summary>View details</summary>
+  <summary>View details</summary> 
 
 <br>
 
