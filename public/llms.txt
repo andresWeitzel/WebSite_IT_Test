@@ -2,20 +2,20 @@
 
 > Free IT knowledge tests: programming, networking, cybersecurity and IT fundamentals.
 
-- Site: https://it-tests.netlify.app/
+- Site: https://it-tests.vercel.app/
 - Repo: https://github.com/andresWeitzel/WebSite_Test_IT
 - Language: Spanish (es-AR)
 - License: Open source
 
 ## Pages
 
-- Home: https://it-tests.netlify.app/
-- Programming tests: https://it-tests.netlify.app/html/testProgramacion.html
-- Networks & Infrastructure tests: https://it-tests.netlify.app/html/testRedes.html
-- Cybersecurity tests: https://it-tests.netlify.app/html/testSeguridadInformatica.html
-- IT Fundamentals tests: https://it-tests.netlify.app/html/testFundamentosIT.html
-- Study material: https://it-tests.netlify.app/html/materialEstudio.html
-- News / calendar: https://it-tests.netlify.app/html/novedades.html
+- Home: https://it-tests.vercel.app/
+- Programming tests: https://it-tests.vercel.app/html/testProgramacion.html
+- Networks & Infrastructure tests: https://it-tests.vercel.app/html/testRedes.html
+- Cybersecurity tests: https://it-tests.vercel.app/html/testSeguridadInformatica.html
+- IT Fundamentals tests: https://it-tests.vercel.app/html/testFundamentosIT.html
+- Study material: https://it-tests.vercel.app/html/materialEstudio.html
+- News / calendar: https://it-tests.vercel.app/html/novedades.html
 
 ## Features
 
