@@ -1,27 +1,30 @@
-﻿<div align="center">
-<img src="./doc/assets/home_readme.png" alt="IT Test — plataforma de tests IT" />
-<div align="right">
-<img width="16" height="16" src="./doc/assets/icons/frontend/png/vite.png" alt="Vite" />
-<img width="16" height="16" src="./doc/assets/icons/frontend/png/js.png" alt="JavaScript" />
-<img width="16" height="16" src="./doc/assets/icons/frontend/png/html.png" alt="HTML" />
-<img width="16" height="16" src="./doc/assets/icons/frontend/png/css.png" alt="CSS" />
-<img width="16" height="16" src="./doc/assets/icons/devops/png/git.png" alt="Git" />
-<img width="16" height="16" src="./doc/assets/icons/devops/png/npm.png" alt="npm" />
-</div>
+<div align="center">
+  <img src="./doc/assets/home_readme.png" alt="IT Test — plataforma de tests IT" width="720">
 </div>
 
 <br>
 
-<br>
+<div align="right">
+  <img width="22" height="22" src="./doc/assets/icons/frontend/png/vite.png" alt="Vite" />
+  <img width="22" height="22" src="./doc/assets/icons/frontend/png/js.png" alt="JavaScript" />
+  <img width="20" height="20" src="./doc/assets/icons/frontend/png/html.png" alt="HTML" />
+  <img width="20" height="20" src="./doc/assets/icons/frontend/png/css.png" alt="CSS" />
+  <img width="22" height="22" src="./doc/assets/icons/devops/png/git.png" alt="Git" />
+  <img width="20" height="20" src="./doc/assets/icons/devops/png/npm.png" alt="npm" />
+</div>
+
+<br><br>
 
 <div align="right">
-  <a href="./README.md" title="Español">
-    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
+  <a href="./README.md" target="_blank">
+    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" />
   </a>
-  <a href="./doc/assets/translation/README.en.md" title="Inglés">
-    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="Inglés" title="Inglés" />
+  <a href="./doc/assets/translation/README.en.md" target="_blank">
+    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="English" />
   </a>
 </div>
+
+<br><br>
 
 <div align="center">
 
@@ -63,7 +66,7 @@ Plataforma web para **practicar y evaluar conocimientos IT** con tests ilimitado
 ### Sección 3) Pruebas, deploy y referencias
 
 * [3.0) Prueba funcional.](#30-prueba-funcional-)
-* [3.1) Deploy en Netlify.](#31-deploy-en-netlify-)
+* [3.1) Deploy en Vercel.](#31-deploy-en-vercel-)
 * [3.2) Contribuir.](#32-contribuir-)
 * [3.3) Licencia.](#33-licencia-)
 
@@ -123,7 +126,7 @@ cd WebSite_IT_Test
 
 ```bash
 git clone https://github.com/andresWeitzel/WebSite_Test_IT.git
-cd WebSite_Test_IT
+cd WebSite_IT_Test
 ```
 
 * Instalar dependencias:
@@ -184,8 +187,10 @@ WebSite_IT_Test/
 ├── doc/
 │   └── assets/
 │       ├── home_readme.png       # Captura del home para documentación
-│       ├── translation/          # Banderas y README en español
-│       ├── icons/                # Iconos de stack y badges
+│       ├── translation/          # Banderas y README en inglés
+│       ├── icons/                # Iconos de stack, badges y live-pill
+│       │   ├── badges/           # status-completed (activo en el README)
+│       │   └── detail-actions/   # live-pill (sitio en producción)
 │       └── social-networks/      # Iconos de redes (YouTube, etc.)
 ├── src/
 │   ├── main.js                   # Entrada del home
@@ -226,7 +231,7 @@ WebSite_IT_Test/
 │       ├── test.css
 │       └── legacy-pages.css
 ├── vite.config.js
-├── netlify.toml
+├── vercel.json
 └── package.json
 ```
 
@@ -247,7 +252,7 @@ WebSite_IT_Test/
 | JavaScript (ES modules) | ES2020+ | Lógica de la app sin framework frontend |
 | CSS modular | — | Tokens, layout, páginas, tests y componentes |
 | [FullCalendar](https://fullcalendar.io/) | 5.5 | Calendario de novedades (CDN) |
-| [Netlify](https://www.netlify.com/) | — | Hosting estático de `dist/` |
+| [Vercel](https://vercel.com/) | — | Hosting estático de `dist/` |
 | [Git](https://git-scm.com/) | 2.x | Control de versiones |
 | localStorage | API nativa | Persistencia de intentos y puntajes |
 | Playwright (dev) | 1.x | Dependencia disponible para pruebas E2E futuras |
@@ -428,28 +433,23 @@ Confirmá que todas las rutas (`/`, `/html/testRedes.html`, etc.) cargan sin err
 
 </details>
 
-### 3.1) Deploy en Netlify [🔝](#índice-)
+### 3.1) Deploy en Vercel [🔝](#índice-)
 
 <details>
   <summary>Ver detalle</summary>
 
 <br>
 
-El archivo `netlify.toml` define:
+El archivo `vercel.json` define el build, headers de seguridad y el redirect legacy de Electrónica a Fundamentos IT.
 
-```toml
-[build]
-  command = "npm run build"
-  publish = "dist"
-```
+**Deploy:**
 
-**Deploy manual:**
+1. Conectá el repo en [Vercel](https://vercel.com/).
+2. Framework preset: Vite (u Other).
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
 
-1. Conectá el repo en Netlify.
-2. Build command: `npm run build`.
-3. Publish directory: `dist`.
-
-**Sitio publicado:** [it-tests.netlify.app](https://it-tests.netlify.app/)
+**Sitio publicado:** [it-tests.vercel.app](https://it-tests.vercel.app/)
 
 <br>
 

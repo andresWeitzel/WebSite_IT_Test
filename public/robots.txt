@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Legacy redirect page (do not index)
+Disallow: /html/testElectronica.html
+
+Sitemap: https://it-tests.vercel.app/sitemap.xml

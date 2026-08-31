@@ -1,27 +1,30 @@
-﻿<div align="center">
-<img src="../home_readme.png" alt="IT Test — IT knowledge test platform" />
-<div align="right">
-<img width="16" height="16" src="../icons/frontend/png/vite.png" alt="Vite" />
-<img width="16" height="16" src="../icons/frontend/png/js.png" alt="JavaScript" />
-<img width="16" height="16" src="../icons/frontend/png/html.png" alt="HTML" />
-<img width="16" height="16" src="../icons/frontend/png/css.png" alt="CSS" />
-<img width="16" height="16" src="../icons/devops/png/git.png" alt="Git" />
-<img width="16" height="16" src="../icons/devops/png/npm.png" alt="npm" />
-</div>
+<div align="center">
+  <img src="../home_readme.png" alt="IT Test — IT knowledge test platform" width="720">
 </div>
 
 <br>
 
-<br>
+<div align="right">
+  <img width="22" height="22" src="../icons/frontend/png/vite.png" alt="Vite" />
+  <img width="22" height="22" src="../icons/frontend/png/js.png" alt="JavaScript" />
+  <img width="20" height="20" src="../icons/frontend/png/html.png" alt="HTML" />
+  <img width="20" height="20" src="../icons/frontend/png/css.png" alt="CSS" />
+  <img width="22" height="22" src="../icons/devops/png/git.png" alt="Git" />
+  <img width="20" height="20" src="../icons/devops/png/npm.png" alt="npm" />
+</div>
+
+<br><br>
 
 <div align="right">
-  <a href="../../../README.md" title="Español">
-    <img src="./arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
+  <a href="../../../README.md" target="_blank">
+    <img src="./arg-flag.jpg" width="65" height="40" alt="Español" />
   </a>
-  <a href="./README.en.md" title="English">
-    <img src="./eeuu-flag.jpg" width="65" height="40" alt="English" title="English" />
+  <a href="./README.en.md" target="_blank">
+    <img src="./eeuu-flag.jpg" width="65" height="40" alt="English" />
   </a>
 </div>
+
+<br><br>
 
 <div align="center">
 
@@ -63,7 +66,7 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 ### Section 3) Testing, deploy and references
 
 * [3.0) Functional test.](#30-functional-test-)
-* [3.1) Netlify deploy.](#31-netlify-deploy-)
+* [3.1) Vercel deploy.](#31-vercel-deploy-)
 * [3.2) Contributing.](#32-contributing-)
 * [3.3) License.](#33-license-)
 
@@ -75,10 +78,10 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 
 ## Section 1) Description, configuration and technologies
 
-### 1.0) Description [­ƒöØ](#index-)
+### 1.0) Description [🔝](#index-)
 
 <details>
-  <summary>View details</summary>
+  <summary>View details</summary> 
 
 <br>
 
@@ -106,7 +109,7 @@ Web platform to **practice and assess IT knowledge** with unlimited tests, multi
 
 </details>
 
-### 1.1) Project execution [­ƒöØ](#index-)
+### 1.1) Project execution [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -123,7 +126,7 @@ cd WebSite_IT_Test
 
 ```bash
 git clone https://github.com/andresWeitzel/WebSite_Test_IT.git
-cd WebSite_Test_IT
+cd WebSite_IT_Test
 ```
 
 * Install dependencies:
@@ -160,7 +163,7 @@ npm run preview
 
 </details>
 
-### 1.2) Project structure [­ƒöØ](#index-)
+### 1.2) Project structure [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -169,72 +172,74 @@ npm run preview
 
 ```
 WebSite_IT_Test/
-Ôö£ÔöÇÔöÇ index.html                    # Home (Vite entry)
-Ôö£ÔöÇÔöÇ html/                         # Internal pages (MPA)
-Ôöé   Ôö£ÔöÇÔöÇ testProgramacion.html
-Ôöé   Ôö£ÔöÇÔöÇ testRedes.html
-Ôöé   Ôö£ÔöÇÔöÇ testSeguridadInformatica.html
-Ôöé   Ôö£ÔöÇÔöÇ testFundamentosIT.html
-Ôöé   Ôö£ÔöÇÔöÇ testElectronica.html      # redirects to IT Fundamentals
-Ôöé   Ôö£ÔöÇÔöÇ materialEstudio.html
-Ôöé   ÔööÔöÇÔöÇ novedades.html
-Ôö£ÔöÇÔöÇ public/
-Ôöé   Ôö£ÔöÇÔöÇ critical.css              # Critical CSS referenced in HTML
-Ôöé   ÔööÔöÇÔöÇ images/                   # Icons, backgrounds and assets
-Ôö£ÔöÇÔöÇ doc/
-Ôöé   ÔööÔöÇÔöÇ assets/
-Ôöé       Ôö£ÔöÇÔöÇ home_readme.png       # Home screenshot for docs
-Ôöé       Ôö£ÔöÇÔöÇ translation/          # Flags and Spanish README
-Ôöé       Ôö£ÔöÇÔöÇ icons/                # Stack icons and badges
-Ôöé       ÔööÔöÇÔöÇ social-networks/      # Social icons (YouTube, etc.)
-Ôö£ÔöÇÔöÇ src/
-Ôöé   Ôö£ÔöÇÔöÇ main.js                   # Home entry
-Ôöé   Ôö£ÔöÇÔöÇ components/               # Reusable UI
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ navbar.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ footer.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ pageTabs.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ hero.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ areaCard.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ roadmapSection.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ topicsAccordion.js
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ helpModal.js
-Ôöé   Ôöé   ÔööÔöÇÔöÇ modal.js
-Ôöé   Ôö£ÔöÇÔöÇ data/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ areas.js              # Areas, courses, practice path
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ site.js               # Routes, navigation, global copy
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ calendarEvents.js     # News calendar events
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ variants.js           # Modality metadata
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ studyMaterial/        # Content per area
-Ôöé   Ôöé   ÔööÔöÇÔöÇ questions/            # JSON banks and utilities
-Ôöé   Ôö£ÔöÇÔöÇ js/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ test/                 # Shared test engine
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ testProgramacion/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ testRedesInfra/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ testSeguridad/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ testFundamentosIT/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ material/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ novedades/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ utilidades/
-Ôöé   Ôö£ÔöÇÔöÇ layout/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ mountLayout.js        # Navbar + tabs + footer on internal pages
-Ôöé   Ôö£ÔöÇÔöÇ pages/                    # Vite entries per HTML page
-Ôöé   ÔööÔöÇÔöÇ styles/
-Ôöé       Ôö£ÔöÇÔöÇ tokens.css
-Ôöé       Ôö£ÔöÇÔöÇ layout.css
-Ôöé       Ôö£ÔöÇÔöÇ main.css
-Ôöé       Ôö£ÔöÇÔöÇ pages.css
-Ôöé       Ôö£ÔöÇÔöÇ test.css
-Ôöé       ÔööÔöÇÔöÇ legacy-pages.css
-Ôö£ÔöÇÔöÇ vite.config.js
-Ôö£ÔöÇÔöÇ netlify.toml
-ÔööÔöÇÔöÇ package.json
+├── index.html                    # Home (Vite entry)
+├── html/                         # Internal pages (MPA)
+│   ├── testProgramacion.html
+│   ├── testRedes.html
+│   ├── testSeguridadInformatica.html
+│   ├── testFundamentosIT.html
+│   ├── testElectronica.html      # redirects to IT Fundamentals
+│   ├── materialEstudio.html
+│   └── novedades.html
+├── public/
+│   ├── critical.css              # Critical CSS referenced in HTML
+│   └── images/                   # Icons, backgrounds and assets
+├── doc/
+│   └── assets/
+│       ├── home_readme.png       # Home screenshot for docs
+│       ├── translation/          # Flags and English README
+│       ├── icons/                # Stack icons, badges and live-pill
+│       │   ├── badges/           # status-completed (active in README)
+│       │   └── detail-actions/   # live-pill (production site)
+│       └── social-networks/      # Social icons (YouTube, etc.)
+├── src/
+│   ├── main.js                   # Home entry
+│   ├── components/               # Reusable UI
+│   │   ├── navbar.js
+│   │   ├── footer.js
+│   │   ├── pageTabs.js
+│   │   ├── hero.js
+│   │   ├── areaCard.js
+│   │   ├── roadmapSection.js
+│   │   ├── topicsAccordion.js
+│   │   ├── helpModal.js
+│   │   └── modal.js
+│   ├── data/
+│   │   ├── areas.js              # Areas, courses, practice path
+│   │   ├── site.js               # Routes, navigation, global copy
+│   │   ├── calendarEvents.js     # News calendar events
+│   │   ├── variants.js           # Modality metadata
+│   │   ├── studyMaterial/        # Content per area
+│   │   └── questions/            # JSON banks and utilities
+│   ├── js/
+│   │   ├── test/                 # Shared test engine
+│   │   ├── testProgramacion/
+│   │   ├── testRedesInfra/
+│   │   ├── testSeguridad/
+│   │   ├── testFundamentosIT/
+│   │   ├── material/
+│   │   ├── novedades/
+│   │   └── utilidades/
+│   ├── layout/
+│   │   └── mountLayout.js        # Navbar + tabs + footer on internal pages
+│   ├── pages/                    # Vite entries per HTML page
+│   └── styles/
+│       ├── tokens.css
+│       ├── layout.css
+│       ├── main.css
+│       ├── pages.css
+│       ├── test.css
+│       └── legacy-pages.css
+├── vite.config.js
+├── vercel.json
+└── package.json
 ```
 
 <br>
 
 </details>
 
-### 1.3) Technologies [­ƒöØ](#index-)
+### 1.3) Technologies [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -245,9 +250,9 @@ WebSite_IT_Test/
 | ------------- | ------------- | ------------- |
 | [Vite](https://vitejs.dev/) | 6.x | Build, dev server and MPA bundling |
 | JavaScript (ES modules) | ES2020+ | App logic without a frontend framework |
-| Modular CSS | ÔÇö | Tokens, layout, pages, tests and components |
+| Modular CSS | — | Tokens, layout, pages, tests and components |
 | [FullCalendar](https://fullcalendar.io/) | 5.5 | News calendar (CDN) |
-| [Netlify](https://www.netlify.com/) | ÔÇö | Static hosting for `dist/` |
+| [Vercel](https://vercel.com/) | — | Static hosting for `dist/` |
 | [Git](https://git-scm.com/) | 2.x | Version control |
 | localStorage | Native API | Persistence of attempts and scores |
 | Playwright (dev) | 1.x | Dependency available for future E2E tests |
@@ -260,7 +265,7 @@ WebSite_IT_Test/
 
 ## Section 2) Usage flow and behavior
 
-### 2.0) Platform flow [­ƒöØ](#index-)
+### 2.0) Platform flow [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -281,7 +286,7 @@ WebSite_IT_Test/
 
 </details>
 
-### 2.1) Areas, levels and modalities [­ƒöØ](#index-)
+### 2.1) Areas, levels and modalities [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -310,7 +315,7 @@ Each area also includes a **Topics by level** section (accordion with content bl
 
 </details>
 
-### 2.2) Score storage [­ƒöØ](#index-)
+### 2.2) Score storage [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -341,14 +346,14 @@ testit_programacion_basico-rapido_last
 
 </details>
 
-### 2.3) Question banks [­ƒöØ](#index-)
+### 2.3) Question banks [🔝](#index-)
 
 <details>
   <summary>View details</summary>
 
 <br>
 
-* **Programming (theory):** modules in `src/js/testProgramacion/preguntasTest*.js` (6 sets ├ù 5 questions per level).
+* **Programming (theory):** modules in `src/js/testProgramacion/preguntasTest*.js` (6 sets × 5 questions per level).
 
 * **Other areas (theory):** `teoriaBanks.js` per area (~30 questions per area).
 
@@ -377,7 +382,7 @@ Canonical format (see `src/data/questions/normalize.js`):
 
 ## Section 3) Testing, deploy and references
 
-### 3.0) Functional test [­ƒöØ](#index-)
+### 3.0) Functional test [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -396,20 +401,20 @@ Open `http://localhost:5173` and check:
 * Navbar: Home, News, Study Material, Help.
 * Test tabs per area (desktop) or hamburger menu (mobile).
 
-#### 3.0.2) Case 1 ÔÇö Complete a quick test
+#### 3.0.2) Case 1 — Complete a quick test
 
-1. Go to **Programming** ÔåÆ **Basic** level ÔåÆ **Quick** modality.
+1. Go to **Programming** → **Basic** level → **Quick** modality.
 2. Answer all 10 questions and tap **Submit**.
 3. Verify score, visual grading, and **Retry** button.
-4. In DevTools ÔåÆ Application ÔåÆ Local Storage, look for `testit_programacion_ÔÇª` keys.
+4. In DevTools → Application → Local Storage, look for `testit_programacion_…` keys.
 
-#### 3.0.3) Case 2 ÔÇö Study material
+#### 3.0.3) Case 2 — Study material
 
 1. Open `/html/materialEstudio.html`.
 2. Browse areas in the sidebar (or tabs on mobile).
 3. Expand a topic and use the link to that area's tests.
 
-#### 3.0.4) Case 3 ÔÇö News and calendar
+#### 3.0.4) Case 3 — News and calendar
 
 1. Open `/html/novedades.html`.
 2. Review the monthly calendar and tap an event for details.
@@ -428,26 +433,21 @@ Confirm all routes (`/`, `/html/testRedes.html`, etc.) load without console erro
 
 </details>
 
-### 3.1) Netlify deploy [­ƒöØ](#index-)
+### 3.1) Vercel deploy [🔝](#index-)
 
 <details>
   <summary>View details</summary>
 
 <br>
 
-The `netlify.toml` file defines:
+The `vercel.json` file defines build output, security headers and the legacy redirect from Electrónica to Fundamentos IT.
 
-```toml
-[build]
-  command = "npm run build"
-  publish = "dist"
-```
+**Deploy:**
 
-**Manual deploy:**
-
-1. Connect the repo on Netlify.
-2. Build command: `npm run build`.
-3. Publish directory: `dist`.
+1. Connect the repo on [Vercel](https://vercel.com/).
+2. Framework preset: Vite (or Other).
+3. Build command: `npm run build`.
+4. Output directory: `dist`.
 
 **Published site:** [it-tests.vercel.app](https://it-tests.vercel.app/)
 
@@ -455,7 +455,7 @@ The `netlify.toml` file defines:
 
 </details>
 
-### 3.2) Contributing [­ƒöØ](#index-)
+### 3.2) Contributing [🔝](#index-)
 
 <details>
   <summary>View details</summary>
@@ -478,14 +478,14 @@ If you find an error in a question or study content, you can also open an **Issu
 
 </details>
 
-### 3.3) License [­ƒöØ](#index-)
+### 3.3) License [🔝](#index-)
 
 <details>
   <summary>View details</summary>
 
 <br>
 
-Open source project. Developed by [Andr├®s Weitzel](https://github.com/andresWeitzel).
+Open source project. Developed by [Andrés Weitzel](https://github.com/andresWeitzel).
 
 **Related links:**
 
