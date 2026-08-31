@@ -1,30 +1,27 @@
-<div align="center">
-  <img src="../home_readme.png" alt="IT Test — IT knowledge test platform" width="720">
+﻿<div align="center">
+<img src="../home_readme.png" alt="IT Test — IT knowledge test platform" />
+<div align="right">
+<img width="16" height="16" src="../icons/frontend/png/vite.png" alt="Vite" />
+<img width="16" height="16" src="../icons/frontend/png/js.png" alt="JavaScript" />
+<img width="16" height="16" src="../icons/frontend/png/html.png" alt="HTML" />
+<img width="16" height="16" src="../icons/frontend/png/css.png" alt="CSS" />
+<img width="16" height="16" src="../icons/devops/png/git.png" alt="Git" />
+<img width="16" height="16" src="../icons/devops/png/npm.png" alt="npm" />
+</div>
 </div>
 
 <br>
 
-<div align="right">
-  <img width="22" height="22" src="../icons/frontend/png/vite.png" alt="Vite" />
-  <img width="22" height="22" src="../icons/frontend/png/js.png" alt="JavaScript" />
-  <img width="20" height="20" src="../icons/frontend/png/html.png" alt="HTML" />
-  <img width="20" height="20" src="../icons/frontend/png/css.png" alt="CSS" />
-  <img width="22" height="22" src="../icons/devops/png/git.png" alt="Git" />
-  <img width="20" height="20" src="../icons/devops/png/npm.png" alt="npm" />
-</div>
-
-<br><br>
+<br>
 
 <div align="right">
-  <a href="../../../README.md" target="_blank">
-    <img src="./arg-flag.jpg" width="65" height="40" alt="Español" />
+  <a href="../../../README.md" title="Español">
+    <img src="./arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
   </a>
-  <a href="./README.en.md" target="_blank">
-    <img src="./eeuu-flag.jpg" width="65" height="40" alt="English" />
+  <a href="./README.en.md" title="English">
+    <img src="./eeuu-flag.jpg" width="65" height="40" alt="English" title="English" />
   </a>
 </div>
-
-<br><br>
 
 <div align="center">
 

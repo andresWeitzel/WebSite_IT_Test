@@ -1,30 +1,27 @@
 <div align="center">
-  <img src="./doc/assets/home_readme.png" alt="IT Test — plataforma de tests IT" width="720">
+<img src="./doc/assets/home_readme.png" alt="IT Test — plataforma de tests IT" />
+<div align="right">
+<img width="16" height="16" src="./doc/assets/icons/frontend/png/vite.png" alt="Vite" />
+<img width="16" height="16" src="./doc/assets/icons/frontend/png/js.png" alt="JavaScript" />
+<img width="16" height="16" src="./doc/assets/icons/frontend/png/html.png" alt="HTML" />
+<img width="16" height="16" src="./doc/assets/icons/frontend/png/css.png" alt="CSS" />
+<img width="16" height="16" src="./doc/assets/icons/devops/png/git.png" alt="Git" />
+<img width="16" height="16" src="./doc/assets/icons/devops/png/npm.png" alt="npm" />
+</div>
 </div>
 
 <br>
 
-<div align="right">
-  <img width="22" height="22" src="./doc/assets/icons/frontend/png/vite.png" alt="Vite" />
-  <img width="22" height="22" src="./doc/assets/icons/frontend/png/js.png" alt="JavaScript" />
-  <img width="20" height="20" src="./doc/assets/icons/frontend/png/html.png" alt="HTML" />
-  <img width="20" height="20" src="./doc/assets/icons/frontend/png/css.png" alt="CSS" />
-  <img width="22" height="22" src="./doc/assets/icons/devops/png/git.png" alt="Git" />
-  <img width="20" height="20" src="./doc/assets/icons/devops/png/npm.png" alt="npm" />
-</div>
-
-<br><br>
+<br>
 
 <div align="right">
-  <a href="./README.md" target="_blank">
-    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" />
+  <a href="./README.md" title="Español">
+    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
   </a>
-  <a href="./doc/assets/translation/README.en.md" target="_blank">
-    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="English" />
+  <a href="./doc/assets/translation/README.en.md" title="Inglés">
+    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="Inglés" title="Inglés" />
   </a>
 </div>
-
-<br><br>
 
 <div align="center">
 
