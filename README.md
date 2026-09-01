@@ -16,10 +16,10 @@
 
 <div align="right">
   <a href="./README.md" title="Español">
-    <img src="./doc/assets/translation/arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
+    <img src="./doc/assets/translation/arg-flag.jpg" width="52" height="32" alt="Español" title="Español" />
   </a>
   <a href="./doc/assets/translation/README.en.md" title="Inglés">
-    <img src="./doc/assets/translation/eeuu-flag.jpg" width="65" height="40" alt="Inglés" title="Inglés" />
+    <img src="./doc/assets/translation/eeuu-flag.jpg" width="52" height="32" alt="Inglés" title="Inglés" />
   </a>
 </div>
 
@@ -30,6 +30,8 @@
 </div>
 
 Plataforma web para **practicar y evaluar conocimientos IT** con tests ilimitados, múltiples modalidades por nivel, material de estudio integrado y seguimiento de puntajes en el navegador.
+
+En el home elegís el área (Programación, Redes, Seguridad o Fundamentos IT), el nivel y la modalidad — Rápido, Clásico, Extendido o Lectura práctica — y respondés en un entorno pensado para **desktop y celular**. También hay calendario de novedades, temas por nivel en acordeón y material de consulta antes o después de cada test. Tus intentos y mejores puntajes quedan guardados en el navegador, sin registro.
 
 * [**Sitio web**](https://it-tests.vercel.app/) <a href="https://it-tests.vercel.app/" target="_blank" rel="noopener noreferrer" title="Ver en vivo"><img src="./doc/assets/icons/detail-actions/live-pill.png" alt="Live" height="20" align="absmiddle" border="0" /></a>
 

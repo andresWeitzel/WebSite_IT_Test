@@ -16,10 +16,10 @@
 
 <div align="right">
   <a href="../../../README.md" title="Español">
-    <img src="./arg-flag.jpg" width="65" height="40" alt="Español" title="Español" />
+    <img src="./arg-flag.jpg" width="52" height="32" alt="Español" title="Español" />
   </a>
   <a href="./README.en.md" title="English">
-    <img src="./eeuu-flag.jpg" width="65" height="40" alt="English" title="English" />
+    <img src="./eeuu-flag.jpg" width="52" height="32" alt="English" title="English" />
   </a>
 </div>
 
@@ -30,6 +30,8 @@
 </div>
 
 Web platform to **practice and assess IT knowledge** with unlimited tests, multiple modalities per level, integrated study material, and score tracking in the browser.
+
+From the home you pick an area (Programming, Networks, Cybersecurity, or IT Fundamentals), the level, and the modality — Quick, Classic, Extended, or Practical reading — and answer in an experience built for **desktop and mobile**. There is also a news calendar, topics by level in accordion, and reference material before or after each test. Your attempts and best scores are saved in the browser, with no sign-up required.
 
 * [**Website**](https://it-tests.vercel.app/) <a href="https://it-tests.vercel.app/" target="_blank" rel="noopener noreferrer" title="View live"><img src="../icons/detail-actions/live-pill.png" alt="Live" height="20" align="absmiddle" border="0" /></a>
 
